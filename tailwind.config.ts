@@ -11,8 +11,49 @@ const config: Config = {
       fontFamily: {
         'playfair': ['Playfair Display', 'serif'],
         'inter': ['Inter', 'sans-serif'],
+        'cormorant': ['Cormorant Garamond', 'serif'],
+        'lato': ['Lato', 'sans-serif'],
+        'manrope': ['Manrope', 'sans-serif'],
       },
       colors: {
+        // New Cinematic Color Palette
+        evergreen: {
+          50: '#f0f4f1',
+          100: '#dce7de',
+          200: '#b8d0bd',
+          300: '#8fb197',
+          400: '#689371',
+          500: '#4d7455',
+          600: '#3d5c43',
+          700: '#334a37',
+          800: '#2e3b29', // Primary Dark Evergreen
+          900: '#252f22',
+        },
+        cream: {
+          50: '#f9f7f4', // Primary Creamy White
+          100: '#f3f0ec',
+          200: '#e8e3db',
+          300: '#d9d1c4',
+          400: '#c8baa8',
+          500: '#b6a18a',
+          600: '#a08970',
+          700: '#87725c',
+          800: '#6f5e4e',
+          900: '#5c4e41',
+        },
+        pink: {
+          50: '#f6e8e8', // Primary Soft Pink Tint
+          100: '#f0d4d4',
+          200: '#e5b3b3',
+          300: '#d98c8c',
+          400: '#cc6565',
+          500: '#bf4242',
+          600: '#a53535',
+          700: '#8a2c2c',
+          800: '#702424',
+          900: '#591e1e',
+        },
+        // Legacy colors for compatibility
         olive: {
           50: '#f7f8f5',
           100: '#eef0ea',
@@ -24,18 +65,6 @@ const config: Config = {
           700: '#5a634a',
           800: '#4a523e',
           900: '#233524',
-        },
-        cream: {
-          50: '#fefaf1',
-          100: '#fdf5e6',
-          200: '#fbebc7',
-          300: '#f8dda3',
-          400: '#f4ca6d',
-          500: '#f0b647',
-          600: '#e19d2c',
-          700: '#bc7d24',
-          800: '#966325',
-          900: '#7a5123',
         },
         burgundy: {
           50: '#fdf2f2',
@@ -56,6 +85,11 @@ const config: Config = {
       animation: {
         'slow-zoom': 'slow-zoom 20s ease-out infinite alternate',
         'float': 'float 3s ease-in-out infinite',
+        'cinematic-zoom': 'cinematicZoom 30s ease-in-out infinite',
+        'story-reveal': 'storyReveal 1.2s ease-out',
+        'timeline-pulse': 'timelinePulse 2s ease-in-out infinite',
+        'magnetic-float': 'magneticFloat 6s ease-in-out infinite',
+        'parallax-slow': 'parallaxSlow 40s ease-in-out infinite',
       },
       keyframes: {
         'slow-zoom': {
@@ -66,6 +100,36 @@ const config: Config = {
           '0%, 100%': { transform: 'translateY(0px)' },
           '50%': { transform: 'translateY(-10px)' },
         },
+        'cinematicZoom': {
+          '0%, 100%': { transform: 'scale(1) translateY(0)' },
+          '50%': { transform: 'scale(1.15) translateY(-2%)' },
+        },
+        'storyReveal': {
+          '0%': { opacity: '0', transform: 'translateY(40px) scale(0.98)' },
+          '100%': { opacity: '1', transform: 'translateY(0) scale(1)' },
+        },
+        'timelinePulse': {
+          '0%, 100%': { opacity: '0.7', transform: 'scale(1)' },
+          '50%': { opacity: '1', transform: 'scale(1.1)' },
+        },
+        'magneticFloat': {
+          '0%, 100%': { transform: 'translateY(0) rotate(0deg)' },
+          '33%': { transform: 'translateY(-8px) rotate(1deg)' },
+          '66%': { transform: 'translateY(-4px) rotate(-0.5deg)' },
+        },
+        'parallaxSlow': {
+          '0%, 100%': { transform: 'scale(1) translateY(0)' },
+          '50%': { transform: 'scale(1.08) translateY(-1%)' },
+        },
+      },
+      backgroundImage: {
+        'cinematic-gradient': 'linear-gradient(135deg, rgba(46, 59, 41, 0.9) 0%, rgba(46, 59, 41, 0.6) 50%, rgba(46, 59, 41, 0.8) 100%)',
+        'story-gradient': 'linear-gradient(180deg, transparent 0%, rgba(46, 59, 41, 0.7) 70%, rgba(46, 59, 41, 0.9) 100%)',
+        'timeline-gradient': 'linear-gradient(90deg, rgba(249, 247, 244, 0) 0%, rgba(249, 247, 244, 0.8) 50%, rgba(249, 247, 244, 0) 100%)',
+      },
+      backdropBlur: {
+        'xs': '2px',
+        'cinematic': '12px',
       },
     },
   },
