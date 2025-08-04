@@ -50,14 +50,14 @@ const ScrollSection = ({
     [`${-20 * parallaxIntensity}%`, `${20 * parallaxIntensity}%`]
   );
 
-  // GSAP ScrollTrigger effects
+  // GSAP ScrollTrigger effects with performance optimizations
   useEffect(() => {
     if (typeof window === 'undefined') return;
     
     gsap.registerPlugin(ScrollTrigger);
     
     const ctx = gsap.context(() => {
-      // Pinned section
+      // Pinned section with better performance
       if (pinned && sectionRef.current) {
         ScrollTrigger.create({
           trigger: sectionRef.current,
@@ -65,53 +65,71 @@ const ScrollSection = ({
           end: "bottom bottom",
           pin: true,
           pinSpacing: false,
+          invalidateOnRefresh: true,
         });
       }
       
-      // Story reveal animation
+      // Story reveal animation with reduced complexity
       if (storyReveal && contentRef.current) {
-        gsap.fromTo(contentRef.current.children,
+        const children = Array.from(contentRef.current.children);
+        
+        gsap.set(children, { 
+          willChange: 'transform, opacity',
+          force3D: true 
+        });
+        
+        gsap.fromTo(children,
           {
             opacity: 0,
-            y: 60,
-            scale: 0.95,
+            y: 40,
+            scale: 0.98,
           },
           {
             opacity: 1,
             y: 0,
             scale: 1,
-            duration: 1.2,
-            stagger: 0.2,
-            ease: "power3.out",
+            duration: 0.8,
+            stagger: 0.15,
+            ease: "power2.out",
             scrollTrigger: {
               trigger: contentRef.current,
-              start: "top 80%",
-              end: "top 30%",
+              start: "top 85%",
+              end: "top 40%",
               toggleActions: "play none none reverse",
+              invalidateOnRefresh: true,
             }
           }
         );
       }
       
-      // Cinematic zoom effect
+      // Optimized cinematic zoom effect
       if (cinematicZoom && backgroundRef.current) {
+        gsap.set(backgroundRef.current, { 
+          willChange: 'transform',
+          force3D: true 
+        });
+        
         gsap.fromTo(backgroundRef.current,
-          { scale: 1.2 },
+          { scale: 1.15 },
           {
-            scale: 1,
+            scale: 1.05,
             ease: "none",
             scrollTrigger: {
               trigger: sectionRef.current,
               start: "top bottom",
               end: "bottom top",
-              scrub: 1,
+              scrub: 0.5,
+              invalidateOnRefresh: true,
             }
           }
         );
       }
     });
     
-    return () => ctx.revert();
+    return () => {
+      ctx.revert();
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
   }, [pinned, storyReveal, cinematicZoom]);
 
   return (

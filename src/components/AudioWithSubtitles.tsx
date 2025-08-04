@@ -101,22 +101,23 @@ const AudioWithSubtitles = ({
     return `${minutes}:${seconds.toString().padStart(2, '0')}`;
   };
 
-  // Mock waveform animation
+  // Optimized waveform animation with reduced bars and simpler animation
   const WaveformVisualizer = () => (
     <div className="flex items-center justify-center space-x-1 h-12">
-      {Array.from({ length: 32 }).map((_, i) => (
+      {Array.from({ length: 20 }).map((_, i) => (
         <motion.div
           key={i}
-          className="bg-cream-50/60 rounded-full"
-          style={{ width: '2px' }}
+          className="bg-cream-50/60 rounded-full transform-gpu"
+          style={{ width: '2px', willChange: 'height' }}
           animate={{
             height: isPlaying && !isPlaceholder ? 
-              [8, Math.random() * 40 + 8, 8] : 8,
+              [8, 12 + (i % 3) * 8, 8] : 8,
           }}
           transition={{
-            duration: 0.5 + Math.random() * 0.5,
+            duration: 0.8 + (i % 3) * 0.2,
             repeat: isPlaying && !isPlaceholder ? Infinity : 0,
             ease: "easeInOut",
+            repeatType: "reverse",
           }}
         />
       ))}

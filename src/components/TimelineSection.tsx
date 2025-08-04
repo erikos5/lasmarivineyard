@@ -40,23 +40,27 @@ const TimelineSection = ({ events, className = '' }: TimelineSectionProps) => {
     gsap.registerPlugin(ScrollTrigger);
     
     const ctx = gsap.context(() => {
-      // Timeline events scroll trigger
+      // Timeline events scroll trigger with debouncing
       events.forEach((_, index) => {
         const eventElement = timelineRef.current?.children[index + 1]; // +1 for progress line
         
         if (eventElement) {
           ScrollTrigger.create({
             trigger: eventElement,
-            start: "top center",
-            end: "bottom center",
+            start: "top 60%",
+            end: "bottom 40%",
             onEnter: () => setActiveEventIndex(index),
             onEnterBack: () => setActiveEventIndex(index),
+            invalidateOnRefresh: true,
           });
         }
       });
     });
     
-    return () => ctx.revert();
+    return () => {
+      ctx.revert();
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
   }, [events]);
 
   return (
@@ -77,14 +81,14 @@ const TimelineSection = ({ events, className = '' }: TimelineSectionProps) => {
           className={`relative mb-32 ${
             index % 2 === 0 ? 'pr-1/2 text-right' : 'pl-1/2 text-left'
           }`}
-          initial={{ opacity: 0, x: index % 2 === 0 ? 50 : -50 }}
+          initial={{ opacity: 0, x: index % 2 === 0 ? 30 : -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ 
-            duration: 0.8, 
-            delay: 0.2,
-            ease: [0.22, 1, 0.36, 1] 
+            duration: 0.6, 
+            delay: 0.1,
+            ease: "easeOut"
           }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "-50px" }}
         >
           {/* Timeline Dot */}
           <motion.div
