@@ -90,21 +90,22 @@ const ScrollSection = ({
       });
     }
     
-    if (cinematicZoom && backgroundRef.current) {
-      gsap.fromTo(backgroundRef.current,
-        { scale: 1.1 },
-        {
-          scale: 1,
-          ease: "none",
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top bottom",
-            end: "bottom top",
-            scrub: true,
-          }
-        }
-      );
-    }
+    // Disabled cinematicZoom to prevent conflicts
+    // if (cinematicZoom && backgroundRef.current) {
+    //   gsap.fromTo(backgroundRef.current,
+    //     { scale: 1.1 },
+    //     {
+    //       scale: 1,
+    //       ease: "none",
+    //       scrollTrigger: {
+    //         trigger: sectionRef.current,
+    //         start: "top bottom",
+    //         end: "bottom top",
+    //         scrub: true,
+    //       }
+    //     }
+    //   );
+    // }
     
     return () => {
       triggers.forEach(trigger => trigger.kill());

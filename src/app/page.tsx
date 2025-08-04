@@ -117,9 +117,8 @@ export default function Home() {
         {/* Immersive Introduction */}
         <ScrollSection
           id="introduction"
-          backgroundImage="https://images.unsplash.com/photo-1560958089-b8a1929cea89?auto=format&fit=crop&w=2000&q=80"
+          backgroundImage="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=2000&q=80"
           overlayColor="rgba(46, 59, 41, 0.6)"
-          cinematicZoom={true}
           className="min-h-screen flex items-center"
         >
           <div className="container mx-auto px-6 text-center">
@@ -140,12 +139,11 @@ export default function Home() {
                 />
               </div>
               
-              {/* Horizontal Timeline */}
+              {/* Horizontal Timeline - Simplified */}
               <div className="flex justify-center items-center space-x-8 pt-8">
                 {["1892", "1930s", "1975", "Today"].map((year, index) => (
                   <div key={year} className="flex flex-col items-center">
-                    <div className="w-4 h-4 bg-cream-50 rounded-full mb-2 animate-timeline-pulse" 
-                         style={{ animationDelay: `${index * 0.5}s` }} />
+                    <div className="w-4 h-4 bg-cream-50 rounded-full mb-2" />
                     <span className="text-cream-200 font-inter text-sm">{year}</span>
                   </div>
                 ))}
@@ -177,9 +175,8 @@ export default function Home() {
         {/* The Lasmari Experience */}
         <ScrollSection
           id="experience"
-          backgroundImage="https://images.unsplash.com/photo-1547595628-c61a29f496f0?auto=format&fit=crop&w=2000&q=80"
+          backgroundImage="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=2000&q=80"
           overlayColor="rgba(46, 59, 41, 0.7)"
-          cinematicZoom={true}
           className="min-h-screen flex items-center"
         >
           <div className="container mx-auto px-6 text-center">
@@ -206,7 +203,7 @@ export default function Home() {
               
               <button 
                 onClick={() => router.push('/experiences')}
-                className="inline-block bg-pink-400 hover:bg-pink-500 text-evergreen-800 font-inter font-semibold px-8 py-4 rounded-full transition-all duration-300 transform hover:scale-105"
+                className="inline-block bg-pink-400 hover:bg-pink-500 text-evergreen-800 font-inter font-semibold px-8 py-4 rounded-full transition-colors duration-200"
               >
                 Discover All Experiences
               </button>
