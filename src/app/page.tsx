@@ -119,8 +119,8 @@ export default function Home() {
           id="introduction"
           backgroundImage="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=2000&q=80"
           overlayColor="rgba(46, 59, 41, 0.6)"
-          cinematicZoom={true}
-          parallaxIntensity={0.3}
+          cinematicZoom={false}
+          parallaxIntensity={0.1}
           className="min-h-screen flex items-center"
         >
           <div className="container mx-auto px-6 text-center">
@@ -180,8 +180,8 @@ export default function Home() {
           id="experience"
           backgroundImage="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=2000&q=80"
           overlayColor="rgba(46, 59, 41, 0.7)"
-          cinematicZoom={true}
-          parallaxIntensity={0.3}
+          cinematicZoom={false}
+          parallaxIntensity={0.1}
           className="min-h-screen flex items-center"
         >
           <div className="container mx-auto px-6 text-center">

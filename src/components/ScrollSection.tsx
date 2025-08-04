@@ -37,17 +37,18 @@ const ScrollSection = ({
     offset: ["start end", "end start"]
   });
   
-  // Parallax transforms with reduced intensity to prevent conflicts
+  // Very subtle parallax to prevent flickering and text coverage
   const backgroundY = useTransform(
     scrollYProgress, 
     [0, 1], 
-    [`${-30 * parallaxIntensity}%`, `${30 * parallaxIntensity}%`]
+    [`${-15 * parallaxIntensity}%`, `${15 * parallaxIntensity}%`]
   );
   
+  // No content parallax to prevent text coverage issues
   const contentY = useTransform(
     scrollYProgress,
     [0, 1],
-    [`${-10 * parallaxIntensity}%`, `${10 * parallaxIntensity}%`]
+    [`0%`, `0%`] // Disabled content parallax
   );
 
   // GSAP ScrollTrigger effects with proper ranges to avoid conflicts
@@ -105,28 +106,8 @@ const ScrollSection = ({
         );
       }
       
-      // Cinematic zoom effect with non-overlapping range
-      if (cinematicZoom && backgroundRef.current) {
-        gsap.set(backgroundRef.current, { 
-          willChange: 'transform',
-          force3D: true 
-        });
-        
-        gsap.fromTo(backgroundRef.current,
-          { scale: 1.2 },
-          {
-            scale: 1,
-            ease: "none",
-            scrollTrigger: {
-              trigger: sectionRef.current,
-              start: "top bottom", // Starts when section enters from bottom
-              end: "bottom top",   // Ends when section exits from top
-              scrub: 1,
-              invalidateOnRefresh: true,
-            }
-          }
-        );
-      }
+      // Cinematic zoom effect - disabled to prevent conflicts
+      // Background zoom will be handled by CSS only for smoother performance
       
       return () => {
         triggers.forEach(trigger => trigger.kill());
@@ -148,38 +129,42 @@ const ScrollSection = ({
       transition={storyReveal ? { duration: 0.8 } : undefined}
       viewport={{ once: true, margin: "-100px" }}
     >
-      {/* Background Layer with Framer Motion parallax */}
+      {/* Background Layer - Fixed positioning to prevent text coverage */}
       {backgroundImage && (
         <motion.div
           ref={backgroundRef}
           className="absolute inset-0 z-0"
-          style={{ y: backgroundY }}
+          style={{ 
+            y: parallaxIntensity > 0 ? backgroundY : undefined,
+          }}
         >
           <div
-            className={`w-full h-full bg-cover bg-center bg-no-repeat ${
-              cinematicZoom ? 'animate-cinematic-zoom' : ''
-            }`}
+            className="w-full h-full bg-cover bg-center bg-no-repeat bg-fixed"
             style={{
               backgroundImage: `url(${backgroundImage})`,
-              willChange: 'transform',
+              backgroundAttachment: 'fixed', // Prevents background from interfering with content
+              transform: 'translateZ(0)', // GPU acceleration without conflicts
             }}
           />
-          {/* Overlay */}
+          {/* Overlay with proper z-index */}
           <div 
-            className="absolute inset-0"
+            className="absolute inset-0 z-1"
             style={{ backgroundColor: overlayColor }}
           />
         </motion.div>
       )}
       
-      {/* Content Layer with subtle parallax */}
-      <motion.div
+      {/* Content Layer - Fixed positioning to prevent coverage */}
+      <div
         ref={contentRef}
-        className="relative z-10"
-        style={{ y: parallaxIntensity > 0 ? contentY : undefined }}
+        className="relative z-20"
+        style={{
+          minHeight: '100vh',
+          backgroundColor: 'transparent',
+        }}
       >
         {children}
-      </motion.div>
+      </div>
     </motion.section>
   );
 };

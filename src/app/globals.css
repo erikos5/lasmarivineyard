@@ -19,6 +19,33 @@
   backface-visibility: hidden;
 }
 
+/* Fix background flickering and text coverage issues */
+.bg-fixed {
+  background-attachment: local !important;
+}
+
+/* Ensure proper content layering */
+section {
+  position: relative;
+  isolation: isolate;
+}
+
+section > div {
+  position: relative;
+  z-index: 10;
+}
+
+/* Prevent content jumping and improve performance */
+* {
+  box-sizing: border-box;
+}
+
+/* Smooth section transitions */
+.section-content {
+  transform: translateZ(0);
+  will-change: auto;
+}
+
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
