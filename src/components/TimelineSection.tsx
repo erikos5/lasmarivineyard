@@ -34,31 +34,29 @@ const TimelineSection = ({ events, className = '' }: TimelineSectionProps) => {
   // Progress line animation
   const progressHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
+  // Disabled GSAP to prevent scrolling lag - using pure CSS animations instead
   useEffect(() => {
-    if (typeof window === 'undefined') return;
-    
-    gsap.registerPlugin(ScrollTrigger);
-    const triggers: ScrollTrigger[] = [];
-    
-    // Simple scroll-based active state detection
-    events.forEach((_, index) => {
-      const eventElement = timelineRef.current?.children[index + 1]; // +1 for progress line
+    // Simple scroll detection without GSAP for better performance
+    const handleScroll = () => {
+      if (typeof window === 'undefined' || !timelineRef.current) return;
       
-      if (eventElement) {
-        const trigger = ScrollTrigger.create({
-          trigger: eventElement,
-          start: "top 70%",
-          end: "bottom 30%",
-          onEnter: () => setActiveEventIndex(index),
-          onEnterBack: () => setActiveEventIndex(index),
-        });
-        triggers.push(trigger);
-      }
-    });
-    
-    return () => {
-      triggers.forEach(trigger => trigger.kill());
+      const elements = Array.from(timelineRef.current.children);
+      elements.forEach((element, index) => {
+        if (index === 0) return; // Skip progress line
+        
+        const rect = element.getBoundingClientRect();
+        const isVisible = rect.top < window.innerHeight * 0.7 && rect.bottom > window.innerHeight * 0.3;
+        
+        if (isVisible) {
+          setActiveEventIndex(index - 1); // -1 because first element is progress line
+        }
+      });
     };
+    
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // Check initial state
+    
+    return () => window.removeEventListener('scroll', handleScroll);
   }, [events]);
 
   return (

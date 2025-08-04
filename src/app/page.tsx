@@ -10,6 +10,7 @@ import AudioWithSubtitles from '@/components/AudioWithSubtitles';
 import Booking from '@/components/Booking';
 import Footer from '@/components/Footer';
 import CinematicHero from '@/components/CinematicHero';
+import MagneticTitle from '@/components/MagneticTitle';
 
 // Timeline data for the story
 const timelineEvents = [
@@ -120,17 +121,20 @@ export default function Home() {
           backgroundImage="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=2000&q=80"
           overlayColor="rgba(46, 59, 41, 0.6)"
           cinematicZoom={false}
-          parallaxIntensity={0.1}
+          parallaxIntensity={0}
           className="min-h-screen flex items-center"
         >
           <div className="container mx-auto px-6 text-center">
-            <div className="max-w-4xl mx-auto space-y-8">
-              <h2 className="font-playfair text-4xl lg:text-6xl font-bold text-cream-50 leading-tight">
-                Authentic Corfiot Wine Heritage
-              </h2>
-              <p className="text-xl lg:text-2xl text-cream-100 font-inter leading-relaxed">
-                Surrounded by vineyards, in the heart of our estate in Corfu, lies our ancient hamlet—a living testament to five generations of winemaking excellence.
-              </p>
+            <div className="max-w-7xl mx-auto space-y-12">
+              <MagneticTitle 
+                text="Authentic Corfiot Wine Heritage"
+                className="font-playfair text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-cream-50 leading-tight mb-12"
+              />
+              <div className="max-w-4xl mx-auto">
+                <p className="text-xl lg:text-2xl xl:text-3xl text-cream-100 font-inter leading-relaxed font-light">
+                  Surrounded by vineyards, in the heart of our estate in Corfu, lies our ancient hamlet—a living testament to five generations of winemaking excellence.
+                </p>
+              </div>
               
               {/* Audio Introduction */}
               <div className="max-w-2xl mx-auto">
@@ -159,7 +163,8 @@ export default function Home() {
         <ScrollSection
           id="our-story"
           className="py-20 bg-cream-50"
-          storyReveal={true}
+          storyReveal={false}
+          parallaxIntensity={0}
         >
           <div className="container mx-auto px-6">
             <div className="text-center mb-16">
@@ -181,7 +186,7 @@ export default function Home() {
           backgroundImage="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=2000&q=80"
           overlayColor="rgba(46, 59, 41, 0.7)"
           cinematicZoom={false}
-          parallaxIntensity={0.1}
+          parallaxIntensity={0}
           className="min-h-screen flex items-center"
         >
           <div className="container mx-auto px-6 text-center">
