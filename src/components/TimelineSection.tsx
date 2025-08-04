@@ -72,18 +72,12 @@ const TimelineSection = ({ events, className = '' }: TimelineSectionProps) => {
 
       {/* Timeline Events */}
       {events.map((event, index) => (
-        <motion.div
+        <div
           key={event.year}
-          className={`relative mb-32 ${
+          className={`relative mb-32 opacity-0 animate-in ${
             index % 2 === 0 ? 'pr-1/2 text-right' : 'pl-1/2 text-left'
           }`}
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ 
-            duration: 0.4,
-            ease: "easeOut"
-          }}
-          viewport={{ once: true, margin: "-20px" }}
+          style={{ animationDelay: `${index * 100}ms` }}
         >
           {/* Timeline Dot */}
           <div
