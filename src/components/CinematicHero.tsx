@@ -3,8 +3,6 @@
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { useRef, useEffect, useState } from 'react';
 import { ChevronDown, Volume2, VolumeX } from 'lucide-react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 const CinematicHero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -43,42 +41,26 @@ const CinematicHero = () => {
     mouseY.set(0);
   };
 
-  // Simple, clean scroll effects without conflicts
+  // No GSAP - pure CSS for smooth performance
   useEffect(() => {
-    if (typeof window === 'undefined') return;
-    
-    gsap.registerPlugin(ScrollTrigger);
-    
-    // Single scroll trigger context to prevent conflicts
-    const scrollTrigger = ScrollTrigger.create({
-      trigger: heroRef.current,
-      start: "top top",
-      end: "bottom top",
-      scrub: 1,
-      onUpdate: (self) => {
-        const progress = self.progress;
-        
-        // Simple background parallax
-        if (bgRef.current) {
-          gsap.set(bgRef.current, {
-            yPercent: progress * 20,
-            scale: 1 + progress * 0.05,
-          });
-        }
-        
-        // Simple content fade
-        if (contentRef.current) {
-          gsap.set(contentRef.current, {
-            opacity: 1 - progress * 0.8,
-            y: progress * -50,
-          });
-        }
-      },
-    });
-    
-    return () => {
-      scrollTrigger.kill();
+    // Simple scroll listener for smooth effects
+    const handleScroll = () => {
+      const scrolled = window.scrollY;
+      const rate = scrolled * -0.5;
+      const opacity = 1 - scrolled / window.innerHeight;
+      
+      if (bgRef.current) {
+        bgRef.current.style.transform = `translateY(${rate}px)`;
+      }
+      
+      if (contentRef.current) {
+        contentRef.current.style.opacity = Math.max(0, opacity).toString();
+        contentRef.current.style.transform = `translateY(${scrolled * 0.3}px)`;
+      }
     };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const scrollToNext = () => {

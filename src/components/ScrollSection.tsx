@@ -32,33 +32,29 @@ const ScrollSection = ({
   const backgroundRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"]
-  });
+  // Disabled Framer Motion parallax to prevent interference
+  // const { scrollYProgress } = useScroll({
+  //   target: sectionRef,
+  //   offset: ["start end", "end start"]
+  // });
   
-  // Parallax transforms
-  const backgroundY = useTransform(
-    scrollYProgress, 
-    [0, 1], 
-    [`${-50 * parallaxIntensity}%`, `${50 * parallaxIntensity}%`]
-  );
+  // const backgroundY = useTransform(
+  //   scrollYProgress, 
+  //   [0, 1], 
+  //   [`${-50 * parallaxIntensity}%`, `${50 * parallaxIntensity}%`]
+  // );
   
-  const contentY = useTransform(
-    scrollYProgress,
-    [0, 1],
-    [`${-20 * parallaxIntensity}%`, `${20 * parallaxIntensity}%`]
-  );
+  // const contentY = useTransform(
+  //   scrollYProgress,
+  //   [0, 1],
+  //   [`${-20 * parallaxIntensity}%`, `${20 * parallaxIntensity}%`]
+  // );
 
-  // Simplified effects to prevent conflicts
+  // No GSAP effects - just simple CSS for smooth performance
   useEffect(() => {
-    if (typeof window === 'undefined') return;
-    
-    gsap.registerPlugin(ScrollTrigger);
-    const triggers: ScrollTrigger[] = [];
-    
-    // Only create necessary triggers
-    if (pinned && sectionRef.current) {
+    // Only use pinning if absolutely necessary
+    if (pinned && sectionRef.current && typeof window !== 'undefined') {
+      gsap.registerPlugin(ScrollTrigger);
       const pinTrigger = ScrollTrigger.create({
         trigger: sectionRef.current,
         start: "top top",
@@ -66,56 +62,15 @@ const ScrollSection = ({
         pin: true,
         pinSpacing: false,
       });
-      triggers.push(pinTrigger);
-    }
-    
-    if (storyReveal && contentRef.current) {
-      const children = Array.from(contentRef.current.children);
       
-      children.forEach((child, index) => {
-        gsap.fromTo(child as Element,
-          { opacity: 0, y: 30 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.6,
-            delay: index * 0.1,
-            scrollTrigger: {
-              trigger: child as Element,
-              start: "top 90%",
-              toggleActions: "play none none none",
-            }
-          }
-        );
-      });
+      return () => {
+        pinTrigger.kill();
+      };
     }
     
-    // Disabled cinematicZoom to prevent conflicts
-    // if (cinematicZoom && backgroundRef.current) {
-    //   gsap.fromTo(backgroundRef.current,
-    //     { scale: 1.1 },
-    //     {
-    //       scale: 1,
-    //       ease: "none",
-    //       scrollTrigger: {
-    //         trigger: sectionRef.current,
-    //         start: "top bottom",
-    //         end: "bottom top",
-    //         scrub: true,
-    //       }
-    //     }
-    //   );
-    // }
-    
-    return () => {
-      triggers.forEach(trigger => trigger.kill());
-      ScrollTrigger.getAll().forEach(trigger => {
-        if (trigger.trigger === sectionRef.current) {
-          trigger.kill();
-        }
-      });
-    };
-  }, [pinned, storyReveal, cinematicZoom]);
+    // All other effects use CSS-only for performance
+    return () => {};
+  }, [pinned]);
 
   return (
     <motion.section
