@@ -61,11 +61,11 @@ const TimelineSection = ({ events, className = '' }: TimelineSectionProps) => {
 
   return (
     <div ref={timelineRef} className={`relative ${className}`}>
-      {/* Vertical Progress Line */}
-      <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-evergreen-200/30">
+      {/* Vertical Progress Line - Behind everything */}
+      <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-evergreen-200/30 z-0">
         <motion.div
           ref={progressLineRef}
-          className="w-full bg-gradient-to-b from-cream-50 via-pink-200 to-evergreen-600"
+          className="w-full bg-gradient-to-b from-cream-50 via-pink-200 to-evergreen-600 z-0"
           style={{ height: progressHeight }}
         />
       </div>
@@ -74,7 +74,7 @@ const TimelineSection = ({ events, className = '' }: TimelineSectionProps) => {
       {events.map((event, index) => (
         <div
           key={event.year}
-          className={`relative mb-32 opacity-0 animate-in ${
+          className={`relative mb-32 opacity-0 animate-in z-20 ${
             index % 2 === 0 ? 'pr-1/2 text-right' : 'pl-1/2 text-left'
           }`}
           style={{ animationDelay: `${index * 100}ms` }}
@@ -92,7 +92,7 @@ const TimelineSection = ({ events, className = '' }: TimelineSectionProps) => {
           />
 
           {/* Content Container */}
-          <div className={`${
+          <div className={`relative z-30 ${
             index % 2 === 0 ? 'pr-12' : 'pl-12'
           }`}>
             {/* Year Badge */}
@@ -158,8 +158,8 @@ const TimelineSection = ({ events, className = '' }: TimelineSectionProps) => {
       ))}
 
       {/* Timeline End Marker */}
-      <div className="relative text-center py-12">
-        <div className="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-pink-400 rounded-full border-4 border-cream-50 animate-timeline-pulse" />
+      <div className="relative text-center py-12 z-20">
+        <div className="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-pink-400 rounded-full border-4 border-cream-50 animate-timeline-pulse z-10" />
         <div className="pt-12">
           <h3 className="font-playfair text-2xl font-bold text-evergreen-800 mb-2">
             The Story Continues...
