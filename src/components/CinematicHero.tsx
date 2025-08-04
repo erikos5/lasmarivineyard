@@ -3,6 +3,8 @@
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { useRef, useEffect, useState } from 'react';
 import { ChevronDown, Volume2, VolumeX } from 'lucide-react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 const CinematicHero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -41,26 +43,60 @@ const CinematicHero = () => {
     mouseY.set(0);
   };
 
-  // No GSAP - pure CSS for smooth performance
+  // GSAP ScrollTrigger with proper, non-overlapping ranges
   useEffect(() => {
-    // Simple scroll listener for smooth effects
-    const handleScroll = () => {
-      const scrolled = window.scrollY;
-      const rate = scrolled * -0.5;
-      const opacity = 1 - scrolled / window.innerHeight;
-      
+    if (typeof window === 'undefined') return;
+    
+    gsap.registerPlugin(ScrollTrigger);
+    
+    const ctx = gsap.context(() => {
+      // Hero section has precise range: from top to when it's fully scrolled out
       if (bgRef.current) {
-        bgRef.current.style.transform = `translateY(${rate}px)`;
+        gsap.set(bgRef.current, { 
+          willChange: 'transform',
+          force3D: true 
+        });
+        
+        gsap.to(bgRef.current, {
+          yPercent: 30,
+          scale: 1.1,
+          ease: "none",
+          scrollTrigger: {
+            trigger: heroRef.current,
+            start: "top top",
+            end: "bottom top", // Ends exactly when hero exits viewport
+            scrub: 1,
+            invalidateOnRefresh: true,
+          }
+        });
       }
       
+      // Content fade with same precise range
       if (contentRef.current) {
-        contentRef.current.style.opacity = Math.max(0, opacity).toString();
-        contentRef.current.style.transform = `translateY(${scrolled * 0.3}px)`;
+        gsap.set(contentRef.current, { 
+          willChange: 'transform, opacity',
+          force3D: true 
+        });
+        
+        gsap.to(contentRef.current, {
+          opacity: 0,
+          y: -100,
+          scale: 0.95,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: heroRef.current,
+            start: "top top",
+            end: "80% top", // Finishes before section fully exits
+            scrub: 1,
+            invalidateOnRefresh: true,
+          }
+        });
       }
+    });
+    
+    return () => {
+      ctx.revert();
     };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const scrollToNext = () => {

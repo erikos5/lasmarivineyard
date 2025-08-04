@@ -119,6 +119,8 @@ export default function Home() {
           id="introduction"
           backgroundImage="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=2000&q=80"
           overlayColor="rgba(46, 59, 41, 0.6)"
+          cinematicZoom={true}
+          parallaxIntensity={0.3}
           className="min-h-screen flex items-center"
         >
           <div className="container mx-auto px-6 text-center">
@@ -139,11 +141,12 @@ export default function Home() {
                 />
               </div>
               
-              {/* Horizontal Timeline - Simplified */}
+              {/* Horizontal Timeline with beautiful animations */}
               <div className="flex justify-center items-center space-x-8 pt-8">
                 {["1892", "1930s", "1975", "Today"].map((year, index) => (
                   <div key={year} className="flex flex-col items-center">
-                    <div className="w-4 h-4 bg-cream-50 rounded-full mb-2" />
+                    <div className="w-4 h-4 bg-cream-50 rounded-full mb-2 animate-timeline-pulse" 
+                         style={{ animationDelay: `${index * 0.5}s` }} />
                     <span className="text-cream-200 font-inter text-sm">{year}</span>
                   </div>
                 ))}
@@ -177,6 +180,8 @@ export default function Home() {
           id="experience"
           backgroundImage="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=2000&q=80"
           overlayColor="rgba(46, 59, 41, 0.7)"
+          cinematicZoom={true}
+          parallaxIntensity={0.3}
           className="min-h-screen flex items-center"
         >
           <div className="container mx-auto px-6 text-center">
