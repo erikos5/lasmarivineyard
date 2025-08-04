@@ -43,60 +43,41 @@ const CinematicHero = () => {
     mouseY.set(0);
   };
 
-  // GSAP ScrollTrigger effects with optimizations
+  // Simple, clean scroll effects without conflicts
   useEffect(() => {
     if (typeof window === 'undefined') return;
     
     gsap.registerPlugin(ScrollTrigger);
     
-    const ctx = gsap.context(() => {
-      // Cinematic background zoom and parallax with better performance
-      if (bgRef.current) {
-        gsap.set(bgRef.current, { 
-          willChange: 'transform',
-          force3D: true 
-        });
+    // Single scroll trigger context to prevent conflicts
+    const scrollTrigger = ScrollTrigger.create({
+      trigger: heroRef.current,
+      start: "top top",
+      end: "bottom top",
+      scrub: 1,
+      onUpdate: (self) => {
+        const progress = self.progress;
         
-        gsap.to(bgRef.current, {
-          yPercent: 30,
-          scale: 1.1,
-          ease: "none",
-          scrollTrigger: {
-            trigger: heroRef.current,
-            start: "top top",
-            end: "bottom top",
-            scrub: 0.5,
-            invalidateOnRefresh: true,
-          }
-        });
-      }
-      
-      // Content fade out with optimized timing
-      if (contentRef.current) {
-        gsap.set(contentRef.current, { 
-          willChange: 'transform, opacity',
-          force3D: true 
-        });
+        // Simple background parallax
+        if (bgRef.current) {
+          gsap.set(bgRef.current, {
+            yPercent: progress * 20,
+            scale: 1 + progress * 0.05,
+          });
+        }
         
-        gsap.to(contentRef.current, {
-          opacity: 0,
-          y: -100,
-          scale: 0.95,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: heroRef.current,
-            start: "top top",
-            end: "50% top",
-            scrub: 1,
-            invalidateOnRefresh: true,
-          }
-        });
-      }
+        // Simple content fade
+        if (contentRef.current) {
+          gsap.set(contentRef.current, {
+            opacity: 1 - progress * 0.8,
+            y: progress * -50,
+          });
+        }
+      },
     });
     
     return () => {
-      ctx.revert();
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      scrollTrigger.kill();
     };
   }, []);
 
@@ -119,23 +100,15 @@ const CinematicHero = () => {
       className="relative h-screen overflow-hidden bg-evergreen-800"
     >
       {/* Cinematic Background */}
-      <div ref={bgRef} className="absolute inset-0 z-0">
+      <div ref={bgRef} className="absolute inset-0 z-0 transform-gpu" data-parallax>
         <div
-          className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat transform-gpu"
+          className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage: 'url("https://images.unsplash.com/photo-1560958089-b8a1929cea89?auto=format&fit=crop&w=2400&q=80")',
-            willChange: 'transform',
           }}
         />
         {/* Cinematic overlay with gradient */}
         <div className="absolute inset-0 bg-cinematic-gradient" />
-        {/* Subtle film grain - reduced opacity to prevent flickering */}
-        <div className="absolute inset-0 opacity-[0.015] bg-repeat pointer-events-none" 
-             style={{ 
-               backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 128 128' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3C/defs%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
-               backgroundSize: '64px 64px',
-             }} 
-        />
       </div>
 
       {/* Main Content */}

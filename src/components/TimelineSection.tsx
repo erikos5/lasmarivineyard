@@ -38,28 +38,26 @@ const TimelineSection = ({ events, className = '' }: TimelineSectionProps) => {
     if (typeof window === 'undefined') return;
     
     gsap.registerPlugin(ScrollTrigger);
+    const triggers: ScrollTrigger[] = [];
     
-    const ctx = gsap.context(() => {
-      // Timeline events scroll trigger with debouncing
-      events.forEach((_, index) => {
-        const eventElement = timelineRef.current?.children[index + 1]; // +1 for progress line
-        
-        if (eventElement) {
-          ScrollTrigger.create({
-            trigger: eventElement,
-            start: "top 60%",
-            end: "bottom 40%",
-            onEnter: () => setActiveEventIndex(index),
-            onEnterBack: () => setActiveEventIndex(index),
-            invalidateOnRefresh: true,
-          });
-        }
-      });
+    // Simple scroll-based active state detection
+    events.forEach((_, index) => {
+      const eventElement = timelineRef.current?.children[index + 1]; // +1 for progress line
+      
+      if (eventElement) {
+        const trigger = ScrollTrigger.create({
+          trigger: eventElement,
+          start: "top 70%",
+          end: "bottom 30%",
+          onEnter: () => setActiveEventIndex(index),
+          onEnterBack: () => setActiveEventIndex(index),
+        });
+        triggers.push(trigger);
+      }
     });
     
     return () => {
-      ctx.revert();
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      triggers.forEach(trigger => trigger.kill());
     };
   }, [events]);
 
@@ -81,14 +79,13 @@ const TimelineSection = ({ events, className = '' }: TimelineSectionProps) => {
           className={`relative mb-32 ${
             index % 2 === 0 ? 'pr-1/2 text-right' : 'pl-1/2 text-left'
           }`}
-          initial={{ opacity: 0, x: index % 2 === 0 ? 30 : -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           transition={{ 
-            duration: 0.6, 
-            delay: 0.1,
+            duration: 0.4,
             ease: "easeOut"
           }}
-          viewport={{ once: true, margin: "-50px" }}
+          viewport={{ once: true, margin: "-20px" }}
         >
           {/* Timeline Dot */}
           <motion.div

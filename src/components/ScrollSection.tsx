@@ -50,85 +50,69 @@ const ScrollSection = ({
     [`${-20 * parallaxIntensity}%`, `${20 * parallaxIntensity}%`]
   );
 
-  // GSAP ScrollTrigger effects with performance optimizations
+  // Simplified effects to prevent conflicts
   useEffect(() => {
     if (typeof window === 'undefined') return;
     
     gsap.registerPlugin(ScrollTrigger);
+    const triggers: ScrollTrigger[] = [];
     
-    const ctx = gsap.context(() => {
-      // Pinned section with better performance
-      if (pinned && sectionRef.current) {
-        ScrollTrigger.create({
-          trigger: sectionRef.current,
-          start: "top top",
-          end: "bottom bottom",
-          pin: true,
-          pinSpacing: false,
-          invalidateOnRefresh: true,
-        });
-      }
+    // Only create necessary triggers
+    if (pinned && sectionRef.current) {
+      const pinTrigger = ScrollTrigger.create({
+        trigger: sectionRef.current,
+        start: "top top",
+        end: "bottom bottom",
+        pin: true,
+        pinSpacing: false,
+      });
+      triggers.push(pinTrigger);
+    }
+    
+    if (storyReveal && contentRef.current) {
+      const children = Array.from(contentRef.current.children);
       
-      // Story reveal animation with reduced complexity
-      if (storyReveal && contentRef.current) {
-        const children = Array.from(contentRef.current.children);
-        
-        gsap.set(children, { 
-          willChange: 'transform, opacity',
-          force3D: true 
-        });
-        
-        gsap.fromTo(children,
-          {
-            opacity: 0,
-            y: 40,
-            scale: 0.98,
-          },
+      children.forEach((child, index) => {
+        gsap.fromTo(child as Element,
+          { opacity: 0, y: 30 },
           {
             opacity: 1,
             y: 0,
-            scale: 1,
-            duration: 0.8,
-            stagger: 0.15,
-            ease: "power2.out",
+            duration: 0.6,
+            delay: index * 0.1,
             scrollTrigger: {
-              trigger: contentRef.current,
-              start: "top 85%",
-              end: "top 40%",
-              toggleActions: "play none none reverse",
-              invalidateOnRefresh: true,
+              trigger: child as Element,
+              start: "top 90%",
+              toggleActions: "play none none none",
             }
           }
         );
-      }
-      
-      // Optimized cinematic zoom effect
-      if (cinematicZoom && backgroundRef.current) {
-        gsap.set(backgroundRef.current, { 
-          willChange: 'transform',
-          force3D: true 
-        });
-        
-        gsap.fromTo(backgroundRef.current,
-          { scale: 1.15 },
-          {
-            scale: 1.05,
-            ease: "none",
-            scrollTrigger: {
-              trigger: sectionRef.current,
-              start: "top bottom",
-              end: "bottom top",
-              scrub: 0.5,
-              invalidateOnRefresh: true,
-            }
+      });
+    }
+    
+    if (cinematicZoom && backgroundRef.current) {
+      gsap.fromTo(backgroundRef.current,
+        { scale: 1.1 },
+        {
+          scale: 1,
+          ease: "none",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: true,
           }
-        );
-      }
-    });
+        }
+      );
+    }
     
     return () => {
-      ctx.revert();
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      triggers.forEach(trigger => trigger.kill());
+      ScrollTrigger.getAll().forEach(trigger => {
+        if (trigger.trigger === sectionRef.current) {
+          trigger.kill();
+        }
+      });
     };
   }, [pinned, storyReveal, cinematicZoom]);
 
@@ -142,20 +126,16 @@ const ScrollSection = ({
       transition={storyReveal ? { duration: 0.8 } : undefined}
       viewport={{ once: true, margin: "-100px" }}
     >
-      {/* Background Layer */}
+      {/* Background Layer - No Motion conflicts */}
       {backgroundImage && (
-        <motion.div
+        <div
           ref={backgroundRef}
           className="absolute inset-0 z-0"
-          style={{ y: backgroundY }}
         >
           <div
-            className={`w-full h-full bg-cover bg-center bg-no-repeat ${
-              cinematicZoom ? 'animate-cinematic-zoom' : ''
-            }`}
+            className="w-full h-full bg-cover bg-center bg-no-repeat"
             style={{
               backgroundImage: `url(${backgroundImage})`,
-              willChange: 'transform',
             }}
           />
           {/* Overlay */}
@@ -163,17 +143,16 @@ const ScrollSection = ({
             className="absolute inset-0"
             style={{ backgroundColor: overlayColor }}
           />
-        </motion.div>
+        </div>
       )}
       
-      {/* Content Layer */}
-      <motion.div
+      {/* Content Layer - Clean, no conflicting transforms */}
+      <div
         ref={contentRef}
         className="relative z-10"
-        style={{ y: parallaxIntensity > 0 ? contentY : undefined }}
       >
         {children}
-      </motion.div>
+      </div>
     </motion.section>
   );
 };

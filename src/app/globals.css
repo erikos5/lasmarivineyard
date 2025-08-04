@@ -4,6 +4,31 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Performance optimizations for smooth animations */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Hardware acceleration for transform elements */
+.transform-gpu,
+[data-parallax],
+[data-scroll] {
+  transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Prevent horizontal overflow */
+body {
+  overflow-x: hidden;
+}
+
 @layer base {
   :root {
     --font-playfair: 'Playfair Display', serif;
