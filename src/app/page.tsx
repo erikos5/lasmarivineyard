@@ -190,30 +190,36 @@ export default function Home() {
           className="min-h-screen flex items-center"
         >
           <div className="container mx-auto px-6 text-center">
-            <div className="max-w-4xl mx-auto space-y-8">
-              <h2 className="font-playfair text-4xl lg:text-6xl font-bold text-cream-50 leading-tight">
-                The Lasmari Experience
-              </h2>
-              <p className="text-xl lg:text-2xl text-cream-100 font-inter leading-relaxed">
-                From sunrise harvest walks to intimate cellar tastings, immerse yourself in the authentic rhythm of Mediterranean winemaking.
-              </p>
+            <div className="max-w-6xl mx-auto space-y-12">
+              <MagneticTitle 
+                text="The Lasmari Experience"
+                className="font-playfair text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-cream-50 leading-tight mb-8"
+              />
+              <div className="max-w-4xl mx-auto">
+                <p className="text-xl lg:text-2xl xl:text-3xl text-cream-100 font-inter leading-relaxed font-light">
+                  From sunrise harvest walks to intimate cellar tastings, immerse yourself in the authentic rhythm of Mediterranean winemaking.
+                </p>
+              </div>
               
-              <div className="grid md:grid-cols-3 gap-8 pt-12">
+              <div className="grid md:grid-cols-3 gap-8 pt-16 max-w-5xl mx-auto">
                 {[
                   { title: "Walk the Vines", description: "Sunrise tours through our historic vineyards" },
                   { title: "Taste the Terroir", description: "Intimate tastings in our ancient cellars" },
                   { title: "Harvest with Us", description: "Join our family during harvest season" }
                 ].map((item, index) => (
-                  <div key={item.title} className="bg-cream-50/10 backdrop-blur-sm rounded-2xl p-6 border border-cream-50/20">
-                    <h3 className="font-playfair text-2xl font-bold text-cream-50 mb-4">{item.title}</h3>
-                    <p className="text-cream-200 font-inter">{item.description}</p>
+                  <div 
+                    key={item.title} 
+                    className="bg-cream-50/10 backdrop-blur-sm rounded-2xl p-8 border border-cream-50/20 hover:bg-cream-50/20 hover:border-cream-50/40 transition-all duration-300 hover:scale-105 transform"
+                  >
+                    <h3 className="font-playfair text-2xl lg:text-3xl font-bold text-cream-50 mb-4">{item.title}</h3>
+                    <p className="text-cream-200 font-inter text-lg leading-relaxed">{item.description}</p>
                   </div>
                 ))}
               </div>
               
               <button 
                 onClick={() => router.push('/experiences')}
-                className="inline-block bg-pink-400 hover:bg-pink-500 text-evergreen-800 font-inter font-semibold px-8 py-4 rounded-full transition-colors duration-200"
+                className="inline-block bg-pink-400 hover:bg-pink-500 text-evergreen-800 font-inter font-semibold px-12 py-5 text-lg rounded-full transition-all duration-200 hover:scale-105 transform"
               >
                 Discover All Experiences
               </button>
