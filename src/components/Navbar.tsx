@@ -68,7 +68,7 @@ const Navbar = () => {
         isScrolled ? 'backdrop-blur-subtle shadow-lg' : ''
       }`}
     >
-      <div className="container-max section-padding">
+      <div className="container-max section-padding pr-12 md:pr-16 lg:pr-20">
         <div className="flex items-center justify-between py-4">
           {/* Logo */}
           <motion.div
