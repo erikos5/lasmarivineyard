@@ -142,10 +142,10 @@ export default function Home() {
           overlayColor="rgba(46, 59, 41, 0.6)"
           cinematicZoom={false}
           parallaxIntensity={0}
-          className="min-h-screen flex items-center"
+          className="min-h-screen w-full"
         >
-          <div className="w-full h-full flex items-center justify-center px-6">
-            <div className="text-center space-y-8 max-w-4xl">
+          <div className="w-full h-full flex items-center justify-center">
+            <div className="text-center space-y-8 max-w-4xl px-6">
               <MagneticTitle 
                 text="Authentic Corfiot Wine Heritage"
                 className="font-playfair text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-cream-50 leading-tight mb-12"
