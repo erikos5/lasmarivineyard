@@ -313,7 +313,6 @@ export default function ExperiencesPage() {
                 </motion.div>
               ))}
             </motion.div>
-            </div>
           </div>
         </ScrollSection>
 
