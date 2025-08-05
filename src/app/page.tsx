@@ -325,7 +325,7 @@ export default function Home() {
                 </motion.div>
               </div>
 
-              {/* Contact Form - Coming Soon */}
+              {/* Booking & Contact Section */}
               <motion.div 
                 className="mt-16 relative"
                 initial={{ opacity: 0, y: 20 }}
@@ -333,121 +333,182 @@ export default function Home() {
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
               >
-                {/* Form Container with Blur Effect */}
-                <div className="relative bg-cream-50/10 backdrop-blur-sm p-12 rounded-3xl border border-cream-50/20 max-w-2xl mx-auto">
-                  {/* Coming Soon Overlay */}
-                  <div className="absolute inset-0 bg-cream-50/5 backdrop-blur-md rounded-3xl flex items-center justify-center z-10">
-                    <div className="text-center">
-                      <h4 className="font-playfair text-3xl text-cream-50 mb-4">Booking Available Soon</h4>
-                      <p className="text-cream-200 text-lg">Online booking system coming soon</p>
+                <div className="grid lg:grid-cols-2 gap-12 max-w-7xl mx-auto">
+                  {/* Left Side - Booking Preview (Blurred) */}
+                  <div className="relative bg-cream-50/10 backdrop-blur-sm p-8 rounded-3xl border border-cream-50/20">
+                    {/* Coming Soon Overlay */}
+                    <div className="absolute inset-0 bg-cream-50/5 backdrop-blur-md rounded-3xl flex items-center justify-center z-10">
+                      <div className="text-center">
+                        <h4 className="font-playfair text-3xl text-cream-50 mb-4">Booking Available Soon</h4>
+                        <p className="text-cream-200 text-lg">Online booking system coming soon</p>
+                      </div>
                     </div>
-                  </div>
-                  
-                  {/* Blurred Form (Preview) */}
-                  <div className="opacity-50 blur-sm">
-                    <h3 className="font-playfair text-3xl text-cream-50 mb-8 text-center">Request Your Visit</h3>
                     
-                    <form className="space-y-6">
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {/* Blurred Booking Form Preview */}
+                    <div className="opacity-50 blur-sm">
+                      <h3 className="font-playfair text-3xl text-cream-50 mb-8 text-center">Book Your Visit</h3>
+                      
+                      <form className="space-y-6">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          <div>
+                            <label className="block text-cream-200 text-sm font-medium mb-2">Preferred Date</label>
+                            <input 
+                              type="date" 
+                              className="w-full bg-cream-50/10 border border-cream-50/30 rounded-xl px-4 py-3 text-cream-50"
+                              disabled
+                            />
+                          </div>
+                          <div>
+                            <label className="block text-cream-200 text-sm font-medium mb-2">Number of Guests</label>
+                            <select 
+                              className="w-full bg-cream-50/10 border border-cream-50/30 rounded-xl px-4 py-3 text-cream-50"
+                              disabled
+                            >
+                              <option>1-2 people</option>
+                              <option>3-5 people</option>
+                              <option>6-10 people</option>
+                              <option>10+ people</option>
+                            </select>
+                          </div>
+                        </div>
+                        
                         <div>
-                          <label className="block text-cream-200 text-sm font-medium mb-2">Full Name</label>
-                          <input 
-                            type="text" 
-                            className="w-full bg-cream-50/10 border border-cream-50/30 rounded-xl px-4 py-3 text-cream-50 placeholder-cream-300 focus:outline-none focus:ring-2 focus:ring-pink-400"
-                            placeholder="Your full name"
+                          <label className="block text-cream-200 text-sm font-medium mb-2">Experience Type</label>
+                          <select 
+                            className="w-full bg-cream-50/10 border border-cream-50/30 rounded-xl px-4 py-3 text-cream-50"
+                            disabled
+                          >
+                            <option>Wine Tasting</option>
+                            <option>Vineyard Tour</option>
+                            <option>Harvest Experience</option>
+                            <option>Private Event</option>
+                          </select>
+                        </div>
+                        
+                        <div>
+                          <label className="block text-cream-200 text-sm font-medium mb-2">Special Requests</label>
+                          <textarea 
+                            rows={3}
+                            className="w-full bg-cream-50/10 border border-cream-50/30 rounded-xl px-4 py-3 text-cream-50 placeholder-cream-300 resize-none"
+                            placeholder="Tell us about any special requirements..."
                             disabled
                           />
                         </div>
+                        
+                        <button 
+                          type="submit"
+                          className="w-full bg-pink-400 text-evergreen-800 font-inter font-semibold py-4 text-lg rounded-xl"
+                          disabled
+                        >
+                          Book Experience
+                        </button>
+                      </form>
+                    </div>
+                  </div>
+
+                  {/* Right Side - Working Contact Form */}
+                  <div className="bg-cream-50/10 backdrop-blur-sm p-8 rounded-3xl border border-cream-50/20">
+                    <h3 className="font-playfair text-3xl text-cream-50 mb-8 text-center">Contact Us</h3>
+                    <p className="text-cream-200 text-center mb-8">
+                      Send us your inquiry and we'll get back to you within 24 hours
+                    </p>
+                    
+                    <form 
+                      action="mailto:info@lasmari.gr"
+                      method="post"
+                      encType="text/plain"
+                      className="space-y-6"
+                    >
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
-                          <label className="block text-cream-200 text-sm font-medium mb-2">Email</label>
+                          <label className="block text-cream-200 text-sm font-medium mb-2">Full Name *</label>
+                          <input 
+                            type="text" 
+                            name="name"
+                            required
+                            className="w-full bg-cream-50/10 border border-cream-50/30 rounded-xl px-4 py-3 text-cream-50 placeholder-cream-300 focus:outline-none focus:ring-2 focus:ring-pink-400 focus:border-pink-400"
+                            placeholder="Your full name"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-cream-200 text-sm font-medium mb-2">Email *</label>
                           <input 
                             type="email" 
-                            className="w-full bg-cream-50/10 border border-cream-50/30 rounded-xl px-4 py-3 text-cream-50 placeholder-cream-300 focus:outline-none focus:ring-2 focus:ring-pink-400"
+                            name="email"
+                            required
+                            className="w-full bg-cream-50/10 border border-cream-50/30 rounded-xl px-4 py-3 text-cream-50 placeholder-cream-300 focus:outline-none focus:ring-2 focus:ring-pink-400 focus:border-pink-400"
                             placeholder="your@email.com"
-                            disabled
                           />
                         </div>
                       </div>
                       
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
-                          <label className="block text-cream-200 text-sm font-medium mb-2">Preferred Date</label>
+                          <label className="block text-cream-200 text-sm font-medium mb-2">Phone (Optional)</label>
                           <input 
-                            type="date" 
-                            className="w-full bg-cream-50/10 border border-cream-50/30 rounded-xl px-4 py-3 text-cream-50 focus:outline-none focus:ring-2 focus:ring-pink-400"
-                            disabled
+                            type="tel" 
+                            name="phone"
+                            className="w-full bg-cream-50/10 border border-cream-50/30 rounded-xl px-4 py-3 text-cream-50 placeholder-cream-300 focus:outline-none focus:ring-2 focus:ring-pink-400 focus:border-pink-400"
+                            placeholder="+30 123 456 7890"
                           />
                         </div>
                         <div>
-                          <label className="block text-cream-200 text-sm font-medium mb-2">Number of Guests</label>
+                          <label className="block text-cream-200 text-sm font-medium mb-2">Preferred Experience</label>
                           <select 
-                            className="w-full bg-cream-50/10 border border-cream-50/30 rounded-xl px-4 py-3 text-cream-50 focus:outline-none focus:ring-2 focus:ring-pink-400"
-                            disabled
+                            name="experience"
+                            className="w-full bg-cream-50/10 border border-cream-50/30 rounded-xl px-4 py-3 text-cream-50 focus:outline-none focus:ring-2 focus:ring-pink-400 focus:border-pink-400"
                           >
-                            <option>1-2 people</option>
-                            <option>3-5 people</option>
-                            <option>6-10 people</option>
-                            <option>10+ people</option>
+                            <option value="">Select experience</option>
+                            <option value="Wine Tasting">Wine Tasting</option>
+                            <option value="Vineyard Tour">Vineyard Tour</option>
+                            <option value="Harvest Experience">Harvest Experience</option>
+                            <option value="Private Event">Private Event</option>
+                            <option value="General Inquiry">General Inquiry</option>
                           </select>
                         </div>
                       </div>
                       
                       <div>
-                        <label className="block text-cream-200 text-sm font-medium mb-2">Experience Type</label>
-                        <select 
-                          className="w-full bg-cream-50/10 border border-cream-50/30 rounded-xl px-4 py-3 text-cream-50 focus:outline-none focus:ring-2 focus:ring-pink-400"
-                          disabled
-                        >
-                          <option>Wine Tasting</option>
-                          <option>Vineyard Tour</option>
-                          <option>Harvest Experience</option>
-                          <option>Private Event</option>
-                        </select>
-                      </div>
-                      
-                      <div>
-                        <label className="block text-cream-200 text-sm font-medium mb-2">Special Requests</label>
+                        <label className="block text-cream-200 text-sm font-medium mb-2">Message *</label>
                         <textarea 
-                          rows={4}
-                          className="w-full bg-cream-50/10 border border-cream-50/30 rounded-xl px-4 py-3 text-cream-50 placeholder-cream-300 focus:outline-none focus:ring-2 focus:ring-pink-400 resize-none"
-                          placeholder="Tell us about any special requirements or preferences..."
-                          disabled
+                          name="message"
+                          rows={5}
+                          required
+                          className="w-full bg-cream-50/10 border border-cream-50/30 rounded-xl px-4 py-3 text-cream-50 placeholder-cream-300 focus:outline-none focus:ring-2 focus:ring-pink-400 focus:border-pink-400 resize-none"
+                          placeholder="Tell us about your visit preferences, number of guests, preferred dates, or any special requirements..."
                         />
                       </div>
                       
-                      <button 
+                      <motion.button 
                         type="submit"
                         className="w-full bg-pink-400 hover:bg-pink-500 text-evergreen-800 font-inter font-semibold py-4 text-lg rounded-xl transition-all duration-300"
-                        disabled
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
                       >
-                        Send Request
-                      </button>
+                        Send Message
+                      </motion.button>
                     </form>
-                  </div>
-                </div>
-                
-                {/* Contact Alternative */}
-                <div className="text-center mt-8">
-                  <p className="text-cream-200 text-lg mb-4">
-                    Meanwhile, contact us directly to arrange your visit
-                  </p>
-                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <motion.a
-                      href="tel:+302661012345"
-                      className="bg-pink-400 hover:bg-pink-500 text-evergreen-800 font-inter font-semibold px-8 py-3 rounded-full transition-all duration-300"
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      Call Us
-                    </motion.a>
-                    <motion.a
-                      href="mailto:info@lasmari.gr?subject=Wine Experience Inquiry"
-                      className="bg-cream-50/20 hover:bg-cream-50/30 text-cream-50 font-inter font-semibold px-8 py-3 rounded-full transition-all duration-300"
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      Email Us
-                    </motion.a>
+                    
+                    {/* Quick Contact Options */}
+                    <div className="mt-8 pt-8 border-t border-cream-50/20">
+                      <p className="text-cream-200 text-center mb-4 text-sm">Or contact us directly:</p>
+                      <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                        <motion.a
+                          href="tel:+302661012345"
+                          className="bg-cream-50/20 hover:bg-cream-50/30 text-cream-50 font-inter font-medium px-6 py-2 rounded-full transition-all duration-300 text-sm text-center"
+                          whileHover={{ scale: 1.05 }}
+                        >
+                          📞 Call Us
+                        </motion.a>
+                        <motion.a
+                          href="mailto:info@lasmari.gr"
+                          className="bg-cream-50/20 hover:bg-cream-50/30 text-cream-50 font-inter font-medium px-6 py-2 rounded-full transition-all duration-300 text-sm text-center"
+                          whileHover={{ scale: 1.05 }}
+                        >
+                          ✉️ Email
+                        </motion.a>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </motion.div>
