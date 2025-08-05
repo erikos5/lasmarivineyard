@@ -144,7 +144,7 @@ export default function Home() {
           parallaxIntensity={0}
           className="min-h-screen flex items-center"
         >
-          <div className="w-full h-screen flex items-center justify-center px-6">
+          <div className="w-full min-h-screen flex items-center justify-center px-6 py-20">
             <div className="max-w-6xl w-full space-y-12 text-center">
               <MagneticTitle 
                 text="Authentic Corfiot Wine Heritage"
