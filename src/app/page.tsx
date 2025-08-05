@@ -19,31 +19,31 @@ const timelineEvents = [
   {
     year: "Early Years",
     title: "Where Streams Once Flowed",
-    description: "We found ourselves two kilometers past Loutses, in the middle between Perivolaki Loutses and Ano Perivolaki. This entire area was once a stream that carved through the landscape. At the bottom was a village called Katafi. From above, we had our estates.",
+    description: "The terroir of Lasmari was shaped by ancient waterways that carved fertile valleys through Corfu's landscape. This unique geological formation created the perfect drainage and mineral composition that gives our wines their distinctive character. The location between Perivolaki Loutses and Ano Perivolaki benefits from both elevation and natural water sources.",
     image: "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=1000&q=80",
     audioId: "founding-story",
     quote: "Here was a stream - this entire area used to be a stream in time."
   },
   {
     year: "Traditional Times",
-    title: "The Era of Traditional Pastitsada", 
-    description: "With this traditional pan, we made the authentic pastitsada of old times. We stayed from early spring, had sheep, and worked the land. The house served as storage, as a place for baking, and as our helper house where we lived among the fields to tend the crops.",
+    title: "Living Off the Land", 
+    description: "Traditional Corfiot farming involved a holistic approach to agriculture. Families would live seasonally on their estates, maintaining livestock alongside vineyards. This integrated farming method enriched the soil naturally and created a sustainable ecosystem where every element supported the others, from sheep fertilizing the land to olive groves providing windbreaks for delicate vines.",
     image: "https://images.unsplash.com/photo-1503457574462-bd27054394c1?auto=format&fit=crop&w=1000&q=80",
     audioId: "expansion-era",
     quote: "With this pan we made the traditional pastitsada of old times."
   },
   {
     year: "1963-1964",
-    title: "The Golden Harvest Years",
-    description: "Those years were magical - 1963 to 1964. After the rains came, we worked with our hands, and everything was perfect. The soil, the climate, all aligned. We had never seen such a harvest. The vines, the grapes, the wine - everything exceeded our wildest expectations.",
+    title: "The Perfect Vintage",
+    description: "Certain years in winemaking become legendary when nature aligns perfectly. The 1963-1964 seasons brought ideal rainfall patterns, optimal soil conditions, and perfect timing for harvest. These factors combined to create what winemakers call a 'perfect vintage' - where every element from grape development to fermentation exceeded expectations, setting the standard for all future wines.",
     image: "https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=1000&q=80",
     audioId: "renaissance-period",
     quote: "After the rains came, we worked with our hands, and everything was perfect."
   },
   {
     year: "Today",
-    title: "Authentic Corfiot Heritage",
-    description: "Today, we continue our family legacy with the same passion and dedication, creating wines that tell the story of our land, our family, and our unwavering commitment to excellence.",
+    title: "Modern Heritage Winemaking",
+    description: "Contemporary winemaking at Lasmari combines time-honored techniques with modern understanding of viticulture. We maintain traditional hand-harvesting methods while applying scientific knowledge of fermentation, aging, and terroir expression. This approach preserves the authentic character of Corfiot wines while ensuring consistent quality and sustainable practices for future generations.",
     image: "https://images.unsplash.com/photo-1560958089-b8a1929cea89?auto=format&fit=crop&w=1000&q=80",
     audioId: "present-day",
     quote: "We are not just making wine; we are preserving a living heritage for future generations."
@@ -152,7 +152,7 @@ export default function Home() {
               />
               <div>
                 <p className="text-xl lg:text-2xl xl:text-3xl text-cream-100 font-inter leading-relaxed font-light">
-                  We are located two kilometers past Loutses, halfway between Perivolaki Loutses and Ano Perivolaki. Here was a stream - this entire area used to be a stream in time. From above, we had estates, livestock, and sheep. The first thing we built here was an oven, and from there our story began.
+                  Nestled in the heart of Corfu's countryside, Lasmari Vineyard represents five generations of winemaking tradition. Our family estate sits on ancient stream beds that have created uniquely fertile soil, perfect for cultivating exceptional Mediterranean varietals. Every bottle tells the story of this remarkable terroir and our commitment to preserving authentic Corfiot winemaking heritage.
                 </p>
               </div>
               
