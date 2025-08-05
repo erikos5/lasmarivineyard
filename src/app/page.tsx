@@ -7,6 +7,7 @@ import ScrollSection from '@/components/ScrollSection';
 import TimelineSection from '@/components/TimelineSection';
 import MosaicGallery from '@/components/MosaicGallery';
 import AudioWithSubtitles from '@/components/AudioWithSubtitles';
+import ImmersiveAudioPlayer from '@/components/ImmersiveAudioPlayer';
 import Booking from '@/components/Booking';
 import Footer from '@/components/Footer';
 import CinematicHero from '@/components/CinematicHero';
@@ -48,6 +49,21 @@ const timelineEvents = [
 ];
 
 // Gallery sections organized by emotion
+// Sample subtitle data - to be replaced with actual voice recording subtitles
+const welcomeSubtitlesEn = [
+  { start: 0, end: 8, text: "We found two kilometers between Loutses, in the middle between Perivolaki and Loutses." },
+  { start: 8, end: 16, text: "There are two kilometers from Peritheia, but two kilometers from here is also Anu Peritheia." },
+  { start: 16, end: 24, text: "Here was a stream, the whole area was a stream, at the bottom there was a village called Katafi." },
+  { start: 24, end: 32, text: "From above, we had estates. The first thing that happened there was that we built an oven." }
+];
+
+const welcomeSubtitlesGr = [
+  { start: 0, end: 8, text: "Βρισκόμαστε δύο χιλιόμετρα μετά την Λούτσες, στη μέση μεταξύ Περιβόλιας Λούτσες και Άνω Περιβόλια." },
+  { start: 8, end: 16, text: "Εδώ ήταν ένα ρέμα, όλοκληρη αυτή η περιοχή στο χρόνο ήταν ρέμα." },
+  { start: 16, end: 24, text: "Κατάφι, ενιστάνε από πάνω, είχαμε πρόβατα." },
+  { start: 24, end: 32, text: "Το σπίτι που ήταν σαν αποθήκη, σαν ψησολόγιο και βοηθητικό σπίτι μας μέναμε στην πόρους περιβόλια στα χωράφια να νοιμε." }
+];
+
 const gallerySections = [
   {
     title: "Harvest Mornings",
@@ -132,16 +148,19 @@ export default function Home() {
               />
               <div className="max-w-4xl mx-auto">
                 <p className="text-xl lg:text-2xl xl:text-3xl text-cream-100 font-inter leading-relaxed font-light">
-                  Surrounded by vineyards, in the heart of our estate in Corfu, lies our ancient hamlet—a living testament to five generations of winemaking excellence.
+                  In northern Corfu, between Loutses and Perivolaki, our family has tended this land for generations. Here, where ancient streams once flowed, we built our first oven and began our journey.
                 </p>
               </div>
               
-              {/* Audio Introduction */}
-              <div className="max-w-2xl mx-auto">
-                <AudioWithSubtitles
-                  id="vineyard-introduction"
+              {/* Immersive Audio Introduction */}
+              <div className="max-w-4xl mx-auto">
+                <ImmersiveAudioPlayer
+                  audioSrc="/audio/recordings/section1-welcome.mp3"
+                  subtitlesEn={welcomeSubtitlesEn}
+                  subtitlesGr={welcomeSubtitlesGr}
+                  title="Welcome to Lasmari"
+                  description="Listen to our story in the voice of our family"
                   className="w-full"
-                  showWaveform={true}
                 />
               </div>
               
