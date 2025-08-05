@@ -288,20 +288,20 @@ export default function ExperiencesPage() {
           parallaxIntensity={0}
         >
           <div className="w-full h-full flex items-center justify-center">
-            <div className="text-center space-y-12 max-w-7xl px-6">
-              <div className="text-pink-400 text-2xl font-inter font-medium">
+            <div className="text-center space-y-10 max-w-6xl px-6">
+              <div className="text-pink-400 text-xl font-inter font-medium">
                 Segment 4 • {experienceSegments[3].duration}
               </div>
               <MagneticTitle 
                 text={experienceSegments[3].title}
-                className="font-playfair text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-cream-50 leading-tight"
+                className="font-playfair text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-cream-50 leading-tight"
               />
-              <p className="text-2xl lg:text-3xl xl:text-4xl text-cream-100 font-inter leading-relaxed font-light max-w-6xl mx-auto">
+              <p className="text-xl lg:text-2xl xl:text-3xl text-cream-100 font-inter leading-relaxed font-light max-w-5xl mx-auto">
                 {experienceSegments[3].description}
               </p>
               
               <motion.div 
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16 max-w-6xl mx-auto"
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-14 max-w-5xl mx-auto"
                 variants={containerVariants}
                 initial="hidden"
                 whileInView="visible"
@@ -310,11 +310,11 @@ export default function ExperiencesPage() {
                 {experienceSegments[3].features.map((feature, index) => (
                   <motion.div
                     key={index}
-                    className="bg-cream-50/10 border border-cream-50/20 p-8 rounded-2xl will-change-transform transform-gpu"
+                    className="bg-cream-50/10 border border-cream-50/20 p-6 rounded-xl will-change-transform transform-gpu"
                     variants={itemVariants}
                     style={{ backdropFilter: 'blur(4px)' }}
                   >
-                    <p className="text-cream-200 font-inter text-center text-lg">
+                    <p className="text-cream-200 font-inter text-center text-base">
                       {feature}
                     </p>
                   </motion.div>
