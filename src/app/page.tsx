@@ -144,20 +144,20 @@ export default function Home() {
           parallaxIntensity={0}
           className="min-h-screen flex items-center"
         >
-          <div className="container mx-auto px-6 text-center">
-            <div className="max-w-7xl mx-auto space-y-12 flex flex-col items-center justify-center min-h-screen">
+          <div className="w-full h-screen grid place-items-center px-6">
+            <div className="max-w-4xl w-full space-y-8 text-center">
               <MagneticTitle 
                 text="Authentic Corfiot Wine Heritage"
                 className="font-playfair text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-cream-50 leading-tight mb-12"
               />
-              <div className="max-w-4xl mx-auto">
+              <div>
                 <p className="text-xl lg:text-2xl xl:text-3xl text-cream-100 font-inter leading-relaxed font-light">
                   We are located two kilometers past Loutses, halfway between Perivolaki Loutses and Ano Perivolaki. Here was a stream - this entire area used to be a stream in time. From above, we had estates, livestock, and sheep. The first thing we built here was an oven, and from there our story began.
                 </p>
               </div>
               
               {/* Immersive Audio Introduction */}
-              <div className="max-w-4xl mx-auto">
+              <div>
                 <ImmersiveAudioPlayer
                   audioSrc="/audio/recordings/section1-welcome.mp3"
                   subtitlesEn={welcomeSubtitlesEn}
@@ -169,7 +169,7 @@ export default function Home() {
               </div>
               
               {/* Horizontal Timeline with beautiful animations */}
-              <div className="flex justify-center items-center space-x-8 pt-8">
+              <div className="flex justify-center items-center space-x-8">
                 {["1892", "1930s", "1975", "Today"].map((year, index) => (
                   <div key={year} className="flex flex-col items-center">
                     <div className="w-4 h-4 bg-cream-50 rounded-full mb-2 animate-timeline-pulse" 
