@@ -157,7 +157,7 @@ const ScrollSection = ({
       {/* Content Layer - Fixed positioning to prevent coverage */}
       <div
         ref={contentRef}
-        className="relative z-20"
+        className="relative z-20 w-full"
         style={{
           minHeight: '100vh',
           backgroundColor: 'transparent',
