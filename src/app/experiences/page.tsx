@@ -78,7 +78,7 @@ export default function ExperiencesPage() {
           className="min-h-screen w-full"
           parallaxIntensity={0}
         >
-          <div className="w-full h-full flex items-center justify-center pt-32">
+          <div className="w-full h-full flex items-center justify-center pt-48">
             <div className="text-center space-y-8 max-w-6xl px-6">
               <MagneticTitle 
                 text="The Lasmari Experience"
