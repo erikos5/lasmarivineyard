@@ -151,39 +151,41 @@ export default function ExperiencesPage() {
           className="min-h-screen w-full flex items-center justify-center"
           parallaxIntensity={0}
         >
-          <div className="text-center space-y-8 max-w-5xl px-6">
-            <div className="text-pink-400 text-xl font-inter font-medium">
-              Segment 1 • {experienceSegments[0].duration}
+          <div className="w-full h-full flex items-center justify-center">
+            <div className="text-center space-y-10 max-w-6xl px-6">
+              <div className="text-pink-400 text-xl font-inter font-medium">
+                Segment 1 • {experienceSegments[0].duration}
+              </div>
+              <MagneticTitle 
+                text={experienceSegments[0].title}
+                className="font-playfair text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-cream-50 leading-tight"
+              />
+              <p className="text-xl lg:text-2xl xl:text-3xl text-cream-100 font-inter leading-relaxed font-light max-w-5xl mx-auto">
+                {experienceSegments[0].description}
+              </p>
+              
+              {/* Optimized feature grid */}
+              <motion.div 
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-14 max-w-5xl mx-auto"
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-100px" }}
+              >
+                {experienceSegments[0].features.map((feature, index) => (
+                  <motion.div
+                    key={index}
+                    className="bg-cream-50/10 border border-cream-50/20 p-6 rounded-xl will-change-transform transform-gpu"
+                    variants={itemVariants}
+                    style={{ backdropFilter: 'blur(4px)' }}
+                  >
+                    <p className="text-cream-200 font-inter text-center text-base">
+                      {feature}
+                    </p>
+                  </motion.div>
+                ))}
+              </motion.div>
             </div>
-            <MagneticTitle 
-              text={experienceSegments[0].title}
-              className="font-playfair text-4xl md:text-6xl lg:text-7xl font-bold text-cream-50 leading-tight"
-            />
-            <p className="text-xl lg:text-2xl text-cream-100 font-inter leading-relaxed font-light max-w-4xl mx-auto">
-              {experienceSegments[0].description}
-            </p>
-            
-            {/* Optimized feature grid */}
-            <motion.div 
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-12 max-w-4xl mx-auto"
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
-            >
-              {experienceSegments[0].features.map((feature, index) => (
-                <motion.div
-                  key={index}
-                  className="bg-cream-50/10 border border-cream-50/20 p-4 rounded-xl will-change-transform transform-gpu"
-                  variants={itemVariants}
-                  style={{ backdropFilter: 'blur(4px)' }}
-                >
-                  <p className="text-cream-200 font-inter text-center">
-                    {feature}
-                  </p>
-                </motion.div>
-              ))}
-            </motion.div>
           </div>
         </ScrollSection>
 
@@ -195,38 +197,40 @@ export default function ExperiencesPage() {
           className="min-h-screen w-full flex items-center justify-center"
           parallaxIntensity={0}
         >
-          <div className="text-center space-y-8 max-w-5xl px-6">
-            <div className="text-pink-400 text-xl font-inter font-medium">
-              Segment 2 • {experienceSegments[1].duration}
+          <div className="w-full h-full flex items-center justify-center">
+            <div className="text-center space-y-10 max-w-6xl px-6">
+              <div className="text-pink-400 text-xl font-inter font-medium">
+                Segment 2 • {experienceSegments[1].duration}
+              </div>
+              <MagneticTitle 
+                text={experienceSegments[1].title}
+                className="font-playfair text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-cream-50 leading-tight"
+              />
+              <p className="text-xl lg:text-2xl xl:text-3xl text-cream-100 font-inter leading-relaxed font-light max-w-5xl mx-auto">
+                {experienceSegments[1].description}
+              </p>
+              
+              <motion.div 
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-14 max-w-5xl mx-auto"
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-100px" }}
+              >
+                {experienceSegments[1].features.map((feature, index) => (
+                  <motion.div
+                    key={index}
+                    className="bg-cream-50/10 border border-cream-50/20 p-6 rounded-xl will-change-transform transform-gpu"
+                    variants={itemVariants}
+                    style={{ backdropFilter: 'blur(4px)' }}
+                  >
+                    <p className="text-cream-200 font-inter text-center text-base">
+                      {feature}
+                    </p>
+                  </motion.div>
+                ))}
+              </motion.div>
             </div>
-            <MagneticTitle 
-              text={experienceSegments[1].title}
-              className="font-playfair text-4xl md:text-6xl lg:text-7xl font-bold text-cream-50 leading-tight"
-            />
-            <p className="text-xl lg:text-2xl text-cream-100 font-inter leading-relaxed font-light max-w-4xl mx-auto">
-              {experienceSegments[1].description}
-            </p>
-            
-            <motion.div 
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-12 max-w-4xl mx-auto"
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
-            >
-              {experienceSegments[1].features.map((feature, index) => (
-                <motion.div
-                  key={index}
-                  className="bg-cream-50/10 border border-cream-50/20 p-4 rounded-xl will-change-transform transform-gpu"
-                  variants={itemVariants}
-                  style={{ backdropFilter: 'blur(4px)' }}
-                >
-                  <p className="text-cream-200 font-inter text-center">
-                    {feature}
-                  </p>
-                </motion.div>
-              ))}
-            </motion.div>
           </div>
         </ScrollSection>
 
@@ -238,38 +242,40 @@ export default function ExperiencesPage() {
           className="min-h-screen w-full flex items-center justify-center"
           parallaxIntensity={0}
         >
-          <div className="text-center space-y-8 max-w-5xl px-6">
-            <div className="text-pink-400 text-xl font-inter font-medium">
-              Segment 3 • {experienceSegments[2].duration}
+          <div className="w-full h-full flex items-center justify-center">
+            <div className="text-center space-y-10 max-w-6xl px-6">
+              <div className="text-pink-400 text-xl font-inter font-medium">
+                Segment 3 • {experienceSegments[2].duration}
+              </div>
+              <MagneticTitle 
+                text={experienceSegments[2].title}
+                className="font-playfair text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-cream-50 leading-tight"
+              />
+              <p className="text-xl lg:text-2xl xl:text-3xl text-cream-100 font-inter leading-relaxed font-light max-w-5xl mx-auto">
+                {experienceSegments[2].description}
+              </p>
+              
+              <motion.div 
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-14 max-w-5xl mx-auto"
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-100px" }}
+              >
+                {experienceSegments[2].features.map((feature, index) => (
+                  <motion.div
+                    key={index}
+                    className="bg-cream-50/10 border border-cream-50/20 p-6 rounded-xl will-change-transform transform-gpu"
+                    variants={itemVariants}
+                    style={{ backdropFilter: 'blur(4px)' }}
+                  >
+                    <p className="text-cream-200 font-inter text-center text-base">
+                      {feature}
+                    </p>
+                  </motion.div>
+                ))}
+              </motion.div>
             </div>
-            <MagneticTitle 
-              text={experienceSegments[2].title}
-              className="font-playfair text-4xl md:text-6xl lg:text-7xl font-bold text-cream-50 leading-tight"
-            />
-            <p className="text-xl lg:text-2xl text-cream-100 font-inter leading-relaxed font-light max-w-4xl mx-auto">
-              {experienceSegments[2].description}
-            </p>
-            
-            <motion.div 
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-12 max-w-4xl mx-auto"
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
-            >
-              {experienceSegments[2].features.map((feature, index) => (
-                <motion.div
-                  key={index}
-                  className="bg-cream-50/10 border border-cream-50/20 p-4 rounded-xl will-change-transform transform-gpu"
-                  variants={itemVariants}
-                  style={{ backdropFilter: 'blur(4px)' }}
-                >
-                  <p className="text-cream-200 font-inter text-center">
-                    {feature}
-                  </p>
-                </motion.div>
-              ))}
-            </motion.div>
           </div>
         </ScrollSection>
 
