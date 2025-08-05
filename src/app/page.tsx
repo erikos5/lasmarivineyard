@@ -241,24 +241,104 @@ export default function Home() {
         {/* Emotion-Based Gallery */}
         <ScrollSection
           id="gallery"
-          className="py-20 bg-cream-50"
+          backgroundImage="https://images.unsplash.com/photo-1596400033635-bac1b5ba2480?auto=format&fit=crop&w=2000&q=80"
+          overlayColor="rgba(253, 245, 230, 0.85)"
+          className="min-h-screen w-full"
           storyReveal={true}
+          parallaxIntensity={0}
         >
-          <div className="container mx-auto px-6">
-            <div className="text-center mb-16">
-              <h2 className="font-playfair text-5xl lg:text-6xl font-bold text-evergreen-800 mb-6">
-                Moments that Define Us
-              </h2>
-              <p className="text-xl text-evergreen-600 font-inter max-w-3xl mx-auto leading-relaxed">
-                Every photograph captures more than a moment—it preserves the emotions, traditions, and stories that make Lasmari more than just a vineyard.
-              </p>
+          <div className="w-full h-full flex items-center justify-center">
+            <div className="text-center space-y-16 max-w-7xl px-6 py-20">
+              <div className="space-y-6">
+                <MagneticTitle 
+                  text="Moments that Define Us"
+                  className="font-playfair text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-evergreen-800 leading-tight"
+                />
+                <p className="text-xl lg:text-2xl xl:text-3xl text-evergreen-700 font-inter max-w-4xl mx-auto leading-relaxed font-light">
+                  Every photograph captures more than a moment—it preserves the emotions, traditions, and stories that make Lasmari more than just a vineyard.
+                </p>
+              </div>
+              
+              <MosaicGallery sections={gallerySections} className="max-w-7xl mx-auto" />
             </div>
-            
-            <MosaicGallery sections={gallerySections} />
           </div>
         </ScrollSection>
 
-        <Booking />
+        {/* Visit Us Section */}
+        <ScrollSection
+          id="visit"
+          backgroundImage="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=2000&q=80"
+          overlayColor="rgba(46, 59, 41, 0.8)"
+          className="min-h-screen w-full"
+          parallaxIntensity={0}
+        >
+          <div className="w-full h-full flex items-center justify-center">
+            <div className="text-center space-y-12 max-w-6xl px-6">
+              <div className="space-y-6">
+                <MagneticTitle 
+                  text="Visit Lasmari"
+                  className="font-playfair text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-cream-50 leading-tight"
+                />
+                <p className="text-xl lg:text-2xl xl:text-3xl text-cream-100 font-inter leading-relaxed font-light">
+                  Experience the authentic flavors of Corfu at our family vineyard. Contact us to arrange your wine tasting, tour, or special event.
+                </p>
+              </div>
+
+              {/* Contact Cards */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+                <motion.a
+                  href="tel:+302661012345"
+                  className="bg-cream-50/10 backdrop-blur-sm p-8 rounded-2xl hover:bg-cream-50/20 transition-all duration-300 group"
+                  whileHover={{ scale: 1.05, y: -5 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <h3 className="font-playfair text-2xl text-cream-50 mb-2">Phone</h3>
+                  <p className="text-cream-200 group-hover:text-cream-100 transition-colors">+30 26610 12345</p>
+                </motion.a>
+
+                <motion.a
+                  href="mailto:info@lasmari.gr"
+                  className="bg-cream-50/10 backdrop-blur-sm p-8 rounded-2xl hover:bg-cream-50/20 transition-all duration-300 group"
+                  whileHover={{ scale: 1.05, y: -5 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <h3 className="font-playfair text-2xl text-cream-50 mb-2">Email</h3>
+                  <p className="text-cream-200 group-hover:text-cream-100 transition-colors">info@lasmari.gr</p>
+                </motion.a>
+
+                <motion.div
+                  className="bg-cream-50/10 backdrop-blur-sm p-8 rounded-2xl hover:bg-cream-50/20 transition-all duration-300 group cursor-pointer"
+                  whileHover={{ scale: 1.05, y: -5 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <h3 className="font-playfair text-2xl text-cream-50 mb-2">Location</h3>
+                  <p className="text-cream-200 group-hover:text-cream-100 transition-colors">Corfu, Greece</p>
+                </motion.div>
+
+                <motion.div
+                  className="bg-cream-50/10 backdrop-blur-sm p-8 rounded-2xl hover:bg-cream-50/20 transition-all duration-300 group cursor-pointer"
+                  whileHover={{ scale: 1.05, y: -5 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <h3 className="font-playfair text-2xl text-cream-50 mb-2">Hours</h3>
+                  <p className="text-cream-200 group-hover:text-cream-100 transition-colors">10:00 - 18:00</p>
+                </motion.div>
+              </div>
+
+              {/* CTA Button */}
+              <motion.div 
+                className="mt-12"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.2 }}
+              >
+                <button className="bg-pink-400 hover:bg-pink-500 text-evergreen-800 font-inter font-semibold px-12 py-5 text-lg rounded-full transition-all duration-300">
+                  Book Your Visit
+                </button>
+              </motion.div>
+            </div>
+          </div>
+        </ScrollSection>
+
         <Footer />
       </main>
     </AnimatePresence>

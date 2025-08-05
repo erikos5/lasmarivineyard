@@ -30,9 +30,14 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-olive-900 text-cream-50 py-16">
-      <div className="container-max section-padding">
-        <div className="grid md:grid-cols-4 gap-8 mb-12">
+    <footer className="bg-evergreen-800 text-cream-50 py-20 relative overflow-hidden">
+      {/* Background Texture */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="w-full h-full bg-gradient-to-b from-evergreen-900 to-transparent" />
+      </div>
+      
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="grid md:grid-cols-4 gap-12 mb-16">
           {/* Brand */}
           <motion.div
             className="md:col-span-2"
