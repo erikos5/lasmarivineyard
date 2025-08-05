@@ -156,12 +156,11 @@ const CinematicTimeline = ({ events, className = '' }: CinematicTimelineProps) =
           {/* Timeline Events */}
           <div className="space-y-20">
             {events.map((event, index) => (
-              <motion.div
+              <div
                 key={event.year}
                 className={`timeline-event-${index} relative flex items-center ${
                   index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'
-                } group`}
-                initial={{ opacity: 0 }}
+                } group opacity-100`}
                 style={{ zIndex: 20 }}
               >
                 {/* Timeline Dot */}
@@ -245,42 +244,44 @@ const CinematicTimeline = ({ events, className = '' }: CinematicTimelineProps) =
                   </div>
                 </div>
 
-                {/* Voice Recording Section in Empty Space */}
-                <div className="w-5/12 flex items-center justify-center">
-                  <motion.div
-                    className={`bg-evergreen-50/70 backdrop-blur-sm rounded-2xl p-6 border border-evergreen-200/30 max-w-sm ${
-                      index % 2 === 0 ? 'ml-8' : 'mr-8'
-                    }`}
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.3 }}
-                    viewport={{ once: false }}
-                  >
-                    <div className="text-center">
-                      <div className="w-16 h-16 bg-pink-400/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <svg className="w-6 h-6 text-pink-600" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M8 5v14l11-7z"/>
-                        </svg>
-                      </div>
-                      <h4 className="font-playfair text-lg font-bold text-evergreen-800 mb-2">
-                        {index === 0 ? "Listen to Our Beginnings" : 
-                         index === 1 ? "Traditional Stories" :
-                         index === 2 ? "Golden Years Memories" : 
-                         "Modern Heritage"}
-                      </h4>
-                      <p className="text-evergreen-700 font-inter text-sm italic mb-4">
-                        {index === 0 ? "Hear about the stream and first settlements..." : 
-                         index === 1 ? "Stories of the traditional pastitsada pan..." :
-                         index === 2 ? "Memories from the magical harvest years..." : 
-                         "Our family's vision for the future..."}
-                      </p>
-                      <button className="text-pink-600 hover:text-pink-700 font-semibold text-sm underline transition-colors duration-200">
-                        Play Voice Recording
-                      </button>
-                    </div>
-                  </motion.div>
+                {/* Voice Recording Section - Full Width on Right */}
+                <div className={`w-5/12 ${index % 2 === 0 ? 'pl-8' : 'pr-8'}`}>
+                  <div className="w-full">
+                    <ImmersiveAudioPlayer
+                      audioSrc={`/audio/recordings/timeline-${index + 1}.mp3`}
+                      subtitlesEn={[
+                        { start: 0, end: 10, text: index === 0 ? "We found ourselves two kilometers past Loutses..." : 
+                                               index === 1 ? "With this traditional pan, we made pastitsada..." :
+                                               index === 2 ? "Those years were magical - 1963 to 1964..." : 
+                                               "Today, we continue our family legacy..." },
+                        { start: 10, end: 20, text: index === 0 ? "This entire area was once a stream..." :
+                                                index === 1 ? "We stayed from early spring, had sheep..." :
+                                                index === 2 ? "After the rains came, we worked with our hands..." :
+                                                "Creating wines that tell our story..." }
+                      ]}
+                      subtitlesGr={[
+                        { start: 0, end: 10, text: index === 0 ? "Βρισκόμαστε δύο χιλιόμετρα μετά την Λούτσες..." :
+                                               index === 1 ? "Με αυτό το ταψί φτιάχναμε παστιτσάδα..." :
+                                               index === 2 ? "Εκείνα τα χρόνια ήταν μαγικά - 1963 έως 1964..." :
+                                               "Σήμερα, συνεχίζουμε την οικογενειακή μας παράδοση..." },
+                        { start: 10, end: 20, text: index === 0 ? "Όλη αυτή η περιοχή ήταν κάποτε ρέμα..." :
+                                                index === 1 ? "Μείναμε από την πρώιμη άνοιξη, είχαμε πρόβατα..." :
+                                                index === 2 ? "Μετά τις βροχές, δουλέψαμε με τα χέρια μας..." :
+                                                "Δημιουργώντας κρασιά που λένε την ιστορία μας..." }
+                      ]}
+                      title={index === 0 ? "Our Beginnings" : 
+                             index === 1 ? "Traditional Stories" :
+                             index === 2 ? "Golden Years" : 
+                             "Modern Heritage"}
+                      description={index === 0 ? "The story of streams and settlements" : 
+                                   index === 1 ? "Tales of traditional cooking" :
+                                   index === 2 ? "Memories from magical harvest years" : 
+                                   "Our family's continuing legacy"}
+                      className="w-full bg-cream-50/90 backdrop-blur-sm border border-evergreen-200/30"
+                    />
+                  </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
 
