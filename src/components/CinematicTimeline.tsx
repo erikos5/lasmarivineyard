@@ -245,8 +245,8 @@ const CinematicTimeline = ({ events, className = '' }: CinematicTimelineProps) =
                 </div>
 
                 {/* Voice Recording Section - Pushed to Sides */}
-                <div className={`w-5/12 flex ${index % 2 === 0 ? 'justify-start pl-20' : 'justify-end pr-20'}`}>
-                  <div className="w-4/5">
+                <div className={`w-5/12 ${index % 2 === 0 ? 'pl-32' : 'pr-32'}`}>
+                  <div className="w-full">
                     <ImmersiveAudioPlayer
                       audioSrc={`/audio/recordings/timeline-${index + 1}.mp3`}
                       subtitlesEn={[
