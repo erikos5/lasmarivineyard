@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import Navbar from '@/components/Navbar';
 import ScrollSection from '@/components/ScrollSection';
 import TimelineSection from '@/components/TimelineSection';
+import CinematicTimeline from '@/components/CinematicTimeline';
 import MosaicGallery from '@/components/MosaicGallery';
 import AudioWithSubtitles from '@/components/AudioWithSubtitles';
 import ImmersiveAudioPlayer from '@/components/ImmersiveAudioPlayer';
@@ -17,26 +18,27 @@ import MagneticTitle from '@/components/MagneticTitle';
 const timelineEvents = [
   {
     year: "1892",
-    title: "The Beginning",
-    description: "Our great-great-grandfather planted the first vines in the fertile soils of Corfu, dreaming of creating wines that would capture the essence of our Mediterranean island.",
+    title: "The Beginning - Where Streams Once Flowed",
+    description: "Between Loutses and Perivolaki, where ancient streams carved the landscape, our great-great-grandfather found the perfect terroir. Here, two kilometers from Peritheia, he built our first oven and planted the foundation of our legacy.",
     image: "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=1000&q=80",
     audioId: "founding-story",
     quote: "The land spoke to us, and we listened with reverence and determination."
   },
   {
     year: "1930s",
-    title: "Expansion & Tradition", 
-    description: "During the interwar period, we expanded our vineyards and refined our traditional winemaking techniques, establishing the foundation of what would become our signature approach.",
+    title: "The Katafi Years - Building Tradition", 
+    description: "In the village called Katafi, from above the estates, we had our livestock and built our traditions. This was the era when the traditional pastitsada pan was crafted, when each meal became a celebration of our heritage.",
     image: "https://images.unsplash.com/photo-1503457574462-bd27054394c1?auto=format&fit=crop&w=1000&q=80",
     audioId: "expansion-era",
-    quote: "Each generation added their wisdom while preserving the soul of our craft."
+    quote: "With this pan we made the traditional pastitsada of old times."
   },
   {
-    year: "1975",
-    title: "Modern Renaissance",
-    description: "We embraced selective modernization while maintaining our traditional methods, creating the perfect balance between heritage and innovation that defines us today.",
+    year: "1963-1964",
+    title: "The Golden Years - Prosperity & Growth",
+    description: "The soil, the climate, everything aligned perfectly. We worked the land with our hands, and the harvest was beyond our dreams. These were the years that defined our approach to winemaking.",
     image: "https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=1000&q=80",
-    audioId: "renaissance-period"
+    audioId: "renaissance-period",
+    quote: "Everything was perfect - the land, the weather, the harvest that exceeded all expectations."
   },
   {
     year: "Today",
@@ -178,26 +180,8 @@ export default function Home() {
           </div>
         </ScrollSection>
 
-        {/* Our Story - Scrollable Timeline */}
-        <ScrollSection
-          id="our-story"
-          className="py-20 bg-cream-50"
-          storyReveal={false}
-          parallaxIntensity={0}
-        >
-          <div className="container mx-auto px-6">
-            <div className="text-center mb-16">
-              <h2 className="font-playfair text-5xl lg:text-6xl font-bold text-evergreen-800 mb-6">
-                Our Journey Through Time
-              </h2>
-              <p className="text-xl text-evergreen-600 font-inter max-w-3xl mx-auto leading-relaxed">
-                Every vintage tells a story. Every bottle carries the dreams, struggles, and triumphs of five generations dedicated to the art of winemaking.
-              </p>
-            </div>
-            
-            <TimelineSection events={timelineEvents} />
-          </div>
-        </ScrollSection>
+        {/* Our Story - Cinematic Timeline */}
+        <CinematicTimeline events={timelineEvents} className="bg-gradient-to-b from-cream-50 to-evergreen-50" />
 
         {/* The Lasmari Experience */}
         <ScrollSection
