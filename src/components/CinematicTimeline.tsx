@@ -113,16 +113,16 @@ const CinematicTimeline = ({ events, className = '' }: CinematicTimelineProps) =
         <div className="absolute inset-0 opacity-10 bg-gradient-to-br from-evergreen-100 via-transparent to-pink-50" />
       </div>
 
-      <div className="relative z-10 container mx-auto px-6 py-20">
+      <div className="relative z-10 container mx-auto px-6 py-12">
         {/* Section Header */}
         <motion.div 
-          className="text-center mb-20"
+          className="text-center mb-12"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "power3.out" }}
           viewport={{ once: true }}
         >
-          <h2 className="font-playfair text-5xl lg:text-7xl font-bold text-evergreen-800 mb-8 leading-tight">
+          <h2 className="font-playfair text-5xl lg:text-7xl font-bold text-evergreen-800 mb-6 leading-tight">
             Our Journey Through Time
           </h2>
           <p className="text-xl lg:text-2xl text-evergreen-600 font-inter max-w-4xl mx-auto leading-relaxed">
@@ -132,7 +132,7 @@ const CinematicTimeline = ({ events, className = '' }: CinematicTimelineProps) =
 
         {/* Audio Player for Timeline Story */}
         <motion.div 
-          className="max-w-4xl mx-auto mb-20"
+          className="max-w-4xl mx-auto mb-12"
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.3 }}
@@ -160,7 +160,7 @@ const CinematicTimeline = ({ events, className = '' }: CinematicTimelineProps) =
           </div>
 
           {/* Timeline Events */}
-          <div className="space-y-32">
+          <div className="space-y-20">
             {events.map((event, index) => (
               <motion.div
                 key={event.year}
@@ -251,8 +251,41 @@ const CinematicTimeline = ({ events, className = '' }: CinematicTimelineProps) =
                   </div>
                 </div>
 
-                {/* Empty space for alternating layout */}
-                <div className="w-5/12" />
+                {/* Voice Recording Section in Empty Space */}
+                <div className="w-5/12 flex items-center justify-center">
+                  <motion.div
+                    className={`bg-evergreen-50/70 backdrop-blur-sm rounded-2xl p-6 border border-evergreen-200/30 max-w-sm ${
+                      index % 2 === 0 ? 'ml-8' : 'mr-8'
+                    }`}
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.6 }}
+                    viewport={{ once: true }}
+                  >
+                    <div className="text-center">
+                      <div className="w-16 h-16 bg-pink-400/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg className="w-6 h-6 text-pink-600" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M8 5v14l11-7z"/>
+                        </svg>
+                      </div>
+                      <h4 className="font-playfair text-lg font-bold text-evergreen-800 mb-2">
+                        {index === 0 ? "Listen to Our Beginnings" : 
+                         index === 1 ? "Traditional Stories" :
+                         index === 2 ? "Golden Years Memories" : 
+                         "Modern Heritage"}
+                      </h4>
+                      <p className="text-evergreen-700 font-inter text-sm italic mb-4">
+                        {index === 0 ? "Hear about the stream and first settlements..." : 
+                         index === 1 ? "Stories of the traditional pastitsada pan..." :
+                         index === 2 ? "Memories from the magical harvest years..." : 
+                         "Our family's vision for the future..."}
+                      </p>
+                      <button className="text-pink-600 hover:text-pink-700 font-semibold text-sm underline transition-colors duration-200">
+                        Play Voice Recording
+                      </button>
+                    </div>
+                  </motion.div>
+                </div>
               </motion.div>
             ))}
           </div>
