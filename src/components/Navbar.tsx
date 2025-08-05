@@ -74,7 +74,15 @@ const Navbar = () => {
           <motion.div
             style={{ scale: logoScale }}
             className="flex items-center cursor-pointer"
-            onClick={() => router.push('/')}
+            onClick={() => {
+              if (pathname === '/') {
+                // If on homepage, scroll to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              } else {
+                // If on other pages, navigate to homepage
+                router.push('/');
+              }
+            }}
           >
             <motion.h1
               style={{ color: textColor }}
