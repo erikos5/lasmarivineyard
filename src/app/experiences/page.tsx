@@ -148,11 +148,10 @@ export default function ExperiencesPage() {
           id="segment-1"
           backgroundImage={experienceSegments[0].image}
           overlayColor="rgba(46, 59, 41, 0.8)"
-          className="min-h-screen w-full"
+          className="min-h-screen w-full flex items-center justify-center"
           parallaxIntensity={0}
         >
-          <div className="w-full h-full flex items-center justify-center">
-            <div className="text-center space-y-8 max-w-5xl px-6">
+          <div className="text-center space-y-8 max-w-5xl px-6">
               <div className="text-pink-400 text-xl font-inter font-medium">
                 Segment 1 • {experienceSegments[0].duration}
               </div>
@@ -185,7 +184,6 @@ export default function ExperiencesPage() {
                   </motion.div>
                 ))}
               </motion.div>
-            </div>
           </div>
         </ScrollSection>
 
@@ -194,11 +192,10 @@ export default function ExperiencesPage() {
           id="segment-2"
           backgroundImage={experienceSegments[1].image}
           overlayColor="rgba(46, 59, 41, 0.8)"
-          className="min-h-screen w-full"
+          className="min-h-screen w-full flex items-center justify-center"
           parallaxIntensity={0}
         >
-          <div className="w-full h-full flex items-center justify-center">
-            <div className="text-center space-y-8 max-w-5xl px-6">
+          <div className="text-center space-y-8 max-w-5xl px-6">
               <div className="text-pink-400 text-xl font-inter font-medium">
                 Segment 2 • {experienceSegments[1].duration}
               </div>
@@ -230,7 +227,6 @@ export default function ExperiencesPage() {
                   </motion.div>
                 ))}
               </motion.div>
-            </div>
           </div>
         </ScrollSection>
 
@@ -239,11 +235,10 @@ export default function ExperiencesPage() {
           id="segment-3"
           backgroundImage={experienceSegments[2].image}
           overlayColor="rgba(46, 59, 41, 0.8)"
-          className="min-h-screen w-full"
+          className="min-h-screen w-full flex items-center justify-center"
           parallaxIntensity={0}
         >
-          <div className="w-full h-full flex items-center justify-center">
-            <div className="text-center space-y-8 max-w-5xl px-6">
+          <div className="text-center space-y-8 max-w-5xl px-6">
               <div className="text-pink-400 text-xl font-inter font-medium">
                 Segment 3 • {experienceSegments[2].duration}
               </div>
@@ -275,7 +270,6 @@ export default function ExperiencesPage() {
                   </motion.div>
                 ))}
               </motion.div>
-            </div>
           </div>
         </ScrollSection>
 
@@ -284,11 +278,10 @@ export default function ExperiencesPage() {
           id="segment-4"
           backgroundImage={experienceSegments[3].image}
           overlayColor="rgba(46, 59, 41, 0.8)"
-          className="min-h-screen w-full"
+          className="min-h-screen w-full flex items-center justify-center"
           parallaxIntensity={0}
         >
-          <div className="w-full h-full flex items-center justify-center">
-            <div className="text-center space-y-8 max-w-5xl px-6">
+          <div className="text-center space-y-8 max-w-5xl px-6">
               <div className="text-pink-400 text-xl font-inter font-medium">
                 Segment 4 • {experienceSegments[3].duration}
               </div>
