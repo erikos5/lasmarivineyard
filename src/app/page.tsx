@@ -332,7 +332,7 @@ export default function Home() {
                 transition={{ duration: 0.2 }}
               >
                 <button className="bg-pink-400 hover:bg-pink-500 text-evergreen-800 font-inter font-semibold px-12 py-5 text-lg rounded-full transition-all duration-300">
-                  Book Your Visit
+                  Available Soon
                 </button>
               </motion.div>
             </div>
