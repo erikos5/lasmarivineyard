@@ -144,8 +144,8 @@ export default function Home() {
           parallaxIntensity={0}
           className="min-h-screen flex items-center"
         >
-          <div className="w-full h-screen grid place-items-center px-6">
-            <div className="max-w-4xl w-full space-y-8 text-center">
+          <div className="w-full h-screen flex items-center justify-center px-6">
+            <div className="max-w-6xl w-full space-y-12 text-center">
               <MagneticTitle 
                 text="Authentic Corfiot Wine Heritage"
                 className="font-playfair text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-cream-50 leading-tight mb-12"
