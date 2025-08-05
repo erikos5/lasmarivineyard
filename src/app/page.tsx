@@ -144,8 +144,8 @@ export default function Home() {
           parallaxIntensity={0}
           className="min-h-screen flex items-center"
         >
-          <div className="container mx-auto px-6 text-center">
-            <div className="max-w-7xl mx-auto space-y-12">
+          <div className="container mx-auto px-6 text-center flex items-center justify-center min-h-screen">
+            <div className="max-w-7xl mx-auto space-y-12 w-full">
               <MagneticTitle 
                 text="Authentic Corfiot Wine Heritage"
                 className="font-playfair text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-cream-50 leading-tight mb-12"
@@ -157,14 +157,14 @@ export default function Home() {
               </div>
               
               {/* Immersive Audio Introduction */}
-              <div className="max-w-4xl mx-auto">
+              <div className="max-w-4xl mx-auto flex justify-center">
                 <ImmersiveAudioPlayer
                   audioSrc="/audio/recordings/section1-welcome.mp3"
                   subtitlesEn={welcomeSubtitlesEn}
                   subtitlesGr={welcomeSubtitlesGr}
                   title="Welcome to Lasmari"
                   description="Listen to our story in the voice of our family"
-                  className="w-full"
+                  className="w-full text-center"
                 />
               </div>
               

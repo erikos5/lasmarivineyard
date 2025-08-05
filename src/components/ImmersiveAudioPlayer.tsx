@@ -102,11 +102,11 @@ const ImmersiveAudioPlayer = ({
   const progress = duration > 0 ? (currentTime / duration) * 100 : 0;
 
   return (
-    <div className={`bg-evergreen-50/90 backdrop-blur-sm border border-evergreen-200 rounded-2xl p-6 ${className}`}>
+    <div className={`bg-evergreen-50/90 backdrop-blur-sm border border-evergreen-200 rounded-2xl p-6 text-center ${className}`}>
       <audio ref={audioRef} src={audioSrc} />
       
       {/* Header */}
-      <div className="mb-6">
+      <div className="mb-6 text-center">
         <h3 className="font-playfair text-2xl font-bold text-evergreen-800 mb-2">
           {title}
         </h3>
