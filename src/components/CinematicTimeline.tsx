@@ -2,8 +2,6 @@
 
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { useRef, useEffect, useState } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import ImmersiveAudioPlayer from './ImmersiveAudioPlayer';
 
 interface TimelineEvent {
@@ -33,62 +31,34 @@ const CinematicTimeline = ({ events, className = '' }: CinematicTimelineProps) =
   const progressHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
   const smoothProgress = useSpring(progressHeight, { stiffness: 100, damping: 30 });
 
+  // Simple intersection observer for active index
   useEffect(() => {
-    if (typeof window === 'undefined') return;
-    
-    gsap.registerPlugin(ScrollTrigger);
-    
-    const ctx = gsap.context(() => {
-      // Animate timeline events on scroll
-      events.forEach((_, index) => {
-        const eventElement = `.timeline-event-${index}`;
-        
-        gsap.fromTo(eventElement, 
-          { 
-            opacity: 0, 
-            y: 100,
-            scale: 0.8
-          },
-          {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            duration: 1.2,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: eventElement,
-              start: "top 80%",
-              end: "top 30%",
-              toggleActions: "play none none reverse",
-              onEnter: () => setActiveIndex(index),
-              onEnterBack: () => setActiveIndex(index),
-            }
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const element = entry.target;
+            element.classList.add('timeline-visible');
+            const index = parseInt(element.getAttribute('data-index') || '0');
+            setActiveIndex(index);
           }
-        );
+        });
+      },
+      { 
+        rootMargin: '-20% 0px -20% 0px',
+        threshold: 0.1
+      }
+    );
 
-        // Parallax effect for images
-        gsap.fromTo(`${eventElement} .timeline-image`, 
-          { 
-            scale: 1.3,
-            y: -50
-          },
-          {
-            scale: 1,
-            y: 0,
-            duration: 2,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: eventElement,
-              start: "top bottom",
-              end: "bottom top",
-              scrub: 1
-            }
-          }
-        );
-      });
+    events.forEach((_, index) => {
+      const element = document.querySelector(`.timeline-event-${index}`);
+      if (element) {
+        element.setAttribute('data-index', index.toString());
+        observer.observe(element);
+      }
     });
-    
-    return () => ctx.revert();
+
+    return () => observer.disconnect();
   }, [events]);
 
   // Sample subtitle data for timeline audio
@@ -158,9 +128,9 @@ const CinematicTimeline = ({ events, className = '' }: CinematicTimelineProps) =
             {events.map((event, index) => (
               <div
                 key={event.year}
-                className={`timeline-event-${index} relative flex items-center ${
+                className={`timeline-event timeline-event-${index} relative flex items-center ${
                   index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'
-                } group opacity-100`}
+                } group opacity-0 translate-y-10`}
                 style={{ zIndex: 20 }}
               >
                 {/* Timeline Dot */}
