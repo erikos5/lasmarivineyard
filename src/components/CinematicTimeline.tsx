@@ -115,28 +115,22 @@ const CinematicTimeline = ({ events, className = '' }: CinematicTimelineProps) =
 
       <div className="relative z-10 container mx-auto px-6 py-12">
         {/* Section Header */}
-        <motion.div 
-          className="text-center mb-12"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: "power3.out" }}
-          viewport={{ once: true }}
-        >
-          <h2 className="font-playfair text-5xl lg:text-7xl font-bold text-evergreen-800 mb-6 leading-tight">
+        <div className="text-center mb-6">
+          <h2 className="font-playfair text-5xl lg:text-7xl font-bold text-evergreen-800 mb-4 leading-tight">
             Our Journey Through Time
           </h2>
           <p className="text-xl lg:text-2xl text-evergreen-600 font-inter max-w-4xl mx-auto leading-relaxed">
             Every vintage tells a story. Every bottle carries the dreams, struggles, and triumphs of five generations dedicated to the art of winemaking.
           </p>
-        </motion.div>
+        </div>
 
         {/* Audio Player for Timeline Story */}
         <motion.div 
-          className="max-w-4xl mx-auto mb-6"
+          className="max-w-4xl mx-auto mb-4"
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: false }}
         >
           <ImmersiveAudioPlayer
             audioSrc="/audio/recordings/section2-story.mp3"
@@ -240,8 +234,8 @@ const CinematicTimeline = ({ events, className = '' }: CinematicTimelineProps) =
                         className="border-l-4 border-pink-400 pl-8 py-6 bg-pink-50/80 rounded-r-2xl backdrop-blur-sm"
                         initial={{ opacity: 0, x: index % 2 === 0 ? 20 : -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.6, delay: 0.4 }}
-                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                        viewport={{ once: false }}
                       >
                         <p className="text-evergreen-800 font-cormorant text-2xl italic leading-relaxed">
                           "{event.quote}"
@@ -259,8 +253,8 @@ const CinematicTimeline = ({ events, className = '' }: CinematicTimelineProps) =
                     }`}
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.6 }}
-                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.3 }}
+                    viewport={{ once: false }}
                   >
                     <div className="text-center">
                       <div className="w-16 h-16 bg-pink-400/20 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -296,7 +290,7 @@ const CinematicTimeline = ({ events, className = '' }: CinematicTimelineProps) =
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
           >
             <motion.div 
               className="absolute left-1/2 transform -translate-x-1/2 w-12 h-12 bg-pink-400 rounded-full border-6 border-cream-50 z-10"
