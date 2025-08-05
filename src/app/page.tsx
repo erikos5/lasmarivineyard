@@ -17,28 +17,28 @@ import MagneticTitle from '@/components/MagneticTitle';
 // Timeline data for the story
 const timelineEvents = [
   {
-    year: "1892",
-    title: "The Beginning - Where Streams Once Flowed",
-    description: "Between Loutses and Perivolaki, where ancient streams carved the landscape, our great-great-grandfather found the perfect terroir. Here, two kilometers from Peritheia, he built our first oven and planted the foundation of our legacy.",
+    year: "Early Years",
+    title: "Where Streams Once Flowed",
+    description: "We found ourselves two kilometers past Loutses, in the middle between Perivolaki Loutses and Ano Perivolaki. This entire area was once a stream that carved through the landscape. At the bottom was a village called Katafi. From above, we had our estates.",
     image: "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=1000&q=80",
     audioId: "founding-story",
-    quote: "The land spoke to us, and we listened with reverence and determination."
+    quote: "Here was a stream - this entire area used to be a stream in time."
   },
   {
-    year: "1930s",
-    title: "The Katafi Years - Building Tradition", 
-    description: "In the village called Katafi, from above the estates, we had our livestock and built our traditions. This was the era when the traditional pastitsada pan was crafted, when each meal became a celebration of our heritage.",
+    year: "Traditional Times",
+    title: "The Era of Traditional Pastitsada", 
+    description: "With this traditional pan, we made the authentic pastitsada of old times. We stayed from early spring, had sheep, and worked the land. The house served as storage, as a place for baking, and as our helper house where we lived among the fields to tend the crops.",
     image: "https://images.unsplash.com/photo-1503457574462-bd27054394c1?auto=format&fit=crop&w=1000&q=80",
     audioId: "expansion-era",
     quote: "With this pan we made the traditional pastitsada of old times."
   },
   {
     year: "1963-1964",
-    title: "The Golden Years - Prosperity & Growth",
-    description: "The soil, the climate, everything aligned perfectly. We worked the land with our hands, and the harvest was beyond our dreams. These were the years that defined our approach to winemaking.",
+    title: "The Golden Harvest Years",
+    description: "Those years were magical - 1963 to 1964. After the rains came, we worked with our hands, and everything was perfect. The soil, the climate, all aligned. We had never seen such a harvest. The vines, the grapes, the wine - everything exceeded our wildest expectations.",
     image: "https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=1000&q=80",
     audioId: "renaissance-period",
-    quote: "Everything was perfect - the land, the weather, the harvest that exceeded all expectations."
+    quote: "After the rains came, we worked with our hands, and everything was perfect."
   },
   {
     year: "Today",
@@ -51,19 +51,21 @@ const timelineEvents = [
 ];
 
 // Gallery sections organized by emotion
-// Sample subtitle data - to be replaced with actual voice recording subtitles
+// Authentic subtitle data from family voice recordings
 const welcomeSubtitlesEn = [
-  { start: 0, end: 8, text: "We found two kilometers between Loutses, in the middle between Perivolaki and Loutses." },
-  { start: 8, end: 16, text: "There are two kilometers from Peritheia, but two kilometers from here is also Anu Peritheia." },
-  { start: 16, end: 24, text: "Here was a stream, the whole area was a stream, at the bottom there was a village called Katafi." },
-  { start: 24, end: 32, text: "From above, we had estates. The first thing that happened there was that we built an oven." }
+  { start: 0, end: 10, text: "We are located two kilometers past Loutses, halfway between Perivolaki Loutses and Ano Perivolaki." },
+  { start: 10, end: 18, text: "Here was a stream - this entire area used to be a stream in time." },
+  { start: 18, end: 26, text: "At the bottom was a village called Katafi. From above, we had our estates." },
+  { start: 26, end: 34, text: "We stayed from early spring, had sheep, and worked the land with our hands." },
+  { start: 34, end: 42, text: "The first thing we built here was an oven, and from there our story began." }
 ];
 
 const welcomeSubtitlesGr = [
-  { start: 0, end: 8, text: "Βρισκόμαστε δύο χιλιόμετρα μετά την Λούτσες, στη μέση μεταξύ Περιβόλιας Λούτσες και Άνω Περιβόλια." },
-  { start: 8, end: 16, text: "Εδώ ήταν ένα ρέμα, όλοκληρη αυτή η περιοχή στο χρόνο ήταν ρέμα." },
-  { start: 16, end: 24, text: "Κατάφι, ενιστάνε από πάνω, είχαμε πρόβατα." },
-  { start: 24, end: 32, text: "Το σπίτι που ήταν σαν αποθήκη, σαν ψησολόγιο και βοηθητικό σπίτι μας μέναμε στην πόρους περιβόλια στα χωράφια να νοιμε." }
+  { start: 0, end: 10, text: "Βρισκόμαστε δύο χιλιόμετρα μετά την Λούτσες, στη μέση μεταξύ Περιβόλιας Λούτσες και Άνω Περιβόλια." },
+  { start: 10, end: 18, text: "Εδώ ήταν ένα ρέμα, όλοκληρη αυτή η περιοχή στο χρόνο ήταν ρέμα." },
+  { start: 18, end: 26, text: "Κατάφι, ενιστάνε από πάνω, είχαμε πρόβατα." },
+  { start: 26, end: 34, text: "Το σπίτι που ήταν σαν αποθήκη, σαν ψησολόγιο και βοηθητικό σπίτι." },
+  { start: 34, end: 42, text: "Με αυτό το ταψί φτιάχναμε παλιά την παραδοσιακή παστιτσάδα." }
 ];
 
 const gallerySections = [
@@ -150,7 +152,7 @@ export default function Home() {
               />
               <div className="max-w-4xl mx-auto">
                 <p className="text-xl lg:text-2xl xl:text-3xl text-cream-100 font-inter leading-relaxed font-light">
-                  In northern Corfu, between Loutses and Perivolaki, our family has tended this land for generations. Here, where ancient streams once flowed, we built our first oven and began our journey.
+                  We are located two kilometers past Loutses, halfway between Perivolaki Loutses and Ano Perivolaki. Here was a stream - this entire area used to be a stream in time. From above, we had estates, livestock, and sheep. The first thing we built here was an oven, and from there our story began.
                 </p>
               </div>
               
@@ -199,19 +201,19 @@ export default function Home() {
                   text="The Lasmari Experience"
                   className="font-playfair text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-cream-50 leading-tight"
                 />
-                <div className="max-w-4xl mx-auto">
-                  <p className="text-xl lg:text-2xl xl:text-3xl text-cream-100 font-inter leading-relaxed font-light text-center">
-                    From sunrise harvest walks to intimate cellar tastings, immerse yourself in the authentic rhythm of Mediterranean winemaking.
-                  </p>
-                </div>
+                              <div className="max-w-4xl mx-auto">
+                <p className="text-xl lg:text-2xl xl:text-3xl text-cream-100 font-inter leading-relaxed font-light text-center">
+                  Experience the authentic traditions of our family vineyard - from working the soil with our hands to tasting the wine that carries the essence of our land and the wisdom of generations.
+                </p>
+              </div>
               </div>
               
               <div className="max-w-6xl mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center">
                   {[
-                    { title: "Walk the Vines", description: "Sunrise tours through our historic vineyards" },
-                    { title: "Taste the Terroir", description: "Intimate tastings in our ancient cellars" },
-                    { title: "Harvest with Us", description: "Join our family during harvest season" }
+                    { title: "Work the Land", description: "Experience farming with your hands, as our family has done for generations" },
+                    { title: "Traditional Cooking", description: "Learn to make authentic pastitsada with our original family pan" },
+                    { title: "Taste Our Legacy", description: "Sample wines from the golden harvest years and taste the terroir" }
                   ].map((item, index) => (
                     <div 
                       key={item.title} 
