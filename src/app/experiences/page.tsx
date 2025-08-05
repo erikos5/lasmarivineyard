@@ -1,7 +1,6 @@
 'use client';
 
 import { motion, AnimatePresence } from 'framer-motion';
-import { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import ScrollSection from '@/components/ScrollSection';
 import MagneticTitle from '@/components/MagneticTitle';
@@ -65,7 +64,6 @@ const experienceSegments = [
 ];
 
 export default function ExperiencesPage() {
-  const [selectedSegment, setSelectedSegment] = useState(0);
 
   return (
     <AnimatePresence mode="wait">
@@ -113,48 +111,39 @@ export default function ExperiencesPage() {
           </div>
         </ScrollSection>
 
-        {/* Experience Overview */}
+        {/* Segment 1: Historic Winemaking Discovery */}
         <ScrollSection
-          id="overview"
-          backgroundImage="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=2000&q=80"
-          overlayColor="rgba(253, 245, 230, 0.9)"
+          id="segment-1"
+          backgroundImage={experienceSegments[0].image}
+          overlayColor="rgba(46, 59, 41, 0.8)"
           className="min-h-screen w-full"
           parallaxIntensity={0}
         >
           <div className="w-full h-full flex items-center justify-center">
-            <div className="text-center space-y-12 max-w-6xl px-6">
-              <div className="space-y-6">
-                <MagneticTitle 
-                  text="Four Immersive Segments"
-                  className="font-playfair text-5xl md:text-7xl lg:text-8xl font-bold text-evergreen-800 leading-tight"
-                />
-                <p className="text-xl lg:text-2xl text-evergreen-700 font-inter leading-relaxed font-light max-w-4xl mx-auto">
-                  Our signature experience takes you on a complete journey through the world of Lasmari. From exploring historic winemaking locations to savoring authentic Corfiot flavors, every moment is designed to immerse you in our family's heritage.
-                </p>
+            <div className="text-center space-y-8 max-w-5xl px-6">
+              <div className="text-pink-400 text-xl font-inter font-medium">
+                Segment 1 • {experienceSegments[0].duration}
               </div>
+              <MagneticTitle 
+                text={experienceSegments[0].title}
+                className="font-playfair text-4xl md:text-6xl lg:text-7xl font-bold text-cream-50 leading-tight"
+              />
+              <p className="text-xl lg:text-2xl text-cream-100 font-inter leading-relaxed font-light max-w-4xl mx-auto">
+                {experienceSegments[0].description}
+              </p>
               
-              {/* Segment Navigation */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-16">
-                {experienceSegments.map((segment, index) => (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-12 max-w-4xl mx-auto">
+                {experienceSegments[0].features.map((feature, index) => (
                   <motion.div
                     key={index}
-                    className={`p-6 rounded-2xl cursor-pointer transition-all duration-300 ${
-                      selectedSegment === index 
-                        ? 'bg-evergreen-800 text-cream-50' 
-                        : 'bg-cream-50/60 backdrop-blur-sm text-evergreen-800 hover:bg-evergreen-700 hover:text-cream-50'
-                    }`}
-                    onClick={() => setSelectedSegment(index)}
-                    whileHover={{ scale: 1.05, y: -5 }}
-                    transition={{ duration: 0.2 }}
+                    className="bg-cream-50/10 backdrop-blur-sm p-4 rounded-xl border border-cream-50/20"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                    viewport={{ once: true }}
                   >
-                    <div className="text-2xl font-playfair font-bold mb-2">
-                      {index + 1}
-                    </div>
-                    <h3 className="font-playfair text-lg font-bold mb-2 leading-tight">
-                      {segment.title}
-                    </h3>
-                    <p className="text-sm opacity-80">
-                      {segment.duration}
+                    <p className="text-cream-200 font-inter text-center">
+                      {feature}
                     </p>
                   </motion.div>
                 ))}
@@ -163,50 +152,125 @@ export default function ExperiencesPage() {
           </div>
         </ScrollSection>
 
-        {/* Selected Segment Detail */}
+        {/* Segment 2: Wine Tasting & Terroir Experience */}
         <ScrollSection
-          id="segment-detail"
-          backgroundImage={experienceSegments[selectedSegment].image}
+          id="segment-2"
+          backgroundImage={experienceSegments[1].image}
           overlayColor="rgba(46, 59, 41, 0.8)"
           className="min-h-screen w-full"
           parallaxIntensity={0}
         >
           <div className="w-full h-full flex items-center justify-center">
             <div className="text-center space-y-8 max-w-5xl px-6">
-              <motion.div
-                key={selectedSegment}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                className="space-y-8"
-              >
-                <div className="text-pink-400 text-xl font-inter font-medium">
-                  Segment {selectedSegment + 1} • {experienceSegments[selectedSegment].duration}
-                </div>
-                <MagneticTitle 
-                  text={experienceSegments[selectedSegment].title}
-                  className="font-playfair text-4xl md:text-6xl lg:text-7xl font-bold text-cream-50 leading-tight"
-                />
-                <p className="text-xl lg:text-2xl text-cream-100 font-inter leading-relaxed font-light max-w-4xl mx-auto">
-                  {experienceSegments[selectedSegment].description}
-                </p>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-12 max-w-4xl mx-auto">
-                  {experienceSegments[selectedSegment].features.map((feature, index) => (
-                    <motion.div
-                      key={index}
-                      className="bg-cream-50/10 backdrop-blur-sm p-4 rounded-xl border border-cream-50/20"
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.4, delay: index * 0.1 }}
-                    >
-                      <p className="text-cream-200 font-inter text-center">
-                        {feature}
-                      </p>
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
+              <div className="text-pink-400 text-xl font-inter font-medium">
+                Segment 2 • {experienceSegments[1].duration}
+              </div>
+              <MagneticTitle 
+                text={experienceSegments[1].title}
+                className="font-playfair text-4xl md:text-6xl lg:text-7xl font-bold text-cream-50 leading-tight"
+              />
+              <p className="text-xl lg:text-2xl text-cream-100 font-inter leading-relaxed font-light max-w-4xl mx-auto">
+                {experienceSegments[1].description}
+              </p>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-12 max-w-4xl mx-auto">
+                {experienceSegments[1].features.map((feature, index) => (
+                  <motion.div
+                    key={index}
+                    className="bg-cream-50/10 backdrop-blur-sm p-4 rounded-xl border border-cream-50/20"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                  >
+                    <p className="text-cream-200 font-inter text-center">
+                      {feature}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </ScrollSection>
+
+        {/* Segment 3: Authentic Corfiot Culinary Journey */}
+        <ScrollSection
+          id="segment-3"
+          backgroundImage={experienceSegments[2].image}
+          overlayColor="rgba(46, 59, 41, 0.8)"
+          className="min-h-screen w-full"
+          parallaxIntensity={0}
+        >
+          <div className="w-full h-full flex items-center justify-center">
+            <div className="text-center space-y-8 max-w-5xl px-6">
+              <div className="text-pink-400 text-xl font-inter font-medium">
+                Segment 3 • {experienceSegments[2].duration}
+              </div>
+              <MagneticTitle 
+                text={experienceSegments[2].title}
+                className="font-playfair text-4xl md:text-6xl lg:text-7xl font-bold text-cream-50 leading-tight"
+              />
+              <p className="text-xl lg:text-2xl text-cream-100 font-inter leading-relaxed font-light max-w-4xl mx-auto">
+                {experienceSegments[2].description}
+              </p>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-12 max-w-4xl mx-auto">
+                {experienceSegments[2].features.map((feature, index) => (
+                  <motion.div
+                    key={index}
+                    className="bg-cream-50/10 backdrop-blur-sm p-4 rounded-xl border border-cream-50/20"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                  >
+                    <p className="text-cream-200 font-inter text-center">
+                      {feature}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </ScrollSection>
+
+        {/* Segment 4: Estate Grounds & Heritage Tour */}
+        <ScrollSection
+          id="segment-4"
+          backgroundImage={experienceSegments[3].image}
+          overlayColor="rgba(46, 59, 41, 0.8)"
+          className="min-h-screen w-full"
+          parallaxIntensity={0}
+        >
+          <div className="w-full h-full flex items-center justify-center">
+            <div className="text-center space-y-8 max-w-5xl px-6">
+              <div className="text-pink-400 text-xl font-inter font-medium">
+                Segment 4 • {experienceSegments[3].duration}
+              </div>
+              <MagneticTitle 
+                text={experienceSegments[3].title}
+                className="font-playfair text-4xl md:text-6xl lg:text-7xl font-bold text-cream-50 leading-tight"
+              />
+              <p className="text-xl lg:text-2xl text-cream-100 font-inter leading-relaxed font-light max-w-4xl mx-auto">
+                {experienceSegments[3].description}
+              </p>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-12 max-w-4xl mx-auto">
+                {experienceSegments[3].features.map((feature, index) => (
+                  <motion.div
+                    key={index}
+                    className="bg-cream-50/10 backdrop-blur-sm p-4 rounded-xl border border-cream-50/20"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                  >
+                    <p className="text-cream-200 font-inter text-center">
+                      {feature}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </div>
         </ScrollSection>
