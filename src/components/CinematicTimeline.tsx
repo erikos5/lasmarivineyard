@@ -164,38 +164,29 @@ const CinematicTimeline = ({ events, className = '' }: CinematicTimelineProps) =
                 style={{ zIndex: 20 }}
               >
                 {/* Timeline Dot */}
-                <motion.div
+                <div
                   className={`absolute left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full border-4 border-cream-50 z-30 transition-all duration-500 ${
                     activeIndex >= index 
                       ? 'bg-pink-400 scale-125 shadow-2xl shadow-pink-400/50' 
                       : 'bg-evergreen-600 scale-100'
-                  }`}
-                  whileHover={{ scale: 1.4 }}
+                  } hover:scale-125`}
                 />
 
                 {/* Content Container */}
                 <div className={`w-5/12 ${index % 2 === 0 ? 'pr-16 text-right' : 'pl-16 text-left'}`}>
                   {/* Year Badge */}
-                  <motion.div
+                  <div
                     className={`inline-block bg-evergreen-800 text-cream-50 px-8 py-3 rounded-full font-playfair font-bold text-2xl mb-6 shadow-lg ${
                       index % 2 === 0 ? 'float-right' : 'float-left'
-                    }`}
-                    whileHover={{ 
-                      scale: 1.1, 
-                      backgroundColor: '#2e4d31',
-                      boxShadow: '0 20px 40px rgba(46, 77, 49, 0.3)'
-                    }}
-                    transition={{ duration: 0.3 }}
+                    } hover:scale-110 hover:bg-evergreen-700 hover:shadow-2xl transition-all duration-300`}
                   >
                     {event.year}
-                  </motion.div>
+                  </div>
 
                   <div className="clear-both">
                     {/* Image */}
-                    <motion.div
-                      className="relative mb-8 rounded-3xl overflow-hidden shadow-2xl group-hover:shadow-3xl transition-shadow duration-500"
-                      whileHover={{ scale: 1.02 }}
-                      transition={{ duration: 0.4 }}
+                    <div
+                      className="relative mb-8 rounded-3xl overflow-hidden shadow-2xl group-hover:shadow-3xl hover:scale-105 transition-all duration-500"
                     >
                       <div className="timeline-image relative overflow-hidden">
                         <img
@@ -211,16 +202,14 @@ const CinematicTimeline = ({ events, className = '' }: CinematicTimelineProps) =
                           transition={{ duration: 0.3 }}
                         />
                       </div>
-                    </motion.div>
+                    </div>
 
                     {/* Title */}
-                    <motion.h3
-                      className="font-playfair text-4xl lg:text-5xl font-bold text-evergreen-800 mb-6 leading-tight"
-                      whileHover={{ scale: 1.02 }}
-                      transition={{ duration: 0.2 }}
+                    <h3
+                      className="font-playfair text-4xl lg:text-5xl font-bold text-evergreen-800 mb-6 leading-tight hover:scale-105 transition-transform duration-200"
                     >
                       {event.title}
-                    </motion.h3>
+                    </h3>
 
                     {/* Description */}
                     <p className="text-xl text-evergreen-700 font-inter leading-relaxed mb-8">
@@ -234,7 +223,7 @@ const CinematicTimeline = ({ events, className = '' }: CinematicTimelineProps) =
                         initial={{ opacity: 0, x: index % 2 === 0 ? 20 : -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.6, delay: 0.2 }}
-                        viewport={{ once: false }}
+                        viewport={{ once: true }}
                       >
                         <p className="text-evergreen-800 font-cormorant text-2xl italic leading-relaxed">
                           "{event.quote}"
