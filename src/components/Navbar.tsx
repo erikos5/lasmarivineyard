@@ -68,8 +68,8 @@ const Navbar = () => {
         isScrolled ? 'backdrop-blur-subtle shadow-lg' : ''
       }`}
     >
-      <div className="container-max section-padding pr-12 md:pr-16 lg:pr-20">
-        <div className="flex items-center justify-between py-4">
+      <div className="container-max section-padding">
+        <div className="flex items-center justify-between py-4 transform translate-x-4 md:translate-x-8 lg:translate-x-12">
           {/* Logo */}
           <motion.div
             style={{ scale: logoScale }}
