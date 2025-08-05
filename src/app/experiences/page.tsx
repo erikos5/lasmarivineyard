@@ -1,11 +1,11 @@
 'use client';
 
 import { motion, AnimatePresence } from 'framer-motion';
+import { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import ScrollSection from '@/components/ScrollSection';
 import MagneticTitle from '@/components/MagneticTitle';
 import Footer from '@/components/Footer';
-import CinematicHero from '@/components/CinematicHero';
 
 // Comprehensive experience segments
 const experienceSegments = [
@@ -63,7 +63,39 @@ const experienceSegments = [
   }
 ];
 
+// Optimized animation variants
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.05,
+      delayChildren: 0.1
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { 
+    opacity: 0, 
+    y: 10,
+    transition: { duration: 0.3, ease: "easeOut" }
+  },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { duration: 0.3, ease: "easeOut" }
+  }
+};
+
 export default function ExperiencesPage() {
+  // Performance optimization: preload critical images
+  useEffect(() => {
+    experienceSegments.forEach(segment => {
+      const img = new Image();
+      img.src = segment.image;
+    });
+  }, []);
 
   return (
     <AnimatePresence mode="wait">
@@ -132,22 +164,27 @@ export default function ExperiencesPage() {
                 {experienceSegments[0].description}
               </p>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-12 max-w-4xl mx-auto">
+              {/* Optimized feature grid */}
+              <motion.div 
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-12 max-w-4xl mx-auto"
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-100px" }}
+              >
                 {experienceSegments[0].features.map((feature, index) => (
                   <motion.div
                     key={index}
-                    className="bg-cream-50/10 backdrop-blur-sm p-4 rounded-xl border border-cream-50/20"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, delay: index * 0.1 }}
-                    viewport={{ once: true }}
+                    className="bg-cream-50/10 border border-cream-50/20 p-4 rounded-xl will-change-transform transform-gpu"
+                    variants={itemVariants}
+                    style={{ backdropFilter: 'blur(4px)' }}
                   >
                     <p className="text-cream-200 font-inter text-center">
                       {feature}
                     </p>
                   </motion.div>
                 ))}
-              </div>
+              </motion.div>
             </div>
           </div>
         </ScrollSection>
@@ -173,22 +210,26 @@ export default function ExperiencesPage() {
                 {experienceSegments[1].description}
               </p>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-12 max-w-4xl mx-auto">
+              <motion.div 
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-12 max-w-4xl mx-auto"
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-100px" }}
+              >
                 {experienceSegments[1].features.map((feature, index) => (
                   <motion.div
                     key={index}
-                    className="bg-cream-50/10 backdrop-blur-sm p-4 rounded-xl border border-cream-50/20"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, delay: index * 0.1 }}
-                    viewport={{ once: true }}
+                    className="bg-cream-50/10 border border-cream-50/20 p-4 rounded-xl will-change-transform transform-gpu"
+                    variants={itemVariants}
+                    style={{ backdropFilter: 'blur(4px)' }}
                   >
                     <p className="text-cream-200 font-inter text-center">
                       {feature}
                     </p>
                   </motion.div>
                 ))}
-              </div>
+              </motion.div>
             </div>
           </div>
         </ScrollSection>
@@ -214,22 +255,26 @@ export default function ExperiencesPage() {
                 {experienceSegments[2].description}
               </p>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-12 max-w-4xl mx-auto">
+              <motion.div 
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-12 max-w-4xl mx-auto"
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-100px" }}
+              >
                 {experienceSegments[2].features.map((feature, index) => (
                   <motion.div
                     key={index}
-                    className="bg-cream-50/10 backdrop-blur-sm p-4 rounded-xl border border-cream-50/20"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, delay: index * 0.1 }}
-                    viewport={{ once: true }}
+                    className="bg-cream-50/10 border border-cream-50/20 p-4 rounded-xl will-change-transform transform-gpu"
+                    variants={itemVariants}
+                    style={{ backdropFilter: 'blur(4px)' }}
                   >
                     <p className="text-cream-200 font-inter text-center">
                       {feature}
                     </p>
                   </motion.div>
                 ))}
-              </div>
+              </motion.div>
             </div>
           </div>
         </ScrollSection>
@@ -255,22 +300,26 @@ export default function ExperiencesPage() {
                 {experienceSegments[3].description}
               </p>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-12 max-w-4xl mx-auto">
+              <motion.div 
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-12 max-w-4xl mx-auto"
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-100px" }}
+              >
                 {experienceSegments[3].features.map((feature, index) => (
                   <motion.div
                     key={index}
-                    className="bg-cream-50/10 backdrop-blur-sm p-4 rounded-xl border border-cream-50/20"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, delay: index * 0.1 }}
-                    viewport={{ once: true }}
+                    className="bg-cream-50/10 border border-cream-50/20 p-4 rounded-xl will-change-transform transform-gpu"
+                    variants={itemVariants}
+                    style={{ backdropFilter: 'blur(4px)' }}
                   >
                     <p className="text-cream-200 font-inter text-center">
                       {feature}
                     </p>
                   </motion.div>
                 ))}
-              </div>
+              </motion.div>
             </div>
           </div>
         </ScrollSection>
@@ -295,79 +344,35 @@ export default function ExperiencesPage() {
                 </p>
               </div>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <motion.div
-                  className="bg-cream-50/80 backdrop-blur-sm p-8 rounded-2xl border border-evergreen-200/30"
-                  whileHover={{ scale: 1.05, y: -5 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <div className="text-4xl mb-4">🍷</div>
-                  <h3 className="font-playfair text-2xl font-bold text-evergreen-800 mb-4">Premium Tastings</h3>
-                  <p className="text-evergreen-700 font-inter">
-                    Five carefully selected wines representing our estate's finest expressions
-                  </p>
-                </motion.div>
-
-                <motion.div
-                  className="bg-cream-50/80 backdrop-blur-sm p-8 rounded-2xl border border-evergreen-200/30"
-                  whileHover={{ scale: 1.05, y: -5 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <div className="text-4xl mb-4">🧀</div>
-                  <h3 className="font-playfair text-2xl font-bold text-evergreen-800 mb-4">Authentic Bites</h3>
-                  <p className="text-evergreen-700 font-inter">
-                    Traditional Corfiot appetizers and specialties prepared from family recipes
-                  </p>
-                </motion.div>
-
-                <motion.div
-                  className="bg-cream-50/80 backdrop-blur-sm p-8 rounded-2xl border border-evergreen-200/30"
-                  whileHover={{ scale: 1.05, y: -5 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <div className="text-4xl mb-4">🏛️</div>
-                  <h3 className="font-playfair text-2xl font-bold text-evergreen-800 mb-4">Historic Tours</h3>
-                  <p className="text-evergreen-700 font-inter">
-                    Guided exploration of original cellars and traditional winemaking areas
-                  </p>
-                </motion.div>
-
-                <motion.div
-                  className="bg-cream-50/80 backdrop-blur-sm p-8 rounded-2xl border border-evergreen-200/30"
-                  whileHover={{ scale: 1.05, y: -5 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <div className="text-4xl mb-4">🌿</div>
-                  <h3 className="font-playfair text-2xl font-bold text-evergreen-800 mb-4">Estate Walk</h3>
-                  <p className="text-evergreen-700 font-inter">
-                    Peaceful stroll through our vineyards with terroir and farming explanations
-                  </p>
-                </motion.div>
-
-                <motion.div
-                  className="bg-cream-50/80 backdrop-blur-sm p-8 rounded-2xl border border-evergreen-200/30"
-                  whileHover={{ scale: 1.05, y: -5 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <div className="text-4xl mb-4">📚</div>
-                  <h3 className="font-playfair text-2xl font-bold text-evergreen-800 mb-4">Family Stories</h3>
-                  <p className="text-evergreen-700 font-inter">
-                    Personal narratives and insights from five generations of winemakers
-                  </p>
-                </motion.div>
-
-                <motion.div
-                  className="bg-cream-50/80 backdrop-blur-sm p-8 rounded-2xl border border-evergreen-200/30"
-                  whileHover={{ scale: 1.05, y: -5 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <div className="text-4xl mb-4">🎁</div>
-                  <h3 className="font-playfair text-2xl font-bold text-evergreen-800 mb-4">Take-Home</h3>
-                  <p className="text-evergreen-700 font-inter">
-                    Complimentary bottle from our current vintage to remember your visit
-                  </p>
-                </motion.div>
-              </div>
+              {/* Optimized inclusion cards */}
+              <motion.div 
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-100px" }}
+              >
+                {[
+                  { emoji: "🍷", title: "Premium Tastings", desc: "Five carefully selected wines representing our estate's finest expressions" },
+                  { emoji: "🧀", title: "Authentic Bites", desc: "Traditional Corfiot appetizers and specialties prepared from family recipes" },
+                  { emoji: "🏛️", title: "Historic Tours", desc: "Guided exploration of original cellars and traditional winemaking areas" },
+                  { emoji: "🌿", title: "Estate Walk", desc: "Peaceful stroll through our vineyards with terroir and farming explanations" },
+                  { emoji: "📚", title: "Family Stories", desc: "Personal narratives and insights from five generations of winemakers" },
+                  { emoji: "🎁", title: "Take-Home", desc: "Complimentary bottle from our current vintage to remember your visit" }
+                ].map((item, index) => (
+                  <motion.div
+                    key={index}
+                    className="bg-cream-50/80 border border-evergreen-200/30 p-8 rounded-2xl transform-gpu will-change-transform"
+                    variants={itemVariants}
+                    whileHover={{ scale: 1.02, y: -2 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <div className="text-4xl mb-4">{item.emoji}</div>
+                    <h3 className="font-playfair text-2xl font-bold text-evergreen-800 mb-4">{item.title}</h3>
+                    <p className="text-evergreen-700 font-inter">{item.desc}</p>
+                  </motion.div>
+                ))}
+              </motion.div>
             </div>
           </div>
         </ScrollSection>
@@ -392,7 +397,7 @@ export default function ExperiencesPage() {
                 </p>
               </div>
 
-              <div className="bg-cream-50/10 backdrop-blur-sm p-12 rounded-3xl border border-cream-50/20">
+              <div className="bg-cream-50/10 border border-cream-50/20 p-12 rounded-3xl transform-gpu" style={{ backdropFilter: 'blur(8px)' }}>
                 <div className="space-y-8">
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
                     <div>
@@ -425,9 +430,10 @@ export default function ExperiencesPage() {
 
                   <motion.a
                     href="mailto:info@lasmari.gr?subject=Experience%20Booking%20Inquiry"
-                    className="inline-block bg-pink-400 hover:bg-pink-500 text-evergreen-800 font-inter font-semibold px-12 py-4 text-lg rounded-xl transition-all duration-300"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
+                    className="inline-block bg-pink-400 hover:bg-pink-500 text-evergreen-800 font-inter font-semibold px-12 py-4 text-lg rounded-xl transition-all duration-300 transform-gpu will-change-transform"
+                    whileHover={{ scale: 1.03 }}
+                    whileTap={{ scale: 0.98 }}
+                    transition={{ duration: 0.15 }}
                   >
                     Reserve Your Spot
                   </motion.a>

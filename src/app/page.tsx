@@ -515,7 +515,7 @@ export default function Home() {
             </div>
           </div>
         </ScrollSection>
-
+        
         <Footer />
       </main>
     </AnimatePresence>
