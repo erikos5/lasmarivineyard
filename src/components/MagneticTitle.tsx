@@ -56,9 +56,8 @@ const MagneticTitle = ({ text, className = '', style }: MagneticTitleProps) => {
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, delay: 0.2 }}
-      viewport={{ once: true }}
       whileHover={{ scale: 1.02 }}
     >
       {text.split(' ').map((word, index) => (
