@@ -111,12 +111,37 @@ export default function GalleryPage() {
         <Navbar />
       </div>
 
-      {/* Gallery title with magnetic effect */}
-      <div className="pt-24 pb-12 text-center relative z-10">
-        <MagneticTitle 
-          text="Gallery"
-          className="text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-playfair font-bold text-evergreen-800"
-        />
+      {/* Enhanced Gallery Header */}
+      <div className="pt-32 pb-20 text-center relative z-10 bg-gradient-to-b from-cream-50 via-cream-50 to-transparent">
+        <div className="max-w-4xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className="space-y-6"
+          >
+            <MagneticTitle 
+              text="Gallery"
+              className="text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] font-playfair font-bold text-evergreen-800 leading-none"
+            />
+            <motion.p 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="text-lg md:text-xl text-evergreen-700 font-inter font-light max-w-2xl mx-auto leading-relaxed"
+            >
+              A visual journey through our vineyard heritage, from ancient terroir to modern winemaking excellence
+            </motion.p>
+            
+            {/* Decorative separator */}
+            <motion.div
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ duration: 1, delay: 0.6 }}
+              className="w-24 h-0.5 bg-gradient-to-r from-transparent via-evergreen-600 to-transparent mx-auto"
+            />
+          </motion.div>
+        </div>
       </div>
 
       {/* Full-screen Gallery Masonry */}
