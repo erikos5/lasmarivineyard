@@ -63,22 +63,26 @@ export default function GalleryPage() {
       {/* Use main Navbar for consistency and performance */}
       <Navbar />
 
-      {/* Compact top spacing under navbar; no hero or tabs */}
-      <div className="h-24" />
+      {/* Minimal gallery title */}
+      <div className="pt-32 pb-8 text-center">
+        <h1 className="text-4xl md:text-5xl font-playfair font-bold text-evergreen-800">
+          Gallery
+        </h1>
+      </div>
 
-      {/* Gallery Masonry (modernized) */}
-      <section className="py-24 bg-cream-50">
-        <div className="container-max section-padding">
+      {/* Full-screen Gallery Masonry */}
+      <section className="bg-cream-50">
+        <div className="px-2">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6 }}
-            className="columns-1 sm:columns-2 lg:columns-3 gap-6 [column-fill:_balance]"
+            className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-2 [column-fill:_balance]"
           >
             {collageImages.map((image, index) => (
               <motion.div
                 key={index}
-                className="mb-6 break-inside-avoid relative group cursor-pointer rounded-2xl overflow-hidden shadow-[0_10px_30px_-10px_rgba(0,0,0,0.3)]"
+                className="mb-2 break-inside-avoid relative group cursor-pointer rounded-lg overflow-hidden shadow-[0_4px_12px_-4px_rgba(0,0,0,0.2)]"
                 initial={{ opacity: 0, y: 40, scale: 0.98 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true, margin: '-50px' }}
