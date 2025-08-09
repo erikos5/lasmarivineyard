@@ -53,43 +53,39 @@ const galleryCategories = [
   }
 ];
 
-// Local gallery images from backgrounds and timeline folders
+// Gallery images - using high-quality wine and vineyard themed images
 const collageImages = [
-  "/images/backgrounds/hero-authentic-corfiot-heritage.png",
-  "/images/backgrounds/bg-wine-heritage-header.png",
-  "/images/backgrounds/bg-gallery-soft.png",
-  "/images/timeline/timeline-streams.png",
-  "/images/timeline/timeline-land.png",
-  "/images/timeline/timeline-vintage.png",
-  "/images/timeline/timeline-modern.png",
-  "/images/backgrounds/hero-authentic-corfiot-heritage.png",
-  "/images/backgrounds/bg-wine-heritage-header.png",
-  "/images/backgrounds/bg-gallery-soft.png",
-  "/images/timeline/timeline-streams.png",
-  "/images/timeline/timeline-land.png",
-  "/images/timeline/timeline-vintage.png",
-  "/images/timeline/timeline-modern.png",
-  "/images/backgrounds/hero-authentic-corfiot-heritage.png",
-  "/images/backgrounds/bg-wine-heritage-header.png",
-  "/images/backgrounds/bg-gallery-soft.png",
-  "/images/timeline/timeline-streams.png",
-  "/images/timeline/timeline-land.png",
-  "/images/timeline/timeline-vintage.png",
-  "/images/timeline/timeline-modern.png",
-  "/images/backgrounds/hero-authentic-corfiot-heritage.png",
-  "/images/backgrounds/bg-wine-heritage-header.png",
-  "/images/backgrounds/bg-gallery-soft.png",
-  "/images/timeline/timeline-streams.png",
-  "/images/timeline/timeline-land.png",
-  "/images/timeline/timeline-vintage.png",
-  "/images/timeline/timeline-modern.png",
-  "/images/backgrounds/hero-authentic-corfiot-heritage.png",
-  "/images/backgrounds/bg-wine-heritage-header.png",
-  "/images/backgrounds/bg-gallery-soft.png",
-  "/images/timeline/timeline-streams.png",
-  "/images/timeline/timeline-land.png",
-  "/images/timeline/timeline-vintage.png",
-  "/images/timeline/timeline-modern.png"
+  "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1200&q=80",
+  "https://images.unsplash.com/photo-1560958089-b8a1929cea89?auto=format&fit=crop&w=1200&q=80",
+  "https://images.unsplash.com/photo-1463320898484-cdee8141c787?auto=format&fit=crop&w=1200&q=80",
+  "https://images.unsplash.com/photo-1571613316887-6f8d5cbf7ef7?auto=format&fit=crop&w=1200&q=80",
+  "https://images.unsplash.com/photo-1547036967-23d11aacaee0?auto=format&fit=crop&w=1200&q=80",
+  "https://images.unsplash.com/photo-1520637736862-4d197d17c35a?auto=format&fit=crop&w=1200&q=80",
+  "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?auto=format&fit=crop&w=1200&q=80",
+  "https://images.unsplash.com/photo-1566737236500-c8ac43014a8e?auto=format&fit=crop&w=1200&q=80",
+  "https://images.unsplash.com/photo-1517154421773-0529f29ea451?auto=format&fit=crop&w=1200&q=80",
+  "https://images.unsplash.com/photo-1516906736301-b7595215dd17?auto=format&fit=crop&w=1200&q=80",
+  "https://images.unsplash.com/photo-1600298881974-6be191ceeda1?auto=format&fit=crop&w=1200&q=80",
+  "https://images.unsplash.com/photo-1533905785056-c34b3227497a?auto=format&fit=crop&w=1200&q=80",
+  "https://images.unsplash.com/photo-1574469172761-595b6be16096?auto=format&fit=crop&w=1200&q=80",
+  "https://images.unsplash.com/photo-1559181567-c3190ca9959b?auto=format&fit=crop&w=1200&q=80",
+  "https://images.unsplash.com/photo-1564415315949-7a0c4c73aab4?auto=format&fit=crop&w=1200&q=80",
+  "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1200&q=80",
+  "https://images.unsplash.com/photo-1568213816046-0ee1c42bd559?auto=format&fit=crop&w=1200&q=80",
+  "https://images.unsplash.com/photo-1551554781-c46200ea959d?auto=format&fit=crop&w=1200&q=80",
+  "https://images.unsplash.com/photo-1596142332133-327adf4e6b2a?auto=format&fit=crop&w=1200&q=80",
+  "https://images.unsplash.com/photo-1553978297-833d09932d81?auto=format&fit=crop&w=1200&q=80",
+  "https://images.unsplash.com/photo-1566717051817-c4fc0ec5d6f0?auto=format&fit=crop&w=1200&q=80",
+  "https://images.unsplash.com/photo-1557682224-5b8590cd9ec5?auto=format&fit=crop&w=1200&q=80",
+  "https://images.unsplash.com/photo-1472532453775-9ad41e3bf8b0?auto=format&fit=crop&w=1200&q=80",
+  "https://images.unsplash.com/photo-1595231226090-c0cbacadd763?auto=format&fit=crop&w=1200&q=80",
+  "https://images.unsplash.com/photo-1569099377939-ff1c81772b24?auto=format&fit=crop&w=1200&q=80",
+  "https://images.unsplash.com/photo-1505892781818-b69c25b26e04?auto=format&fit=crop&w=1200&q=80",
+  "https://images.unsplash.com/photo-1564498318-ed09c0e8efce?auto=format&fit=crop&w=1200&q=80",
+  "https://images.unsplash.com/photo-1551698618-1dfe5d97d256?auto=format&fit=crop&w=1200&q=80",
+  "https://images.unsplash.com/photo-1502085671122-2d218cd434e6?auto=format&fit=crop&w=1200&q=80",
+  "https://images.unsplash.com/photo-1533050487297-09b450131914?auto=format&fit=crop&w=1200&q=80",
+  "https://images.unsplash.com/photo-1561133647-db2e065e1c14?auto=format&fit=crop&w=1200&q=80"
 ];
 
 export default function GalleryPage() {
@@ -132,9 +128,13 @@ export default function GalleryPage() {
               >
                 <img
                   src={image}
-                  alt={`Gallery image ${index + 1}`}
+                  alt={`Lasmari Vineyard ${index + 1}`}
                   loading="lazy"
                   className="w-full h-auto object-cover"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                  }}
                 />
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="pointer-events-none absolute bottom-3 left-3 flex items-center gap-2 text-cream-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">

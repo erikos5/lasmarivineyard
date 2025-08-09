@@ -19,11 +19,15 @@ const Navbar = () => {
   const pathname = usePathname();
   const { scrollY } = useScroll();
 
-  // Dynamic navbar background - cinematic style
+  // Dynamic navbar background - cinematic style with gallery page exception
+  const isGalleryPage = pathname === '/gallery';
   const navBackground = useTransform(
     scrollY,
     [0, 100],
-    ['rgba(46, 59, 41, 0)', 'rgba(46, 59, 41, 0.95)']
+    [
+      isGalleryPage ? 'rgba(46, 59, 41, 0.95)' : 'rgba(46, 59, 41, 0)', 
+      'rgba(46, 59, 41, 0.95)'
+    ]
   );
 
   const logoScale = useTransform(scrollY, [0, 100], [1, 0.9]);
