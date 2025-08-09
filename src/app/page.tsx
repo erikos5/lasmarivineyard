@@ -20,7 +20,7 @@ const timelineEvents = [
     year: "Early Years",
     title: "Where Streams Once Flowed",
     description: "The terroir of Lasmari was shaped by ancient waterways that carved fertile valleys through Corfu's landscape. This unique geological formation created the perfect drainage and mineral composition that gives our wines their distinctive character. The location between Perivolaki Loutses and Ano Perivolaki benefits from both elevation and natural water sources.",
-    image: "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=1000&q=80",
+    image: "/images/timeline/timeline-1-hero.png",
     audioId: "founding-story",
     quote: "Here was a stream - this entire area used to be a stream in time."
   },
@@ -28,7 +28,7 @@ const timelineEvents = [
     year: "Traditional Times",
     title: "Living Off the Land", 
     description: "Traditional Corfiot farming involved a holistic approach to agriculture. Families would live seasonally on their estates, maintaining livestock alongside vineyards. This integrated farming method enriched the soil naturally and created a sustainable ecosystem where every element supported the others, from sheep fertilizing the land to olive groves providing windbreaks for delicate vines.",
-    image: "https://images.unsplash.com/photo-1503457574462-bd27054394c1?auto=format&fit=crop&w=1000&q=80",
+    image: "/images/timeline/timeline-2-hero.png",
     audioId: "expansion-era",
     quote: "With this pan we made the traditional pastitsada of old times."
   },
@@ -36,7 +36,7 @@ const timelineEvents = [
     year: "1963-1964",
     title: "The Perfect Vintage",
     description: "Certain years in winemaking become legendary when nature aligns perfectly. The 1963-1964 seasons brought ideal rainfall patterns, optimal soil conditions, and perfect timing for harvest. These factors combined to create what winemakers call a 'perfect vintage' - where every element from grape development to fermentation exceeded expectations, setting the standard for all future wines.",
-    image: "https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=1000&q=80",
+    image: "/images/timeline/timeline-3-hero.png",
     audioId: "renaissance-period",
     quote: "After the rains came, we worked with our hands, and everything was perfect."
   },
@@ -44,7 +44,7 @@ const timelineEvents = [
     year: "Today",
     title: "Modern Heritage Winemaking",
     description: "Contemporary winemaking at Lasmari combines time-honored techniques with modern understanding of viticulture. We maintain traditional hand-harvesting methods while applying scientific knowledge of fermentation, aging, and terroir expression. This approach preserves the authentic character of Corfiot wines while ensuring consistent quality and sustainable practices for future generations.",
-    image: "https://images.unsplash.com/photo-1560958089-b8a1929cea89?auto=format&fit=crop&w=1000&q=80",
+    image: "/images/timeline/timeline-4-hero.png",
     audioId: "present-day",
     quote: "We are not just making wine; we are preserving a living heritage for future generations."
   }
@@ -138,7 +138,7 @@ export default function Home() {
         {/* Immersive Introduction */}
         <ScrollSection
           id="introduction"
-          backgroundImage="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=2000&q=80"
+          backgroundImage="/images/backgrounds/bg-wine-heritage-header.png"
           overlayColor="rgba(46, 59, 41, 0.6)"
           cinematicZoom={false}
           parallaxIntensity={0}
@@ -188,7 +188,7 @@ export default function Home() {
         {/* The Lasmari Experience */}
         <ScrollSection
           id="experience"
-          backgroundImage="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=2000&q=80"
+          backgroundImage="/images/backgrounds/bg-experience.png"
           overlayColor="rgba(46, 59, 41, 0.7)"
           cinematicZoom={false}
           parallaxIntensity={0}
@@ -241,7 +241,7 @@ export default function Home() {
         {/* Emotion-Based Gallery */}
         <ScrollSection
           id="gallery"
-          backgroundImage="https://images.unsplash.com/photo-1596400033635-bac1b5ba2480?auto=format&fit=crop&w=2000&q=80"
+          backgroundImage="/images/backgrounds/bg-gallery-soft.png"
           overlayColor="rgba(253, 245, 230, 0.85)"
           className="min-h-screen w-full"
           storyReveal={true}
@@ -267,7 +267,7 @@ export default function Home() {
         {/* Visit Us Section */}
         <ScrollSection
           id="visit"
-          backgroundImage="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=2000&q=80"
+          backgroundImage="/images/backgrounds/bg-experience.png"
           overlayColor="rgba(46, 59, 41, 0.8)"
           className="min-h-screen w-full"
           parallaxIntensity={0}
