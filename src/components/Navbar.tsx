@@ -46,8 +46,14 @@ const Navbar = () => {
   }, []);
 
   const handleNavigation = (item: typeof navItems[0]) => {
+    // Close mobile menu first
+    setIsMobileMenuOpen(false);
+    
     if (item.isPage) {
-      router.push(item.href);
+      // Add a small delay for smoother page transitions
+      setTimeout(() => {
+        router.push(item.href);
+      }, 100);
     } else {
       // For anchor links (like #contact)
       const element = document.querySelector(item.href);
@@ -55,7 +61,6 @@ const Navbar = () => {
         element.scrollIntoView({ behavior: 'smooth' });
       }
     }
-    setIsMobileMenuOpen(false);
   };
 
   const isActivePage = (href: string) => {
