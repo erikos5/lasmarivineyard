@@ -344,32 +344,40 @@ export default function ExperiencesPage() {
                 </p>
               </div>
               
-              {/* Optimized inclusion cards */}
+              {/* Elegant inclusion features */}
               <motion.div 
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto"
                 variants={containerVariants}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, margin: "-100px" }}
               >
                 {[
-                  { emoji: "🍷", title: "Premium Tastings", desc: "Five carefully selected wines representing our estate's finest expressions" },
-                  { emoji: "🧀", title: "Authentic Bites", desc: "Traditional Corfiot appetizers and specialties prepared from family recipes" },
-                  { emoji: "🏛️", title: "Historic Tours", desc: "Guided exploration of original cellars and traditional winemaking areas" },
-                  { emoji: "🌿", title: "Estate Walk", desc: "Peaceful stroll through our vineyards with terroir and farming explanations" },
-                  { emoji: "📚", title: "Family Stories", desc: "Personal narratives and insights from five generations of winemakers" },
-                  { emoji: "🎁", title: "Take-Home", desc: "Complimentary bottle from our current vintage to remember your visit" }
+                  { title: "Premium Tastings", desc: "Five carefully selected wines representing our estate's finest expressions" },
+                  { title: "Authentic Bites", desc: "Traditional Corfiot appetizers and specialties prepared from family recipes" },
+                  { title: "Historic Tours", desc: "Guided exploration of original cellars and traditional winemaking areas" },
+                  { title: "Estate Walk", desc: "Peaceful stroll through our vineyards with terroir and farming explanations" },
+                  { title: "Family Stories", desc: "Personal narratives and insights from five generations of winemakers" },
+                  { title: "Take-Home", desc: "Complimentary bottle from our current vintage to remember your visit" }
                 ].map((item, index) => (
                   <motion.div
                     key={index}
-                    className="bg-cream-50/80 border border-evergreen-200/30 p-8 rounded-2xl transform-gpu will-change-transform"
+                    className="group bg-cream-50/20 border border-cream-50/30 p-8 rounded-xl backdrop-blur-sm transform-gpu will-change-transform hover:bg-cream-50/30 transition-all duration-300"
                     variants={itemVariants}
-                    whileHover={{ scale: 1.02, y: -2 }}
-                    transition={{ duration: 0.2 }}
+                    whileHover={{ scale: 1.01, y: -1 }}
+                    transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
                   >
-                    <div className="text-4xl mb-4">{item.emoji}</div>
-                    <h3 className="font-playfair text-2xl font-bold text-evergreen-800 mb-4">{item.title}</h3>
-                    <p className="text-evergreen-700 font-inter">{item.desc}</p>
+                    <div className="flex items-start space-x-4">
+                      <div className="flex-shrink-0 w-2 h-2 bg-gradient-to-br from-pink-400 to-pink-500 rounded-full mt-3 group-hover:scale-125 transition-transform duration-300"></div>
+                      <div className="flex-1">
+                        <h3 className="font-playfair text-xl md:text-2xl font-bold text-cream-50 mb-3 group-hover:text-pink-200 transition-colors duration-300">
+                          {item.title}
+                        </h3>
+                        <p className="text-cream-200 font-inter text-base leading-relaxed font-light">
+                          {item.desc}
+                        </p>
+                      </div>
+                    </div>
                   </motion.div>
                 ))}
               </motion.div>
