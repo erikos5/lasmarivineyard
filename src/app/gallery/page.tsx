@@ -53,39 +53,25 @@ const galleryCategories = [
   }
 ];
 
-// Gallery images - using high-quality wine and vineyard themed images
+// Gallery images - using only our local backgrounds and timeline images
+const baseImages = [
+  "/images/backgrounds/hero-authentic-corfiot-heritage.png",
+  "/images/backgrounds/bg-wine-heritage-header.png", 
+  "/images/backgrounds/bg-gallery-soft.png",
+  "/images/backgrounds/bg-experience.png",
+  "/images/timeline/timeline-1-hero.png",
+  "/images/timeline/timeline-2-hero.png",
+  "/images/timeline/timeline-3-hero.png",
+  "/images/timeline/timeline-4-hero.png"
+];
+
+// Repeat the images multiple times for longer scrolling
 const collageImages = [
-  "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1200&q=80",
-  "https://images.unsplash.com/photo-1560958089-b8a1929cea89?auto=format&fit=crop&w=1200&q=80",
-  "https://images.unsplash.com/photo-1463320898484-cdee8141c787?auto=format&fit=crop&w=1200&q=80",
-  "https://images.unsplash.com/photo-1571613316887-6f8d5cbf7ef7?auto=format&fit=crop&w=1200&q=80",
-  "https://images.unsplash.com/photo-1547036967-23d11aacaee0?auto=format&fit=crop&w=1200&q=80",
-  "https://images.unsplash.com/photo-1520637736862-4d197d17c35a?auto=format&fit=crop&w=1200&q=80",
-  "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?auto=format&fit=crop&w=1200&q=80",
-  "https://images.unsplash.com/photo-1566737236500-c8ac43014a8e?auto=format&fit=crop&w=1200&q=80",
-  "https://images.unsplash.com/photo-1517154421773-0529f29ea451?auto=format&fit=crop&w=1200&q=80",
-  "https://images.unsplash.com/photo-1516906736301-b7595215dd17?auto=format&fit=crop&w=1200&q=80",
-  "https://images.unsplash.com/photo-1600298881974-6be191ceeda1?auto=format&fit=crop&w=1200&q=80",
-  "https://images.unsplash.com/photo-1533905785056-c34b3227497a?auto=format&fit=crop&w=1200&q=80",
-  "https://images.unsplash.com/photo-1574469172761-595b6be16096?auto=format&fit=crop&w=1200&q=80",
-  "https://images.unsplash.com/photo-1559181567-c3190ca9959b?auto=format&fit=crop&w=1200&q=80",
-  "https://images.unsplash.com/photo-1564415315949-7a0c4c73aab4?auto=format&fit=crop&w=1200&q=80",
-  "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1200&q=80",
-  "https://images.unsplash.com/photo-1568213816046-0ee1c42bd559?auto=format&fit=crop&w=1200&q=80",
-  "https://images.unsplash.com/photo-1551554781-c46200ea959d?auto=format&fit=crop&w=1200&q=80",
-  "https://images.unsplash.com/photo-1596142332133-327adf4e6b2a?auto=format&fit=crop&w=1200&q=80",
-  "https://images.unsplash.com/photo-1553978297-833d09932d81?auto=format&fit=crop&w=1200&q=80",
-  "https://images.unsplash.com/photo-1566717051817-c4fc0ec5d6f0?auto=format&fit=crop&w=1200&q=80",
-  "https://images.unsplash.com/photo-1557682224-5b8590cd9ec5?auto=format&fit=crop&w=1200&q=80",
-  "https://images.unsplash.com/photo-1472532453775-9ad41e3bf8b0?auto=format&fit=crop&w=1200&q=80",
-  "https://images.unsplash.com/photo-1595231226090-c0cbacadd763?auto=format&fit=crop&w=1200&q=80",
-  "https://images.unsplash.com/photo-1569099377939-ff1c81772b24?auto=format&fit=crop&w=1200&q=80",
-  "https://images.unsplash.com/photo-1505892781818-b69c25b26e04?auto=format&fit=crop&w=1200&q=80",
-  "https://images.unsplash.com/photo-1564498318-ed09c0e8efce?auto=format&fit=crop&w=1200&q=80",
-  "https://images.unsplash.com/photo-1551698618-1dfe5d97d256?auto=format&fit=crop&w=1200&q=80",
-  "https://images.unsplash.com/photo-1502085671122-2d218cd434e6?auto=format&fit=crop&w=1200&q=80",
-  "https://images.unsplash.com/photo-1533050487297-09b450131914?auto=format&fit=crop&w=1200&q=80",
-  "https://images.unsplash.com/photo-1561133647-db2e065e1c14?auto=format&fit=crop&w=1200&q=80"
+  ...baseImages,
+  ...baseImages,
+  ...baseImages,
+  ...baseImages,
+  ...baseImages
 ];
 
 export default function GalleryPage() {
