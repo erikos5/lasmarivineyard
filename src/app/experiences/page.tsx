@@ -362,7 +362,7 @@ export default function ExperiencesPage() {
                 ].map((item, index) => (
                   <motion.div
                     key={index}
-                    className="group bg-cream-50/20 border border-cream-50/30 p-8 rounded-xl backdrop-blur-sm transform-gpu will-change-transform hover:bg-cream-50/30 transition-all duration-300"
+                    className="group bg-evergreen-50/30 border border-evergreen-200/40 p-8 rounded-xl backdrop-blur-sm transform-gpu will-change-transform hover:bg-evergreen-50/50 transition-all duration-300"
                     variants={itemVariants}
                     whileHover={{ scale: 1.01, y: -1 }}
                     transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
@@ -370,10 +370,10 @@ export default function ExperiencesPage() {
                     <div className="flex items-start space-x-4">
                       <div className="flex-shrink-0 w-2 h-2 bg-gradient-to-br from-pink-400 to-pink-500 rounded-full mt-3 group-hover:scale-125 transition-transform duration-300"></div>
                       <div className="flex-1">
-                        <h3 className="font-playfair text-xl md:text-2xl font-bold text-cream-50 mb-3 group-hover:text-pink-200 transition-colors duration-300">
+                        <h3 className="font-playfair text-xl md:text-2xl font-bold text-evergreen-800 mb-3 group-hover:text-pink-600 transition-colors duration-300">
                           {item.title}
                         </h3>
-                        <p className="text-cream-200 font-inter text-base leading-relaxed font-light">
+                        <p className="text-evergreen-700 font-inter text-base leading-relaxed font-light">
                           {item.desc}
                         </p>
                       </div>
