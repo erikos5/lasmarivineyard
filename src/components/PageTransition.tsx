@@ -20,10 +20,23 @@ const pageVariants = {
   }
 };
 
+const exitTransition = {
+  type: 'tween',
+  ease: [0.22, 1, 0.36, 1],
+  duration: 0.8
+};
+
+const enterTransition = {
+  type: 'tween',
+  ease: [0.22, 1, 0.36, 1],
+  duration: 0.8,
+  delay: 0.2
+};
+
 const pageTransition = {
   type: 'tween',
-  ease: 'easeInOut',
-  duration: 0.3
+  ease: [0.22, 1, 0.36, 1],
+  duration: 1.2
 };
 
 const PageTransition = ({ children }: PageTransitionProps) => {
@@ -37,7 +50,10 @@ const PageTransition = ({ children }: PageTransitionProps) => {
         animate="in"
         exit="out"
         variants={pageVariants}
-        transition={pageTransition}
+        transition={{
+          exit: exitTransition,
+          enter: enterTransition
+        }}
         className="w-full min-h-screen"
         style={{ 
           willChange: 'opacity',
