@@ -75,32 +75,20 @@ export default function GalleryPage() {
             transition={{ duration: 0.6 }}
             className="columns-1 sm:columns-2 lg:columns-3 gap-6 [column-fill:_balance]"
           >
-            {galleryCategories[selectedCategory].images.map((image, index) => (
+            {collageImages.map((image, index) => (
               <motion.div
                 key={index}
-                ref={(el) => (galleryImagesRef.current[index] = el)}
                 className="mb-6 break-inside-avoid relative group cursor-pointer rounded-2xl overflow-hidden shadow-[0_10px_30px_-10px_rgba(0,0,0,0.3)]"
                 initial={{ opacity: 0, y: 40, scale: 0.98 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: true, margin: '-100px' }}
-                transition={{ duration: 0.6, delay: index * 0.05, ease: [0.22, 1, 0.36, 1] }}
+                viewport={{ once: true, margin: '-50px' }}
+                transition={{ duration: 0.6, delay: index * 0.03, ease: [0.22, 1, 0.36, 1] }}
                 onClick={() => setSelectedImage(image)}
-                onMouseMove={(e) => {
-                  const el = e.currentTarget as HTMLDivElement;
-                  const r = el.getBoundingClientRect();
-                  const x = (e.clientX - (r.left + r.width / 2)) / r.width;
-                  const y = (e.clientY - (r.top + r.height / 2)) / r.height;
-                  el.style.transform = `perspective(900px) rotateX(${y * -4}deg) rotateY(${x * 6}deg) scale(1.01)`;
-                }}
-                onMouseLeave={(e) => {
-                  const el = e.currentTarget as HTMLDivElement;
-                  el.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg) scale(1)';
-                }}
-                style={{ transformStyle: 'preserve-3d' }}
+                whileHover={{ scale: 1.01 }}
               >
                 <img
                   src={image}
-                  alt={`${galleryCategories[selectedCategory].title} ${index + 1}`}
+                  alt={`Gallery image ${index + 1}`}
                   loading="lazy"
                   className="w-full h-auto object-cover"
                 />

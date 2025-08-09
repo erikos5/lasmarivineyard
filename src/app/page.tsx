@@ -82,7 +82,7 @@ export default function Home() {
         <ScrollSection
           id="introduction"
           backgroundImage="/images/backgrounds/bg-wine-heritage-header.png"
-          overlayColor="rgba(46, 59, 41, 0.6)"
+          overlayColor="rgba(46, 59, 41, 0.35)"
           cinematicZoom={false}
           parallaxIntensity={0}
           className="min-h-screen w-full"
@@ -132,7 +132,7 @@ export default function Home() {
         <ScrollSection
           id="experience"
           backgroundImage="/images/backgrounds/bg-experience.png"
-          overlayColor="rgba(46, 59, 41, 0.7)"
+          overlayColor="rgba(46, 59, 41, 0.45)"
           cinematicZoom={false}
           parallaxIntensity={0}
           className="min-h-screen flex items-center"
@@ -187,7 +187,7 @@ export default function Home() {
         <ScrollSection
           id="visit"
           backgroundImage="/images/backgrounds/bg-experience.png"
-          overlayColor="rgba(46, 59, 41, 0.8)"
+          overlayColor="rgba(46, 59, 41, 0.5)"
           className="min-h-screen w-full"
           parallaxIntensity={0}
         >
