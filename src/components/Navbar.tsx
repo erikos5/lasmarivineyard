@@ -50,10 +50,8 @@ const Navbar = () => {
     setIsMobileMenuOpen(false);
     
     if (item.isPage) {
-      // Add a small delay for smoother page transitions
-      setTimeout(() => {
-        router.push(item.href);
-      }, 100);
+      // Immediate navigation for smooth experience
+      router.push(item.href);
     } else {
       // For anchor links (like #contact)
       const element = document.querySelector(item.href);

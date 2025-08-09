@@ -51,9 +51,18 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Prevent horizontal overflow */
+/* Prevent horizontal overflow and improve page transitions */
 body {
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Smooth page transitions */
+main {
+  min-height: 100vh;
+  position: relative;
+  will-change: opacity;
 }
 
 @layer base {
