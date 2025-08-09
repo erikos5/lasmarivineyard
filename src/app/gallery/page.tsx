@@ -105,7 +105,7 @@ export default function GalleryPage() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   return (
-    <main className="min-h-screen bg-cream-50">
+    <main className="min-h-screen bg-cream-50 transition-fade">
       {/* Use main Navbar for consistency and performance */}
       <div className="relative z-50">
         <Navbar />

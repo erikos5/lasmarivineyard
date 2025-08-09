@@ -71,9 +71,8 @@ export default function Home() {
   const router = useRouter();
 
   return (
-    <AnimatePresence mode="wait">
-      <main className="min-h-screen bg-cream-50">
-        <Navbar />
+    <main className="min-h-screen bg-cream-50 transition-fade">
+      <Navbar />
         
         {/* Cinematic Hero Section */}
         <CinematicHero />
@@ -436,7 +435,6 @@ export default function Home() {
         </ScrollSection>
         
         <Footer />
-      </main>
-    </AnimatePresence>
+    </main>
   );
 }

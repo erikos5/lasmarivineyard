@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
 import LenisProvider from "@/components/LenisProvider";
-import PageTransition from "@/components/PageTransition";
+import SwupProvider from "@/components/SwupProvider";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -33,9 +33,11 @@ export default function RootLayout({
         className={`${playfair.variable} ${inter.variable} font-inter antialiased bg-cream-50 text-olive-900`}
       >
         <LenisProvider>
-          <PageTransition>
-            {children}
-          </PageTransition>
+          <SwupProvider>
+            <div id="swup">
+              {children}
+            </div>
+          </SwupProvider>
         </LenisProvider>
       </body>
     </html>

@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import ScrollSection from '@/components/ScrollSection';
@@ -98,9 +98,8 @@ export default function ExperiencesPage() {
   }, []);
 
   return (
-    <AnimatePresence mode="wait">
-      <main className="min-h-screen bg-cream-50">
-        <Navbar />
+    <main className="min-h-screen bg-cream-50 transition-fade">
+      <Navbar />
         
         {/* Cinematic Hero Section */}
         <ScrollSection
@@ -456,7 +455,6 @@ export default function ExperiencesPage() {
         </ScrollSection>
 
         <Footer />
-      </main>
-    </AnimatePresence>
+    </main>
   );
 }

@@ -58,11 +58,39 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Smooth page transitions */
+/* Swup page transitions */
+.transition-fade {
+  transition: opacity 0.8s ease-in-out;
+}
+
+html.is-animating .transition-fade {
+  opacity: 0;
+}
+
+html.is-leaving .transition-fade {
+  opacity: 0;
+}
+
+html.is-rendering .transition-fade {
+  opacity: 0;
+}
+
+#swup {
+  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html.is-animating #swup {
+  opacity: 0;
+}
+
+html.is-leaving #swup {
+  opacity: 0;
+}
+
+/* Smooth page layout */
 main {
   min-height: 100vh;
   position: relative;
-  will-change: opacity;
 }
 
 @layer base {
