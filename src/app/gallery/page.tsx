@@ -65,13 +65,40 @@ const baseImages = [
   "/images/timeline/timeline-4-hero.png"
 ];
 
-// Repeat the images multiple times for longer scrolling
+// Create images with different aspect ratios for dynamic layout
 const collageImages = [
-  ...baseImages,
-  ...baseImages,
-  ...baseImages,
-  ...baseImages,
-  ...baseImages
+  { src: baseImages[0], aspect: 'aspect-[3/4]' },
+  { src: baseImages[1], aspect: 'aspect-square' },
+  { src: baseImages[2], aspect: 'aspect-[4/3]' },
+  { src: baseImages[3], aspect: 'aspect-[2/3]' },
+  { src: baseImages[4], aspect: 'aspect-[3/2]' },
+  { src: baseImages[5], aspect: 'aspect-square' },
+  { src: baseImages[6], aspect: 'aspect-[5/4]' },
+  { src: baseImages[7], aspect: 'aspect-[3/4]' },
+  { src: baseImages[0], aspect: 'aspect-[4/5]' },
+  { src: baseImages[1], aspect: 'aspect-[3/2]' },
+  { src: baseImages[2], aspect: 'aspect-square' },
+  { src: baseImages[3], aspect: 'aspect-[4/3]' },
+  { src: baseImages[4], aspect: 'aspect-[2/3]' },
+  { src: baseImages[5], aspect: 'aspect-[5/4]' },
+  { src: baseImages[6], aspect: 'aspect-[3/4]' },
+  { src: baseImages[7], aspect: 'aspect-[4/3]' },
+  { src: baseImages[0], aspect: 'aspect-square' },
+  { src: baseImages[1], aspect: 'aspect-[3/4]' },
+  { src: baseImages[2], aspect: 'aspect-[2/3]' },
+  { src: baseImages[3], aspect: 'aspect-[3/2]' },
+  { src: baseImages[4], aspect: 'aspect-[4/5]' },
+  { src: baseImages[5], aspect: 'aspect-[4/3]' },
+  { src: baseImages[6], aspect: 'aspect-square' },
+  { src: baseImages[7], aspect: 'aspect-[5/4]' },
+  { src: baseImages[0], aspect: 'aspect-[3/2]' },
+  { src: baseImages[1], aspect: 'aspect-[4/3]' },
+  { src: baseImages[2], aspect: 'aspect-[3/4]' },
+  { src: baseImages[3], aspect: 'aspect-square' },
+  { src: baseImages[4], aspect: 'aspect-[4/5]' },
+  { src: baseImages[5], aspect: 'aspect-[2/3]' },
+  { src: baseImages[6], aspect: 'aspect-[3/2]' },
+  { src: baseImages[7], aspect: 'aspect-[5/4]' }
 ];
 
 export default function GalleryPage() {
@@ -99,24 +126,24 @@ export default function GalleryPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6 }}
-            className="columns-1 md:columns-2 lg:columns-3 gap-3 [column-fill:_balance]"
+            className="columns-1 md:columns-2 gap-4 [column-fill:_balance]"
           >
-            {collageImages.map((image, index) => (
+            {collageImages.map((imageObj, index) => (
               <motion.div
                 key={index}
-                className="mb-3 break-inside-avoid relative group cursor-pointer rounded-lg overflow-hidden shadow-[0_4px_12px_-4px_rgba(0,0,0,0.2)]"
+                className={`mb-4 break-inside-avoid relative group cursor-pointer rounded-lg overflow-hidden shadow-[0_8px_24px_-8px_rgba(0,0,0,0.3)] ${imageObj.aspect}`}
                 initial={{ opacity: 0, y: 40, scale: 0.98 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true, margin: '-50px' }}
-                transition={{ duration: 0.6, delay: index * 0.03, ease: [0.22, 1, 0.36, 1] }}
-                onClick={() => setSelectedImage(image)}
-                whileHover={{ scale: 1.01 }}
+                transition={{ duration: 0.6, delay: index * 0.02, ease: [0.22, 1, 0.36, 1] }}
+                onClick={() => setSelectedImage(imageObj.src)}
+                whileHover={{ scale: 1.02 }}
               >
                 <img
-                  src={image}
+                  src={imageObj.src}
                   alt={`Lasmari Vineyard ${index + 1}`}
                   loading="lazy"
-                  className="w-full h-auto object-cover"
+                  className="w-full h-full object-cover"
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
                     target.style.display = 'none';
