@@ -6,7 +6,6 @@ import Navbar from '@/components/Navbar';
 import ScrollSection from '@/components/ScrollSection';
 import TimelineSection from '@/components/TimelineSection';
 import CinematicTimeline from '@/components/CinematicTimeline';
-import MosaicGallery from '@/components/MosaicGallery';
 import AudioWithSubtitles from '@/components/AudioWithSubtitles';
 import ImmersiveAudioPlayer from '@/components/ImmersiveAudioPlayer';
 import Booking from '@/components/Booking';
@@ -50,7 +49,6 @@ const timelineEvents = [
   }
 ];
 
-// Gallery sections organized by emotion
 // Authentic subtitle data from family voice recordings
 const welcomeSubtitlesEn = [
   { start: 0, end: 10, text: "We are located two kilometers past Loutses, halfway between Perivolaki Loutses and Ano Perivolaki." },
@@ -68,61 +66,6 @@ const welcomeSubtitlesGr = [
   { start: 34, end: 42, text: "Με αυτό το ταψί φτιάχναμε παλιά την παραδοσιακή παστιτσάδα." }
 ];
 
-const gallerySections = [
-  {
-    title: "Harvest Mornings",
-    emotion: "Golden Awakening",
-    description: "The magic of dawn in our vineyards, where every sunrise brings the promise of another exceptional vintage.",
-    images: [
-      {
-        id: "harvest-1",
-        src: "https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=800&q=80",
-        alt: "Morning harvest in the vineyard",
-        story: "Every morning at 5 AM, our family gathers in the vineyard as the mist rises from the Mediterranean...",
-        audioId: "harvest-morning",
-        aspectRatio: "landscape" as const,
-        size: "large" as const
-      },
-      {
-        id: "harvest-2",
-        src: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=600&q=80",
-        alt: "Hands picking grapes",
-        aspectRatio: "portrait" as const,
-        size: "medium" as const
-      },
-      {
-        id: "harvest-3", 
-        src: "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80",
-        alt: "Grape clusters",
-        aspectRatio: "square" as const,
-        size: "small" as const
-      }
-    ]
-  },
-  {
-    title: "The Family Hands",
-    emotion: "Living Heritage",
-    description: "Five generations of knowledge passed down through loving hands that shape every bottle.",
-    images: [
-      {
-        id: "family-1",
-        src: "https://images.unsplash.com/photo-1519864600265-abb23847ef2c?auto=format&fit=crop&w=800&q=80",
-        alt: "Family hands working with wine",
-        story: "These hands have touched every vine, guided every harvest, and crafted every vintage for over 130 years...",
-        audioId: "family-heritage", 
-        aspectRatio: "wide" as const,
-        size: "large" as const
-      },
-      {
-        id: "family-2",
-        src: "https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=600&q=80",
-        alt: "Traditional wine making",
-        aspectRatio: "landscape" as const,
-        size: "medium" as const
-      }
-    ]
-  }
-];
 
 export default function Home() {
   const router = useRouter();
@@ -238,31 +181,7 @@ export default function Home() {
           </div>
         </ScrollSection>
 
-        {/* Emotion-Based Gallery */}
-        <ScrollSection
-          id="gallery"
-          backgroundImage="/images/backgrounds/bg-gallery-soft.png"
-          overlayColor="rgba(253, 245, 230, 0.85)"
-          className="min-h-screen w-full"
-          storyReveal={true}
-          parallaxIntensity={0}
-        >
-          <div className="w-full h-full flex items-center justify-center">
-            <div className="text-center space-y-16 max-w-7xl px-6 py-20">
-              <div className="space-y-6">
-                <MagneticTitle 
-                  text="Moments that Define Us"
-                  className="font-playfair text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-evergreen-800 leading-tight"
-                />
-                <p className="text-xl lg:text-2xl xl:text-3xl text-evergreen-700 font-inter max-w-4xl mx-auto leading-relaxed font-light">
-                  Every photograph captures more than a moment—it preserves the emotions, traditions, and stories that make Lasmari more than just a vineyard.
-                </p>
-              </div>
-              
-              <MosaicGallery sections={gallerySections} className="max-w-7xl mx-auto" />
-            </div>
-          </div>
-        </ScrollSection>
+        {/* Gallery section removed from homepage. Access via Navbar → /gallery */}
 
         {/* Visit Us Section */}
         <ScrollSection
