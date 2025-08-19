@@ -72,7 +72,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-cream-50 transition-fade">
-      <Navbar />
+        <Navbar />
         
         {/* Cinematic Hero Section */}
         <CinematicHero />
@@ -435,6 +435,6 @@ export default function Home() {
         </ScrollSection>
         
         <Footer />
-    </main>
+      </main>
   );
 }

@@ -19,14 +19,17 @@ const Navbar = () => {
   const pathname = usePathname();
   const { scrollY } = useScroll();
 
-  // Dynamic navbar background - cinematic style with gallery page exception
+  // Dynamic navbar background - cinematic style with page-specific settings
   const isGalleryPage = pathname === '/gallery';
+  const isExperiencesPage = pathname === '/experiences';
   const navBackground = useTransform(
     scrollY,
     [0, 100],
     [
-      isGalleryPage ? 'rgba(46, 59, 41, 0.95)' : 'rgba(46, 59, 41, 0)', 
-      'rgba(46, 59, 41, 0.95)'
+      isGalleryPage ? 'rgba(46, 59, 41, 0.95)' : 
+      isExperiencesPage ? 'rgba(46, 59, 41, 0.3)' : 'rgba(46, 59, 41, 0)', 
+      isGalleryPage ? 'rgba(46, 59, 41, 0.95)' :
+      isExperiencesPage ? 'rgba(46, 59, 41, 0.6)' : 'rgba(46, 59, 41, 0.95)'
     ]
   );
 
