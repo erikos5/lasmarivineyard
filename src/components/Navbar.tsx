@@ -25,18 +25,21 @@ const Navbar = () => {
     scrollY,
     [0, 100],
     [
-      isGalleryPage ? 'rgba(46, 59, 41, 0.3)' : 'rgba(46, 59, 41, 0)', 
-      isGalleryPage ? 'rgba(46, 59, 41, 0.6)' : 'rgba(46, 59, 41, 0.95)'
+      isGalleryPage ? 'rgba(46, 59, 41, 0)' : 'rgba(46, 59, 41, 0)', 
+      isGalleryPage ? 'rgba(46, 59, 41, 0)' : 'rgba(46, 59, 41, 0.95)'
     ]
   );
 
   const logoScale = useTransform(scrollY, [0, 100], [1, 0.9]);
   
-  // Text color transitions
+  // Text color transitions - olive green on gallery page
   const textColor = useTransform(
     scrollY,
     [0, 100],
-    ['rgba(249, 247, 244, 1)', 'rgba(249, 247, 244, 0.9)']
+    [
+      isGalleryPage ? 'rgba(111, 124, 92, 1)' : 'rgba(249, 247, 244, 1)', 
+      isGalleryPage ? 'rgba(111, 124, 92, 0.9)' : 'rgba(249, 247, 244, 0.9)'
+    ]
   );
 
   useEffect(() => {
