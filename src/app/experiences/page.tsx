@@ -150,7 +150,7 @@ export default function ExperiencesPage() {
           className="min-h-screen w-full flex items-center justify-center"
           parallaxIntensity={0}
         >
-          <div className="w-full h-full flex items-center justify-center">
+          <div className="w-full h-full flex items-center justify-center relative">
             <div className="max-w-7xl px-6 w-full">
               <div className="text-center mb-8">
                 <div className="text-pink-400 text-xl font-inter font-medium">
@@ -163,7 +163,7 @@ export default function ExperiencesPage() {
                 <div className="text-left">
                   <MagneticTitle 
                     text={experienceSegments[0].title}
-                    className="font-playfair text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-cream-50 leading-tight"
+                    className="font-playfair text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-cream-50 leading-tight"
                   />
                 </div>
                 
@@ -175,14 +175,15 @@ export default function ExperiencesPage() {
                 </div>
               </div>
               
-              {/* Optimized feature grid */}
-              <motion.div 
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-14 max-w-5xl mx-auto"
-                variants={containerVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-100px" }}
-              >
+              {/* Feature grid moved to bottom */}
+              <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 w-full max-w-6xl px-6">
+                <motion.div 
+                  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+                  variants={containerVariants}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, margin: "-100px" }}
+                >
                 {experienceSegments[0].features.map((feature, index) => (
                   <motion.div
                     key={index}
@@ -221,7 +222,7 @@ export default function ExperiencesPage() {
                 <div className="text-left">
                   <MagneticTitle 
                     text={experienceSegments[1].title}
-                    className="font-playfair text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-cream-50 leading-tight"
+                    className="font-playfair text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-cream-50 leading-tight"
                   />
                 </div>
                 
