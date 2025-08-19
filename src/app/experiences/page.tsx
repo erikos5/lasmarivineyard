@@ -151,17 +151,29 @@ export default function ExperiencesPage() {
           parallaxIntensity={0}
         >
           <div className="w-full h-full flex items-center justify-center">
-            <div className="text-center space-y-10 max-w-6xl px-6">
-              <div className="text-pink-400 text-xl font-inter font-medium">
-                Segment 1 • {experienceSegments[0].duration}
+            <div className="max-w-7xl px-6 w-full">
+              <div className="text-center mb-8">
+                <div className="text-pink-400 text-xl font-inter font-medium">
+                  Segment 1 • {experienceSegments[0].duration}
+                </div>
               </div>
-              <MagneticTitle 
-                text={experienceSegments[0].title}
-                className="font-playfair text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-cream-50 leading-tight"
-              />
-              <p className="text-xl lg:text-2xl xl:text-3xl text-cream-100 font-inter leading-relaxed font-light max-w-5xl mx-auto">
-                {experienceSegments[0].description}
-              </p>
+              
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                {/* Left side - Title */}
+                <div className="text-left">
+                  <MagneticTitle 
+                    text={experienceSegments[0].title}
+                    className="font-playfair text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-cream-50 leading-tight"
+                  />
+                </div>
+                
+                {/* Right side - Description */}
+                <div className="text-left">
+                  <p className="text-xl lg:text-2xl text-cream-100 font-inter leading-relaxed font-light">
+                    {experienceSegments[0].description}
+                  </p>
+                </div>
+              </div>
               
               {/* Optimized feature grid */}
               <motion.div 
@@ -197,17 +209,29 @@ export default function ExperiencesPage() {
           parallaxIntensity={0}
         >
           <div className="w-full h-full flex items-center justify-center">
-            <div className="text-center space-y-10 max-w-6xl px-6">
-              <div className="text-pink-400 text-xl font-inter font-medium">
-                Segment 2 • {experienceSegments[1].duration}
+            <div className="max-w-7xl px-6 w-full">
+              <div className="text-center mb-8">
+                <div className="text-pink-400 text-xl font-inter font-medium">
+                  Segment 2 • {experienceSegments[1].duration}
+                </div>
               </div>
-              <MagneticTitle 
-                text={experienceSegments[1].title}
-                className="font-playfair text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-cream-50 leading-tight"
-              />
-              <p className="text-xl lg:text-2xl xl:text-3xl text-cream-100 font-inter leading-relaxed font-light max-w-5xl mx-auto">
-                {experienceSegments[1].description}
-              </p>
+              
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                {/* Left side - Title */}
+                <div className="text-left">
+                  <MagneticTitle 
+                    text={experienceSegments[1].title}
+                    className="font-playfair text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-cream-50 leading-tight"
+                  />
+                </div>
+                
+                {/* Right side - Description */}
+                <div className="text-left">
+                  <p className="text-xl lg:text-2xl text-cream-100 font-inter leading-relaxed font-light">
+                    {experienceSegments[1].description}
+                  </p>
+                </div>
+              </div>
               
               <motion.div 
                 className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-14 max-w-5xl mx-auto"
@@ -242,17 +266,29 @@ export default function ExperiencesPage() {
           parallaxIntensity={0}
         >
           <div className="w-full h-full flex items-center justify-center">
-            <div className="text-center space-y-10 max-w-6xl px-6">
-              <div className="text-pink-400 text-xl font-inter font-medium">
-                Segment 3 • {experienceSegments[2].duration}
+            <div className="max-w-7xl px-6 w-full">
+              <div className="text-center mb-8">
+                <div className="text-pink-400 text-xl font-inter font-medium">
+                  Segment 3 • {experienceSegments[2].duration}
+                </div>
               </div>
-              <MagneticTitle 
-                text={experienceSegments[2].title}
-                className="font-playfair text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-cream-50 leading-tight"
-              />
-              <p className="text-xl lg:text-2xl xl:text-3xl text-cream-100 font-inter leading-relaxed font-light max-w-5xl mx-auto">
-                {experienceSegments[2].description}
-              </p>
+              
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                {/* Left side - Title */}
+                <div className="text-left">
+                  <MagneticTitle 
+                    text={experienceSegments[2].title}
+                    className="font-playfair text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-cream-50 leading-tight"
+                  />
+                </div>
+                
+                {/* Right side - Description */}
+                <div className="text-left">
+                  <p className="text-xl lg:text-2xl text-cream-100 font-inter leading-relaxed font-light">
+                    {experienceSegments[2].description}
+                  </p>
+                </div>
+              </div>
               
               <motion.div 
                 className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-14 max-w-5xl mx-auto"
@@ -287,17 +323,29 @@ export default function ExperiencesPage() {
           parallaxIntensity={0}
         >
           <div className="w-full h-full flex items-center justify-center">
-            <div className="text-center space-y-10 max-w-6xl px-6">
-              <div className="text-pink-400 text-xl font-inter font-medium">
-                Segment 4 • {experienceSegments[3].duration}
+            <div className="max-w-7xl px-6 w-full">
+              <div className="text-center mb-8">
+                <div className="text-pink-400 text-xl font-inter font-medium">
+                  Segment 4 • {experienceSegments[3].duration}
+                </div>
               </div>
-              <MagneticTitle 
-                text={experienceSegments[3].title}
-                className="font-playfair text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-cream-50 leading-tight"
-              />
-              <p className="text-xl lg:text-2xl xl:text-3xl text-cream-100 font-inter leading-relaxed font-light max-w-5xl mx-auto">
-                {experienceSegments[3].description}
-              </p>
+              
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                {/* Left side - Title */}
+                <div className="text-left">
+                  <MagneticTitle 
+                    text={experienceSegments[3].title}
+                    className="font-playfair text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-cream-50 leading-tight"
+                  />
+                </div>
+                
+                {/* Right side - Description */}
+                <div className="text-left">
+                  <p className="text-xl lg:text-2xl text-cream-100 font-inter leading-relaxed font-light">
+                    {experienceSegments[3].description}
+                  </p>
+                </div>
+              </div>
               
               <motion.div 
                 className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-14 max-w-5xl mx-auto"
