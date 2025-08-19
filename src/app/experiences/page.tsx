@@ -184,18 +184,18 @@ export default function ExperiencesPage() {
                   whileInView="visible"
                   viewport={{ once: true, margin: "-100px" }}
                 >
-                {experienceSegments[0].features.map((feature, index) => (
-                  <motion.div
-                    key={index}
-                    className="bg-cream-50/10 border border-cream-50/20 p-6 rounded-xl will-change-transform transform-gpu"
-                    variants={itemVariants}
-                    style={{ backdropFilter: 'blur(4px)' }}
-                  >
-                    <p className="text-cream-200 font-inter text-center text-base">
-                      {feature}
-                    </p>
-                  </motion.div>
-                ))}
+                  {experienceSegments[0].features.map((feature, index) => (
+                    <motion.div
+                      key={index}
+                      className="bg-cream-50/10 border border-cream-50/20 p-6 rounded-xl will-change-transform transform-gpu"
+                      variants={itemVariants}
+                      style={{ backdropFilter: 'blur(4px)' }}
+                    >
+                      <p className="text-cream-200 font-inter text-center text-base">
+                        {feature}
+                      </p>
+                    </motion.div>
+                  ))}
                 </motion.div>
               </div>
             </div>
