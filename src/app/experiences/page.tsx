@@ -150,7 +150,7 @@ export default function ExperiencesPage() {
           className="min-h-screen w-full flex items-center justify-center"
           parallaxIntensity={0}
         >
-          <div className="w-full h-full flex items-center justify-center relative">
+          <div className="w-full h-full flex items-center justify-center">
             <div className="max-w-7xl px-6 w-full">
               <div className="text-center mb-8">
                 <div className="text-pink-400 text-xl font-inter font-medium">
@@ -175,15 +175,13 @@ export default function ExperiencesPage() {
                 </div>
               </div>
               
-              {/* Feature grid moved to bottom */}
-              <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 w-full max-w-6xl px-6">
-                <motion.div 
-                  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-                  variants={containerVariants}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, margin: "-100px" }}
-                >
+              <motion.div 
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-14 max-w-5xl mx-auto"
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-100px" }}
+              >
                 {experienceSegments[0].features.map((feature, index) => (
                   <motion.div
                     key={index}
@@ -196,8 +194,7 @@ export default function ExperiencesPage() {
                     </p>
                   </motion.div>
                 ))}
-                </motion.div>
-              </div>
+              </motion.div>
             </div>
           </div>
         </ScrollSection>
@@ -267,7 +264,7 @@ export default function ExperiencesPage() {
           className="min-h-screen w-full flex items-center justify-center"
           parallaxIntensity={0}
         >
-          <div className="w-full h-full flex items-center justify-center relative">
+          <div className="w-full h-full flex items-center justify-center">
             <div className="max-w-7xl px-6 w-full">
               <div className="text-center mb-8">
                 <div className="text-pink-400 text-xl font-inter font-medium">
@@ -292,15 +289,13 @@ export default function ExperiencesPage() {
                 </div>
               </div>
               
-              {/* Feature grid moved to bottom */}
-              <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 w-full max-w-6xl px-6">
-                <motion.div 
-                  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-                  variants={containerVariants}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, margin: "-100px" }}
-                >
+              <motion.div 
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-14 max-w-5xl mx-auto"
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-100px" }}
+              >
                 {experienceSegments[2].features.map((feature, index) => (
                   <motion.div
                     key={index}
@@ -312,9 +307,8 @@ export default function ExperiencesPage() {
                       {feature}
                     </p>
                   </motion.div>
-                  ))}
-                </motion.div>
-              </div>
+                ))}
+              </motion.div>
             </div>
           </div>
         </ScrollSection>
@@ -327,7 +321,7 @@ export default function ExperiencesPage() {
           className="min-h-screen w-full flex items-center justify-center"
           parallaxIntensity={0}
         >
-          <div className="w-full h-full flex items-center justify-center relative">
+          <div className="w-full h-full flex items-center justify-center">
             <div className="max-w-7xl px-6 w-full">
               <div className="text-center mb-8">
                 <div className="text-pink-400 text-xl font-inter font-medium">
@@ -352,15 +346,13 @@ export default function ExperiencesPage() {
                 </div>
               </div>
               
-              {/* Feature grid moved to bottom */}
-              <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 w-full max-w-6xl px-6">
-                <motion.div 
-                  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-                  variants={containerVariants}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, margin: "-100px" }}
-                >
+              <motion.div 
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-14 max-w-5xl mx-auto"
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-100px" }}
+              >
                 {experienceSegments[3].features.map((feature, index) => (
                   <motion.div
                     key={index}
@@ -372,9 +364,8 @@ export default function ExperiencesPage() {
                       {feature}
                     </p>
                   </motion.div>
-                  ))}
-                </motion.div>
-              </div>
+                ))}
+              </motion.div>
             </div>
           </div>
         </ScrollSection>
