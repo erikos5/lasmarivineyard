@@ -90,6 +90,26 @@ const CinematicTimeline = ({ events, className = '' }: CinematicTimelineProps) =
     }
   ];
 
+  // Golden Harvest script segments (for the third timeline event)
+  const goldenHarvestScript = [
+    {
+      english: "The years 1963 and 1964 are unforgettable. The harvests were rich: wheat in abundance, and wine from kakotrygi and agiorgitiko of such quality that it was not only kept for ourselves, but sold and exported to other regions.",
+      greek: "Τα χρόνια 1963 και 1964 έμειναν αξέχαστα. Οι σοδειές ήταν πλούσιες: το σιτάρι άφθονο, το κρασί από το κακοτρίγγι και το αγιοργίτικο τόσο ποιοτικό που δεν το κρατούσαμε μόνο για μας· το πουλούσαμε και το εξάγαμε σε άλλες περιοχές."
+    },
+    {
+      english: "These were the final years of the old way. Soon, however, wheat was abandoned — hand cultivation was too costly and laborious. Many fields were replanted with almonds, and families began leaving.",
+      greek: "Αυτά ήταν τα τελευταία χρόνια της παλιάς εποχής. Σύντομα όμως το σιτάρι εγκαταλείφθηκε – η χειρωνακτική καλλιέργεια έγινε πολύ ακριβή και κουραστική. Πολλά χωράφια μετατράπηκαν σε αμυγδαλεώνες, και οι άνθρωποι άρχισαν να φεύγουν."
+    },
+    {
+      english: "The DDT campaigns eliminated mosquitoes, so people no longer needed to escape to the mountains in summer. Slowly, the self-sufficient life came to an end.",
+      greek: "Οι καμπάνιες με DDT εξάλειψαν τα κουνούπια, κι έτσι δεν υπήρχε πια ανάγκη να ανεβαίνουν οι οικογένειες το καλοκαίρι στα βουνά. Σιγά σιγά η ζωή της αυτάρκειας τελείωνε."
+    },
+    {
+      english: "Yet those last harvests, those golden years, remain in memory as the most beautiful of all.",
+      greek: "Μα οι τελευταίοι τρυγητοί, εκείνοι οι δύο χρυσοί χρόνοι, έμειναν στη μνήμη ως οι πιο όμορφοι."
+    }
+  ];
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start center", "end center"]
@@ -270,8 +290,18 @@ const CinematicTimeline = ({ events, className = '' }: CinematicTimelineProps) =
                         className="w-full bg-cream-50/90 backdrop-blur-sm border border-evergreen-200/30"
                       />
                     </div>
+                  ) : index === 2 ? (
+                    /* Golden Harvest Interactive Script */
+                    <div className="w-full">
+                      <InteractiveScript
+                        title="Golden Harvest (1963–1964)"
+                        description="The unforgettable years and end of the old way"
+                        segments={goldenHarvestScript}
+                        className="w-full bg-cream-50/90 backdrop-blur-sm border border-evergreen-200/30"
+                      />
+                    </div>
                   ) : (
-                    /* Decorative element for other timeline events */
+                    /* Decorative element for remaining timeline events */
                     <div className="w-full h-32 flex items-center justify-center">
                       <div className="w-16 h-16 rounded-full bg-gradient-to-br from-evergreen-200/30 to-pink-200/30 backdrop-blur-sm border border-evergreen-200/20 flex items-center justify-center">
                         <div className="w-8 h-8 rounded-full bg-gradient-to-br from-evergreen-400 to-pink-400"></div>
