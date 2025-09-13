@@ -87,38 +87,49 @@ export default function Home() {
           className="min-h-screen w-full"
         >
           <div className="w-full h-full flex items-center justify-center">
-            <div className="text-center space-y-8 max-w-4xl px-6">
-              <MagneticTitle 
-                text="Authentic Corfiot Wine Heritage"
-                className="font-playfair text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-cream-50 leading-tight mb-12"
-              />
-              <div>
-                <p className="text-xl lg:text-2xl xl:text-3xl text-cream-100 font-inter leading-relaxed font-light">
-                  Nestled in the heart of Corfu's countryside, Lasmari Vineyard represents five generations of winemaking tradition. Our family estate sits on ancient stream beds that have created uniquely fertile soil, perfect for cultivating exceptional Mediterranean varietals. Every bottle tells the story of this remarkable terroir and our commitment to preserving authentic Corfiot winemaking heritage.
-                </p>
+            <div className="max-w-7xl px-6 w-full">
+              {/* Split Layout: Description Left, Title Right */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-16">
+                {/* Left side - Description */}
+                <div className="text-left">
+                  <p className="text-xl lg:text-2xl xl:text-3xl text-cream-100 font-inter leading-relaxed font-light">
+                    Nestled in the heart of Corfu's countryside, Lasmari Vineyard represents five generations of winemaking tradition. Our family estate sits on ancient stream beds that have created uniquely fertile soil, perfect for cultivating exceptional Mediterranean varietals. Every bottle tells the story of this remarkable terroir and our commitment to preserving authentic Corfiot winemaking heritage.
+                  </p>
+                </div>
+                
+                {/* Right side - Title */}
+                <div className="text-left">
+                  <MagneticTitle 
+                    text="Authentic Corfiot Wine Heritage"
+                    className="font-playfair text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-cream-50 leading-tight"
+                  />
+                </div>
               </div>
               
-              {/* Immersive Audio Introduction */}
-              <div>
-                <ImmersiveAudioPlayer
-                  audioSrc="/audio/recordings/section1-welcome.mp3"
-                  subtitlesEn={welcomeSubtitlesEn}
-                  subtitlesGr={welcomeSubtitlesGr}
-                  title="Welcome to Lasmari"
-                  description="Listen to our story in the voice of our family"
-                  className="w-full"
-                />
-              </div>
-              
-              {/* Horizontal Timeline with beautiful animations */}
-              <div className="flex justify-center items-center space-x-8">
-                {["1892", "1930s", "1975", "Today"].map((year, index) => (
-                  <div key={year} className="flex flex-col items-center">
-                    <div className="w-4 h-4 bg-cream-50 rounded-full mb-2 animate-timeline-pulse" 
-                         style={{ animationDelay: `${index * 0.5}s` }} />
-                    <span className="text-cream-200 font-inter text-sm">{year}</span>
-                  </div>
-                ))}
+              {/* Centered Audio and Timeline */}
+              <div className="text-center space-y-8">
+                {/* Immersive Audio Introduction */}
+                <div>
+                  <ImmersiveAudioPlayer
+                    audioSrc="/audio/recordings/section1-welcome.mp3"
+                    subtitlesEn={welcomeSubtitlesEn}
+                    subtitlesGr={welcomeSubtitlesGr}
+                    title="Welcome to Lasmari"
+                    description="Listen to our story in the voice of our family"
+                    className="w-full max-w-4xl mx-auto"
+                  />
+                </div>
+                
+                {/* Horizontal Timeline with beautiful animations */}
+                <div className="flex justify-center items-center space-x-8">
+                  {["1892", "1930s", "1975", "Today"].map((year, index) => (
+                    <div key={year} className="flex flex-col items-center">
+                      <div className="w-4 h-4 bg-cream-50 rounded-full mb-2 animate-timeline-pulse" 
+                           style={{ animationDelay: `${index * 0.5}s` }} />
+                      <span className="text-cream-200 font-inter text-sm">{year}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
