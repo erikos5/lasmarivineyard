@@ -391,13 +391,7 @@ export default function ExperiencesPage() {
               </div>
               
               {/* Elegant inclusion features */}
-              <motion.div 
-                className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto"
-                variants={containerVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-100px" }}
-              >
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
                 {[
                   { title: "Premium Tastings", desc: "Five carefully selected wines representing our estate's finest expressions" },
                   { title: "Authentic Bites", desc: "Traditional Corfiot appetizers and specialties prepared from family recipes" },
@@ -409,7 +403,6 @@ export default function ExperiencesPage() {
                   <motion.div
                     key={index}
                     className="group bg-evergreen-50/30 border border-evergreen-200/40 p-8 rounded-xl backdrop-blur-sm transform-gpu will-change-transform hover:bg-evergreen-50/50 transition-all duration-300"
-                    variants={itemVariants}
                     whileHover={{ scale: 1.01, y: -1 }}
                     transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
                   >
@@ -426,7 +419,7 @@ export default function ExperiencesPage() {
                     </div>
                   </motion.div>
                 ))}
-              </motion.div>
+              </div>
             </div>
           </div>
         </ScrollSection>
