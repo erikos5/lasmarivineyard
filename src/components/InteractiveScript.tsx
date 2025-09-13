@@ -135,11 +135,6 @@ const InteractiveScript = ({ title, description, segments, className = '' }: Int
           <ChevronRightIcon className="w-6 h-6" />
         </button>
       </div>
-
-      {/* Keyboard Navigation Hint */}
-      <div className="mt-4 text-xs text-evergreen-500 font-inter">
-        Use ← → arrow keys to navigate
-      </div>
     </div>
   );
 };
