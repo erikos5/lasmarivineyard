@@ -50,6 +50,26 @@ const CinematicTimeline = ({ events, className = '' }: CinematicTimelineProps) =
     }
   ];
 
+  // Early Years script segments (for the first timeline event)
+  const earlyYearsScript = [
+    {
+      english: "In the early 1900s, these hills were full of life. From here down to Loutses, every terrace was cultivated. Vineyards stretched across the slopes, wheat filled the fields, and almond and cherry trees stood between them.",
+      greek: "Στις αρχές του 20ού αιώνα, οι πλαγιές αυτές έσφυζαν από ζωή. Από εδώ μέχρι κάτω στις Λούτσες, κάθε βήμα ήταν καλλιεργημένο. Τα αμπέλια απλώνονταν σε πεζούλες, τα σπαρτά κάλυπταν τα χωράφια, και ανάμεσά τους υψώνονταν αμυγδαλιές και κερασιές."
+    },
+    {
+      english: "The pear trees were plentiful and diverse — some ripened in August, others in October, some with short stems, others with long clusters. Nature provided abundance, and every resource was valued.",
+      greek: "Οι αχλαδιές ήταν πολλές και ξεχωριστές· άλλες έδιναν καρπό τον Αύγουστο, άλλες τον Οκτώβριο, άλλες είχαν κοντό κοτσάνι, άλλες μακρύ τσαμπί. Η φύση έδινε ποικιλία και η οικογένεια αξιοποιούσε κάθε τι που είχε αξία."
+    },
+    {
+      english: "My grandfather planted the varieties we still grow today: kakotrygi, a white grape with delicate aroma and great character, though fragile against disease; and agiorgitiko, a strong red with rich clusters.",
+      greek: "Ο παππούς μου φύτεψε τις βασικές ποικιλίες που ακόμη καλλιεργούμε: το κακοτρίγγι, λευκό σταφύλι με λεπτό άρωμα και μεγάλο χαρακτήρα αλλά ευαίσθητο στις αρρώστιες, και το αγιοργίτικο, κόκκινο δυνατό, με ρόγες γεμάτες."
+    },
+    {
+      english: "These were the grapes that gave us wine for the family, but also for trade. Around them, life thrived: more than five hundred sheep grazed on these hillsides, their bells echoing through the valleys.",
+      greek: "Αυτά ήταν τα σταφύλια που μας έδιναν κρασί για το σπίτι, αλλά και για το εμπόριο. Και γύρω τους, η ζωή έσφυζε από ήχους: πάνω από πεντακόσια πρόβατα βόσκανε στην πλαγιά, κι ο ήχος από τα κουδούνια τους ακουγόταν παντού."
+    }
+  ];
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start center", "end center"]
@@ -208,13 +228,26 @@ const CinematicTimeline = ({ events, className = '' }: CinematicTimelineProps) =
                   </div>
                 </div>
 
-                {/* Decorative element for visual balance */}
+                {/* Interactive Script or Decorative element */}
                 <div className={`w-6/12 ${index % 2 === 0 ? 'pl-40' : 'pr-40'}`}>
-                  <div className="w-full h-32 flex items-center justify-center">
-                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-evergreen-200/30 to-pink-200/30 backdrop-blur-sm border border-evergreen-200/20 flex items-center justify-center">
-                      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-evergreen-400 to-pink-400"></div>
+                  {index === 0 ? (
+                    /* Early Years Interactive Script */
+                    <div className="w-full">
+                      <InteractiveScript
+                        title="Early Years (1900–1940)"
+                        description="Life on the hillsides in the early 20th century"
+                        segments={earlyYearsScript}
+                        className="w-full bg-cream-50/90 backdrop-blur-sm border border-evergreen-200/30"
+                      />
                     </div>
-                  </div>
+                  ) : (
+                    /* Decorative element for other timeline events */
+                    <div className="w-full h-32 flex items-center justify-center">
+                      <div className="w-16 h-16 rounded-full bg-gradient-to-br from-evergreen-200/30 to-pink-200/30 backdrop-blur-sm border border-evergreen-200/20 flex items-center justify-center">
+                        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-evergreen-400 to-pink-400"></div>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
