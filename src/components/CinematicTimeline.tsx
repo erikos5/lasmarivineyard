@@ -70,6 +70,26 @@ const CinematicTimeline = ({ events, className = '' }: CinematicTimelineProps) =
     }
   ];
 
+  // Traditional Life script segments (for the second timeline event)
+  const traditionalLifeScript = [
+    {
+      english: "Life then was simple, self-sufficient, and bound to nature. Everything was handmade: copper was hammered into pots, trays, and pans; the village blacksmith joined them with rivets.",
+      greek: "Η ζωή τότε ήταν απλή, αυτάρκης και συνδεδεμένη με τη φύση. Όλα γίνονταν με το χέρι: ο χαλκός γινόταν κατσαρόλες, ταψιά, τηγάνια· ο σιδεράς του χωριού τα έφτιαχνε και τα ένωναν με πιτσίνια."
+    },
+    {
+      english: "Inside the house, the fire burned openly, without a chimney; the smoke drifted out through the roof tiles. In summer, families lived here for three months with the sheep, sleeping on mattresses filled with fresh straw, refilled each season.",
+      greek: "Στο σπίτι η φωτιά έκαιγε μέσα, χωρίς καμινάδα· ο καπνός έβρισκε διέξοδο από τις σχισμές στα κεραμίδια. Το καλοκαίρι μέναμε εδώ μόνιμα, τρεις μήνες με τα πρόβατα, κοιμόμασταν σε στρώματα από φρέσκο άχυρο, που η μητέρα μου γέμιζε και ξαναγέμιζε κάθε χρόνο."
+    },
+    {
+      english: "If rain dripped through the tiles, they simply moved the table and carried on. Food was cooked over the fire; pots hung from chains attached to the roof beams.",
+      greek: "Αν η βροχή έσταζε από τα κεραμίδια, απλώς μετακινούσαμε το τραπέζι και συνεχίζαμε. Το φαγητό μαγειρευόταν πάνω στη φωτιά· οι κατσαρόλες κρέμονταν σε αλυσίδες από τα ξύλα της στέγης."
+    },
+    {
+      english: "Birds caught in traps were an important summer food. Fox and marten furs were traded for value — nothing was wasted. Life was hard, but it was meaningful, lived in harmony with the rhythms of the land.",
+      greek: "Τα πουλιά πιάνονταν σε παγίδες και ήταν σημαντική τροφή το καλοκαίρι. Οι γούνες από αλεπούδες και κουνάβια είχαν αξία, τίποτα δεν πετιόταν. Η ζωή ήταν σκληρή, αλλά γεμάτη νόημα και δεμένη με τους ρυθμούς της γης."
+    }
+  ];
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start center", "end center"]
@@ -237,6 +257,16 @@ const CinematicTimeline = ({ events, className = '' }: CinematicTimelineProps) =
                         title="Early Years (1900–1940)"
                         description="Life on the hillsides in the early 20th century"
                         segments={earlyYearsScript}
+                        className="w-full bg-cream-50/90 backdrop-blur-sm border border-evergreen-200/30"
+                      />
+                    </div>
+                  ) : index === 1 ? (
+                    /* Traditional Life Interactive Script */
+                    <div className="w-full">
+                      <InteractiveScript
+                        title="Traditional Life (1940–1960)"
+                        description="Simple, self-sufficient life bound to nature"
+                        segments={traditionalLifeScript}
                         className="w-full bg-cream-50/90 backdrop-blur-sm border border-evergreen-200/30"
                       />
                     </div>
