@@ -19,7 +19,6 @@ const timelineEvents = [
     title: "Where Streams Once Flowed",
     description: "The terroir of Lasmari was shaped by ancient waterways that carved fertile valleys through Corfu's landscape. This unique geological formation created the perfect drainage and mineral composition that gives our wines their distinctive character. The location between Perivolaki Loutses and Ano Perivolaki benefits from both elevation and natural water sources.",
     image: "/images/timeline/timeline-1-hero.png",
-    audioId: "founding-story",
     quote: "Here was a stream - this entire area used to be a stream in time."
   },
   {
@@ -27,7 +26,6 @@ const timelineEvents = [
     title: "Living Off the Land", 
     description: "Traditional Corfiot farming involved a holistic approach to agriculture. Families would live seasonally on their estates, maintaining livestock alongside vineyards. This integrated farming method enriched the soil naturally and created a sustainable ecosystem where every element supported the others, from sheep fertilizing the land to olive groves providing windbreaks for delicate vines.",
     image: "/images/timeline/timeline-2-hero.png",
-    audioId: "expansion-era",
     quote: "With this pan we made the traditional pastitsada of old times."
   },
   {
@@ -35,7 +33,6 @@ const timelineEvents = [
     title: "The Perfect Vintage",
     description: "Certain years in winemaking become legendary when nature aligns perfectly. The 1963-1964 seasons brought ideal rainfall patterns, optimal soil conditions, and perfect timing for harvest. These factors combined to create what winemakers call a 'perfect vintage' - where every element from grape development to fermentation exceeded expectations, setting the standard for all future wines.",
     image: "/images/timeline/timeline-3-hero.png",
-    audioId: "renaissance-period",
     quote: "After the rains came, we worked with our hands, and everything was perfect."
   },
   {
@@ -43,7 +40,6 @@ const timelineEvents = [
     title: "Modern Heritage Winemaking",
     description: "Contemporary winemaking at Lasmari combines time-honored techniques with modern understanding of viticulture. We maintain traditional hand-harvesting methods while applying scientific knowledge of fermentation, aging, and terroir expression. This approach preserves the authentic character of Corfiot wines while ensuring consistent quality and sustainable practices for future generations.",
     image: "/images/timeline/timeline-4-hero.png",
-    audioId: "present-day",
     quote: "We are not just making wine; we are preserving a living heritage for future generations."
   }
 ];
@@ -116,7 +112,7 @@ export default function Home() {
                 </div>
               </div>
               
-              {/* Centered Audio and Timeline - Much Lower */}
+              {/* Centered Interactive Content */}
               <div className="text-center space-y-12 pt-20">
                 {/* Interactive Welcome Story */}
                 <div>

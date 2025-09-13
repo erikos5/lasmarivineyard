@@ -2,7 +2,6 @@
 
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { useRef, useEffect, useState } from 'react';
-import ImmersiveAudioPlayer from './ImmersiveAudioPlayer';
 
 interface TimelineEvent {
   year: string;
@@ -10,7 +9,6 @@ interface TimelineEvent {
   description: string;
   quote?: string;
   image: string;
-  audioId?: string;
 }
 
 interface CinematicTimelineProps {
@@ -61,20 +59,6 @@ const CinematicTimeline = ({ events, className = '' }: CinematicTimelineProps) =
     return () => observer.disconnect();
   }, [events]);
 
-  // Sample subtitle data for timeline audio
-  const timelineSubtitlesEn = [
-    { start: 0, end: 10, text: "In 1892, our great-great-grandfather planted the first vines in the fertile soils of Corfu." },
-    { start: 10, end: 20, text: "The land spoke to us, and we listened with reverence and determination." },
-    { start: 20, end: 30, text: "During the 1930s, we expanded our vineyards and refined our traditional techniques." },
-    { start: 30, end: 40, text: "Each generation added their wisdom while preserving the soul of our craft." }
-  ];
-
-  const timelineSubtitlesGr = [
-    { start: 0, end: 10, text: "Το 1892, ο προ-προ-παππούς μας φύτεψε τα πρώτα κλήματα στα γόνιμα χώματα της Κέρκυρας." },
-    { start: 10, end: 20, text: "Η γη μας μίλησε, και εμείς ακούσαμε με σεβασμό και αποφασιστικότητα." },
-    { start: 20, end: 30, text: "Κατά τη δεκαετία του 1930, επεκτείναμε τους αμπελώνες και βελτιώσαμε τις παραδοσιακές τεχνικές." },
-    { start: 30, end: 40, text: "Κάθε γενιά πρόσθεσε τη σοφία της διατηρώντας την ψυχή της τέχνης μας." }
-  ];
 
   return (
     <div ref={containerRef} className={`relative min-h-screen ${className}`}>
@@ -94,23 +78,6 @@ const CinematicTimeline = ({ events, className = '' }: CinematicTimelineProps) =
           </p>
         </div>
 
-        {/* Audio Player for Timeline Story */}
-        <motion.div 
-          className="max-w-4xl mx-auto mb-4"
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: false }}
-        >
-          <ImmersiveAudioPlayer
-            audioSrc="/audio/recordings/section2-story.mp3"
-            subtitlesEn={timelineSubtitlesEn}
-            subtitlesGr={timelineSubtitlesGr}
-            title="Our Family Legacy"
-            description="Listen to the story of five generations"
-            className="w-full"
-          />
-        </motion.div>
 
         {/* Vertical Timeline */}
         <div className="relative max-w-6xl mx-auto">
@@ -203,41 +170,12 @@ const CinematicTimeline = ({ events, className = '' }: CinematicTimelineProps) =
                   </div>
                 </div>
 
-                {/* Voice Recording Section - Bigger & Further to Sides */}
+                {/* Decorative element for visual balance */}
                 <div className={`w-6/12 ${index % 2 === 0 ? 'pl-40' : 'pr-40'}`}>
-                  <div className="w-full">
-                    <ImmersiveAudioPlayer
-                      audioSrc={`/audio/recordings/timeline-${index + 1}.mp3`}
-                      subtitlesEn={[
-                        { start: 0, end: 10, text: index === 0 ? "We found ourselves two kilometers past Loutses..." : 
-                                               index === 1 ? "With this traditional pan, we made pastitsada..." :
-                                               index === 2 ? "Those years were magical - 1963 to 1964..." : 
-                                               "Today, we continue our family legacy..." },
-                        { start: 10, end: 20, text: index === 0 ? "This entire area was once a stream..." :
-                                                index === 1 ? "We stayed from early spring, had sheep..." :
-                                                index === 2 ? "After the rains came, we worked with our hands..." :
-                                                "Creating wines that tell our story..." }
-                      ]}
-                      subtitlesGr={[
-                        { start: 0, end: 10, text: index === 0 ? "Βρισκόμαστε δύο χιλιόμετρα μετά την Λούτσες..." :
-                                               index === 1 ? "Με αυτό το ταψί φτιάχναμε παστιτσάδα..." :
-                                               index === 2 ? "Εκείνα τα χρόνια ήταν μαγικά - 1963 έως 1964..." :
-                                               "Σήμερα, συνεχίζουμε την οικογενειακή μας παράδοση..." },
-                        { start: 10, end: 20, text: index === 0 ? "Όλη αυτή η περιοχή ήταν κάποτε ρέμα..." :
-                                                index === 1 ? "Μείναμε από την πρώιμη άνοιξη, είχαμε πρόβατα..." :
-                                                index === 2 ? "Μετά τις βροχές, δουλέψαμε με τα χέρια μας..." :
-                                                "Δημιουργώντας κρασιά που λένε την ιστορία μας..." }
-                      ]}
-                      title={index === 0 ? "Our Beginnings" : 
-                             index === 1 ? "Traditional Stories" :
-                             index === 2 ? "Golden Years" : 
-                             "Modern Heritage"}
-                      description={index === 0 ? "The story of streams and settlements" : 
-                                   index === 1 ? "Tales of traditional cooking" :
-                                   index === 2 ? "Memories from magical harvest years" : 
-                                   "Our family's continuing legacy"}
-                      className="w-full bg-cream-50/90 backdrop-blur-sm border border-evergreen-200/30"
-                    />
+                  <div className="w-full h-32 flex items-center justify-center">
+                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-evergreen-200/30 to-pink-200/30 backdrop-blur-sm border border-evergreen-200/20 flex items-center justify-center">
+                      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-evergreen-400 to-pink-400"></div>
+                    </div>
                   </div>
                 </div>
               </div>
