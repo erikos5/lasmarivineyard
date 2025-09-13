@@ -6,8 +6,7 @@ import Navbar from '@/components/Navbar';
 import ScrollSection from '@/components/ScrollSection';
 import TimelineSection from '@/components/TimelineSection';
 import CinematicTimeline from '@/components/CinematicTimeline';
-import AudioWithSubtitles from '@/components/AudioWithSubtitles';
-import ImmersiveAudioPlayer from '@/components/ImmersiveAudioPlayer';
+import InteractiveScript from '@/components/InteractiveScript';
 import Booking from '@/components/Booking';
 import Footer from '@/components/Footer';
 import CinematicHero from '@/components/CinematicHero';
@@ -49,21 +48,32 @@ const timelineEvents = [
   }
 ];
 
-// Authentic subtitle data from family voice recordings
-const welcomeSubtitlesEn = [
-  { start: 0, end: 10, text: "We are located two kilometers past Loutses, halfway between Perivolaki Loutses and Ano Perivolaki." },
-  { start: 10, end: 18, text: "Here was a stream - this entire area used to be a stream in time." },
-  { start: 18, end: 26, text: "At the bottom was a village called Katafi. From above, we had our estates." },
-  { start: 26, end: 34, text: "We stayed from early spring, had sheep, and worked the land with our hands." },
-  { start: 34, end: 42, text: "The first thing we built here was an oven, and from there our story began." }
-];
-
-const welcomeSubtitlesGr = [
-  { start: 0, end: 10, text: "Βρισκόμαστε δύο χιλιόμετρα μετά την Λούτσες, στη μέση μεταξύ Περιβόλιας Λούτσες και Άνω Περιβόλια." },
-  { start: 10, end: 18, text: "Εδώ ήταν ένα ρέμα, όλοκληρη αυτή η περιοχή στο χρόνο ήταν ρέμα." },
-  { start: 18, end: 26, text: "Κατάφι, ενιστάνε από πάνω, είχαμε πρόβατα." },
-  { start: 26, end: 34, text: "Το σπίτι που ήταν σαν αποθήκη, σαν ψησολόγιο και βοηθητικό σπίτι." },
-  { start: 34, end: 42, text: "Με αυτό το ταψί φτιάχναμε παλιά την παραδοσιακή παστιτσάδα." }
+// Welcome script segments for interactive storytelling
+const welcomeScript = [
+  {
+    english: "Welcome to our vineyard. Here, between Loutses and Old Peritheia, just two kilometers from the village, begins a story that has lasted for more than a century.",
+    greek: "Καλωσορίσατε στον αμπελώνα μας. Εδώ, ανάμεσα στις Λούτσες και την Άνω Περίθεια, δύο μόλις χιλιόμετρα από το χωριό, ξεκινά μια ιστορία που μετρά πάνω από έναν αιώνα."
+  },
+  {
+    english: "If you look around, you will see the very same slopes my grandfather saw when he planted the first vines. From that moment until today, this land has witnessed generations of people, seasons of hardship and abundance, wildfires, abandonment, and renewal.",
+    greek: "Αν κοιτάξετε γύρω σας, θα δείτε τις ίδιες πλαγιές που αντίκριζε ο παππούς μου όταν φύτεψε τα πρώτα κλήματα. Από τότε μέχρι σήμερα, η γη αυτή έζησε γενιές ανθρώπων, αλλαγές, δυσκολίες, φωτιές και αναγεννήσεις."
+  },
+  {
+    english: "This place is not just a field; it is memory itself. It is the stone paths once walked by shepherds, the echoes of sheep bells that filled the valleys, the fragrance of grapes in September drifting through the air.",
+    greek: "Ο τόπος αυτός δεν είναι απλώς χωράφι· είναι μνήμη. Είναι οι πέτρες των μονοπατιών που πατούσαν οι παλιοί, είναι οι ήχοι από τα κοπάδια που κάποτε αντηχούσαν σε όλη την πλαγιά, είναι το άρωμα του σταφυλιού που κάθε Σεπτέμβρη γέμιζε τον αέρα."
+  },
+  {
+    english: "Over a hundred years ago, our family's story began here, among these terraces and rocky hills.",
+    greek: "Εδώ, πάνω από εκατό χρόνια πριν, άρχισε η ιστορία της οικογένειας και του αμπελιού μας."
+  },
+  {
+    english: "As you walk between the rows of vines, you can almost imagine the past: men working the soil with hand tools, children playing among the trees, women carrying water from the springs in clay pitchers.",
+    greek: "Καθώς περπατά κανείς ανάμεσα στις σειρές των κλημάτων, μπορεί σχεδόν να φανταστεί πώς ήταν τότε: οι άνθρωποι να σκάβουν με τα χέρια, τα παιδιά να παίζουν ανάμεσα στα δέντρα, οι γυναίκες να γεμίζουν τα κανάτια με νερό από τις πηγές."
+  },
+  {
+    english: "Every step of this hillside tells a story. And today, we continue that thread, preserving the bond between land, wine, and family.",
+    greek: "Κάθε σπιθαμή αυτής της πλαγιάς κουβαλάει μια αφήγηση. Κι εμείς σήμερα συνεχίζουμε αυτό το νήμα, κρατώντας ζωντανό τον σύνδεσμο ανάμεσα στη γη, το κρασί και την οικογένεια."
+  }
 ];
 
 
@@ -89,16 +99,16 @@ export default function Home() {
           <div className="w-full h-full flex items-center justify-center">
             <div className="max-w-7xl px-6 w-full">
               {/* Split Layout: Description Left, Title Right */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-16">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-32 pt-24">
                 {/* Left side - Description */}
-                <div className="text-left">
+                <div className="text-left pt-12">
                   <p className="text-xl lg:text-2xl xl:text-3xl text-cream-100 font-inter leading-relaxed font-light">
-                    Nestled in the heart of Corfu's countryside, Lasmari Vineyard represents five generations of winemaking tradition. Our family estate sits on ancient stream beds that have created uniquely fertile soil, perfect for cultivating exceptional Mediterranean varietals. Every bottle tells the story of this remarkable terroir and our commitment to preserving authentic Corfiot winemaking heritage.
+                    <span className="font-bold">Nestled</span> in the heart of Corfu's countryside, Lasmari Vineyard represents five generations of winemaking tradition. Our family estate sits on ancient stream beds that have created uniquely fertile soil, perfect for cultivating exceptional Mediterranean varietals. Every bottle tells the story of this remarkable terroir and our commitment to preserving authentic Corfiot winemaking heritage.
                   </p>
                 </div>
                 
                 {/* Right side - Title */}
-                <div className="text-left">
+                <div className="text-left pt-12">
                   <MagneticTitle 
                     text="Authentic Corfiot Wine Heritage"
                     className="font-playfair text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-cream-50 leading-tight"
@@ -106,16 +116,14 @@ export default function Home() {
                 </div>
               </div>
               
-              {/* Centered Audio and Timeline */}
-              <div className="text-center space-y-8">
-                {/* Immersive Audio Introduction */}
+              {/* Centered Audio and Timeline - Much Lower */}
+              <div className="text-center space-y-12 pt-20">
+                {/* Interactive Welcome Story */}
                 <div>
-                  <ImmersiveAudioPlayer
-                    audioSrc="/audio/recordings/section1-welcome.mp3"
-                    subtitlesEn={welcomeSubtitlesEn}
-                    subtitlesGr={welcomeSubtitlesGr}
+                  <InteractiveScript
                     title="Welcome to Lasmari"
-                    description="Listen to our story in the voice of our family"
+                    description="Discover our story through the words of our family"
+                    segments={welcomeScript}
                     className="w-full max-w-4xl mx-auto"
                   />
                 </div>
