@@ -176,7 +176,7 @@ export default function ExperiencesPage() {
               </div>
               
               <motion.div 
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-14 max-w-5xl mx-auto"
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-24 max-w-5xl mx-auto"
                 variants={containerVariants}
                 initial="hidden"
                 whileInView="visible"
@@ -233,7 +233,7 @@ export default function ExperiencesPage() {
               </div>
               
               <motion.div 
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-14 max-w-5xl mx-auto"
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-24 max-w-5xl mx-auto"
                 variants={containerVariants}
                 initial="hidden"
                 whileInView="visible"
@@ -290,7 +290,7 @@ export default function ExperiencesPage() {
               </div>
               
               <motion.div 
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-14 max-w-5xl mx-auto"
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-24 max-w-5xl mx-auto"
                 variants={containerVariants}
                 initial="hidden"
                 whileInView="visible"
@@ -347,7 +347,7 @@ export default function ExperiencesPage() {
               </div>
               
               <motion.div 
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-14 max-w-5xl mx-auto"
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-24 max-w-5xl mx-auto"
                 variants={containerVariants}
                 initial="hidden"
                 whileInView="visible"
