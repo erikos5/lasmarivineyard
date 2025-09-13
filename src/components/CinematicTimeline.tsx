@@ -110,6 +110,34 @@ const CinematicTimeline = ({ events, className = '' }: CinematicTimelineProps) =
     }
   ];
 
+  // Today - Renewal script segments (for the fourth timeline event)
+  const todayRenewalScript = [
+    {
+      english: "After 1960, great change came. Urban migration drew people into the towns; the fields were abandoned. Old Peritheia, once alive with schools, coffee houses, seven churches, and the town hall, emptied.",
+      greek: "Μετά το 1960 άρχισε η μεγάλη αλλαγή. Η αστυφιλία τράβηξε τους ανθρώπους στις πόλεις· τα χωράφια εγκαταλείφθηκαν. Η Πάνω Περίθεια, που κάποτε έσφυζε από ζωή με σχολείο, καφενεία, επτά εκκλησίες και διοίκηση, άδειασε."
+    },
+    {
+      english: "The mosquito had been eradicated with chemicals, and so there was no longer a reason for families to climb the mountains in summer to escape malaria. The old stone-paved paths with their carved steps grew over with vegetation.",
+      greek: "Το κουνούπι είχε πια εξαλειφθεί με τα φάρμακα, κι έτσι δεν υπήρχε λόγος να ανεβαίνουν οι οικογένειες το καλοκαίρι για να σωθούν από την ελονοσία. Τα μονοπάτια, λιθόστρωτα με σκαλοπάτια, άρχισαν να κλείνουν από τη βλάστηση."
+    },
+    {
+      english: "Fires destroyed much of the forest, and the vineyards of old disappeared. Only a few trees remained to remind us of the past. The self-sufficient life of earlier times was gone.",
+      greek: "Οι φωτιές κατέστρεψαν μεγάλο μέρος του δάσους, τα παλιά αμπέλια χάθηκαν. Μονάχα λίγα δέντρα έμειναν να θυμίζουν το παρελθόν. Η αυτάρκης ζωή των παλιών χρόνων είχε πια τελειώσει."
+    },
+    {
+      english: "Today, much has changed, yet the essence remains. Two years ago, fire destroyed 60% of our vineyard. But just as our grandparents rebuilt after every hardship, so too we replant, renew, and bring life back to the land.",
+      greek: "Σήμερα, πολλά έχουν αλλάξει, αλλά η ουσία παραμένει. Πριν δύο χρόνια, μια φωτιά έκαψε το 60% του αμπελιού μας. Όμως, όπως οι παππούδες μας ξαναέχτιζαν μετά από κάθε δυσκολία, έτσι κι εμείς ξαναφυτεύουμε, ξαναδίνουμε ζωή."
+    },
+    {
+      english: "Nature remains: foxes still den in the same rocks as seventy years ago, turtles wander through the grass, and birds return each season. We still grow kakotrygi and agiorgitiko, just as before.",
+      greek: "Η φύση εξακολουθεί να είναι παρούσα: οι αλεπούδες έχουν φωλιές στα ίδια βράχια για πάνω από εβδομήντα χρόνια, οι χελώνες συνεχίζουν να περπατούν ανάμεσα στα χόρτα, τα πουλιά επιστρέφουν κάθε εποχή. Εμείς συνεχίζουμε να καλλιεργούμε το κακοτρίγγι και το αγιοργίτικο, όπως τότε."
+    },
+    {
+      english: "Perhaps the tools and pots have changed, but the spirit of this place — the bond between land, wine, and family — endures. This is our vineyard. This is our story. And now, it becomes part of yours.",
+      greek: "Ίσως να άλλαξαν τα εργαλεία και τα σκεύη, αλλά η ψυχή του τόπου – η σύνδεση ανάμεσα στη γη, το κρασί και την οικογένεια – παραμένει αναλλοίωτη. Αυτός είναι ο αμπελώνας μας. Αυτή είναι η ιστορία μας. Και τώρα, γίνεται μέρος και της δικής σας."
+    }
+  ];
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start center", "end center"]
@@ -300,8 +328,18 @@ const CinematicTimeline = ({ events, className = '' }: CinematicTimelineProps) =
                         className="w-full bg-cream-50/90 backdrop-blur-sm border border-evergreen-200/30"
                       />
                     </div>
+                  ) : index === 3 ? (
+                    /* Today - Renewal Interactive Script */
+                    <div className="w-full">
+                      <InteractiveScript
+                        title="Today – Renewal"
+                        description="From decline to rebirth, the enduring spirit of the vineyard"
+                        segments={todayRenewalScript}
+                        className="w-full bg-cream-50/90 backdrop-blur-sm border border-evergreen-200/30"
+                      />
+                    </div>
                   ) : (
-                    /* Decorative element for remaining timeline events */
+                    /* Decorative element for any remaining timeline events */
                     <div className="w-full h-32 flex items-center justify-center">
                       <div className="w-16 h-16 rounded-full bg-gradient-to-br from-evergreen-200/30 to-pink-200/30 backdrop-blur-sm border border-evergreen-200/20 flex items-center justify-center">
                         <div className="w-8 h-8 rounded-full bg-gradient-to-br from-evergreen-400 to-pink-400"></div>
