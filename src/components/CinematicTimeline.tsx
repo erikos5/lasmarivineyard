@@ -360,7 +360,7 @@ const CinematicTimeline = ({ events, className = '' }: CinematicTimelineProps) =
             viewport={{ once: false }}
           >
             <motion.div 
-              className="absolute left-1/2 transform -translate-x-1/2 w-12 h-12 bg-pink-400 rounded-full border-6 border-cream-50 z-10"
+              className="absolute left-1/2 top-0 transform -translate-x-1/2 w-12 h-12 bg-pink-400 rounded-full border-6 border-cream-50 z-10"
               animate={{ 
                 scale: [1, 1.2, 1],
                 boxShadow: [
