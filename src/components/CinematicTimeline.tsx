@@ -359,8 +359,9 @@ const CinematicTimeline = ({ events, className = '' }: CinematicTimelineProps) =
             transition={{ duration: 0.8 }}
             viewport={{ once: false }}
           >
-            <motion.div 
-              className="absolute left-1/2 top-0 transform -translate-x-1/2 w-12 h-12 bg-pink-400 rounded-full border-6 border-cream-50 z-10"
+            <div className="flex justify-center absolute top-0 left-0 right-0 z-10">
+              <motion.div 
+                className="w-12 h-12 bg-pink-400 rounded-full border-6 border-cream-50"
               animate={{ 
                 scale: [1, 1.2, 1],
                 boxShadow: [
@@ -374,7 +375,8 @@ const CinematicTimeline = ({ events, className = '' }: CinematicTimelineProps) =
                 repeat: Infinity,
                 ease: "easeInOut"
               }}
-            />
+              />
+            </div>
             <div className="pt-16">
               <h3 className="font-playfair text-4xl font-bold text-evergreen-800 mb-4">
                 The Story Continues...
