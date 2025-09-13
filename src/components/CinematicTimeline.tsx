@@ -2,6 +2,7 @@
 
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { useRef, useEffect, useState } from 'react';
+import InteractiveScript from './InteractiveScript';
 
 interface TimelineEvent {
   year: string;
@@ -20,6 +21,34 @@ const CinematicTimeline = ({ events, className = '' }: CinematicTimelineProps) =
   const containerRef = useRef<HTMLDivElement>(null);
   const progressRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
+
+  // Family Legacy script segments
+  const familyLegacyScript = [
+    {
+      english: "This vineyard was planted by my grandfather a century ago. With his own hands he set the first vines in the soil, and ever since, each generation of the family has cared for them.",
+      greek: "Το αμπέλι που βλέπετε το φύτεψε ο παππούς μου πριν από έναν αιώνα. Με τα ίδια του τα χέρια έβαλε τα πρώτα κλήματα στο χώμα, κι από τότε κάθε γενιά της οικογένειας φρόντισε να τα διατηρήσει ζωντανά."
+    },
+    {
+      english: "Around the vineyard we kept herds of sheep; the slopes rang with the sound of their bells, and the land was always alive. The small house here served as both storage and a summer dwelling, sheltering families who spent whole seasons in the mountains, close to their fields.",
+      greek: "Γύρω από το αμπέλι είχαμε κοπάδια με πρόβατα· η πλαγιά γέμιζε από τον ήχο των κουδουνιών τους, κι ο τόπος ήταν πάντα ζωντανός. Το μικρό σπίτι εδώ χρησίμευε σαν αποθήκη, αλλά και σαν καταφύγιο για τις οικογένειες που περνούσαν ολόκληρα καλοκαίρια στα βουνά, κοντά στα χωράφια τους."
+    },
+    {
+      english: "This land provided everything. Wheat, lentils, chickpeas — the staples that kept a household self-sufficient. The hillsides were filled with fruit trees: cherry trees that thrived in this climate, and pear trees of many varieties.",
+      greek: "Η γη αυτή μας έδινε τα πάντα. Καλλιεργούσαμε σιτάρι, φακές, ρεβίθια· βασικά αγαθά για να ζήσει μια οικογένεια χωρίς να χρειάζεται τίποτε απ' έξω. Οι πλαγιές ήταν γεμάτες καρποφόρα δέντρα: κερασιές που ευδοκιμούσαν στο κλίμα της περιοχής, και αχλαδιές από πολλές ποικιλίες."
+    },
+    {
+      english: "Augustates, Winter pears, the short-stemmed Kontoules, and the long-stemmed Makryskourdes. Each tree had its own season, and each brought its unique flavor and memory to the family table.",
+      greek: "Αυγουστάτες, Χειμωνιάτικες, Κοντούλες και Μακρυσκούρδες. Κάθε δέντρο είχε τη δική του εποχή, και το καθένα έδινε γεύση και μνήμη στο τραπέζι."
+    },
+    {
+      english: "From Loutses all the way up here, every field was once cultivated: wheat fields, almond groves, vineyards. And at the heart of it all were our vines — the kakotrygi, a delicate white grape with a fine aroma, and the agiorgitiko, the bold red that produced full-bodied wine.",
+      greek: "Από τις Λούτσες μέχρι εδώ ψηλά, όλα ήταν κάποτε καλλιεργημένα. Σιτάρια, αμυγδαλιές, αμπέλια. Και στο κέντρο αυτής της εικόνας, το δικό μας κλήμα – το κακοτρίγγι, το λευκό σταφύλι με το λεπτό άρωμα, και το αγιοργίτικο, το δυνατό κόκκινο που έδινε κρασί γεμάτο σώμα."
+    },
+    {
+      english: "These two varieties carried our family tradition, and they still carry it forward today.",
+      greek: "Αυτά τα δύο κρατούσαν ζωντανή την παράδοση της οικογένειας και συνεχίζουν να την κρατούν μέχρι σήμερα."
+    }
+  ];
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -78,6 +107,15 @@ const CinematicTimeline = ({ events, className = '' }: CinematicTimelineProps) =
           </p>
         </div>
 
+        {/* Family Legacy Interactive Script */}
+        <div className="text-center mb-20">
+          <InteractiveScript
+            title="Family Legacy"
+            description="Discover the heritage that shaped our vineyard through five generations"
+            segments={familyLegacyScript}
+            className="w-full max-w-4xl mx-auto"
+          />
+        </div>
 
         {/* Vertical Timeline */}
         <div className="relative max-w-6xl mx-auto">
