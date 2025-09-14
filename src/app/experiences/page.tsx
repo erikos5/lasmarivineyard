@@ -476,12 +476,18 @@ export default function ExperiencesPage() {
                     </div>
                   </div>
 
-                  <a
-                    href="#contact"
-                    className="relative z-10 inline-block bg-pink-400 hover:bg-pink-500 text-evergreen-800 font-inter font-semibold px-12 py-4 text-lg rounded-xl transition-colors duration-200 cursor-pointer"
+                  <button
+                    onClick={() => {
+                      const contactElement = document.getElementById('contact');
+                      if (contactElement) {
+                        contactElement.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    }}
+                    className="bg-pink-400 hover:bg-pink-500 text-evergreen-800 font-inter font-semibold px-12 py-4 text-lg rounded-xl transition-colors duration-200 cursor-pointer border-none"
+                    style={{ pointerEvents: 'auto' }}
                   >
                     Reserve Your Spot
-                  </a>
+                  </button>
                   
                   <p className="text-cream-200 text-sm">
                     Contact us to check availability and make your reservation
