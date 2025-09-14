@@ -2,7 +2,7 @@
 
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { useRef, useEffect, useState } from 'react';
-import { ChevronDown, Volume2, VolumeX } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -11,8 +11,6 @@ const CinematicHero = () => {
   const bgRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLDivElement>(null);
-  const [hasAmbientSound, setHasAmbientSound] = useState(false);
-  const [soundEnabled, setSoundEnabled] = useState(false);
   
   // Magnetic title effects
   const mouseX = useMotionValue(0);
@@ -106,10 +104,6 @@ const CinematicHero = () => {
     }
   };
 
-  const toggleAmbientSound = () => {
-    setSoundEnabled(!soundEnabled);
-    // In a real implementation, this would control ambient vineyard sounds
-  };
 
   return (
     <section 
@@ -243,23 +237,6 @@ const CinematicHero = () => {
         </div>
       </div>
 
-      {/* Ambient Sound Control */}
-      <motion.div
-        className="absolute bottom-8 right-8 z-20"
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.8, delay: 2.2 }}
-      >
-        <motion.button
-          onClick={toggleAmbientSound}
-          className="w-14 h-14 bg-evergreen-800/50 backdrop-blur-sm text-cream-50 rounded-full flex items-center justify-center border border-cream-50/30 hover:bg-evergreen-700/60 transition-all duration-300"
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          title="Toggle ambient vineyard sounds"
-        >
-          {soundEnabled ? <Volume2 size={20} /> : <VolumeX size={20} />}
-        </motion.button>
-      </motion.div>
 
       {/* Vintage Film Bars */}
       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-cream-50/20 to-transparent z-10" />
