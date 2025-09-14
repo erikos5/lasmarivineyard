@@ -476,15 +476,12 @@ export default function ExperiencesPage() {
                     </div>
                   </div>
 
-                  <motion.a
+                  <a
                     href="#contact"
-                    className="inline-block bg-pink-400 hover:bg-pink-500 text-evergreen-800 font-inter font-semibold px-12 py-4 text-lg rounded-xl transition-all duration-300 transform-gpu will-change-transform"
-                    whileHover={{ scale: 1.03 }}
-                    whileTap={{ scale: 0.98 }}
-                    transition={{ duration: 0.15 }}
+                    className="inline-block bg-pink-400 hover:bg-pink-500 text-evergreen-800 font-inter font-semibold px-12 py-4 text-lg rounded-xl transition-colors duration-200 hover:scale-105 transform cursor-pointer"
                   >
                     Reserve Your Spot
-                  </motion.a>
+                  </a>
                   
                   <p className="text-cream-200 text-sm">
                     Contact us to check availability and make your reservation
