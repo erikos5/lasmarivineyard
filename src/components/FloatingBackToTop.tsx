@@ -22,10 +22,22 @@ const FloatingBackToTop = () => {
   }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
+    // Check if Lenis is available on window object
+    const lenis = (window as any).lenis;
+    
+    if (lenis && typeof lenis.scrollTo === 'function') {
+      // Use Lenis smooth scroll if available
+      lenis.scrollTo(0, {
+        duration: 1.5,
+        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
+      });
+    } else {
+      // Fallback to native scroll
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
   };
 
   return (
