@@ -6,6 +6,7 @@ import Navbar from '@/components/Navbar';
 import ScrollSection from '@/components/ScrollSection';
 import MagneticTitle from '@/components/MagneticTitle';
 import Footer from '@/components/Footer';
+import ContactSection from '@/components/ContactSection';
 
 // Comprehensive experience segments
 const experienceSegments = [
@@ -493,6 +494,9 @@ export default function ExperiencesPage() {
             </div>
           </div>
         </ScrollSection>
+
+        {/* Contact Section */}
+        <ContactSection />
 
         <Footer />
     </main>

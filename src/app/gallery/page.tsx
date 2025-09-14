@@ -5,6 +5,8 @@ import { Eye } from 'lucide-react';
 import { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import MagneticTitle from '@/components/MagneticTitle';
+import ContactSection from '@/components/ContactSection';
+import Footer from '@/components/Footer';
 
 const galleryCategories = [
   {
@@ -266,6 +268,11 @@ export default function GalleryPage() {
           </button>
         </motion.div>
       )}
+
+      {/* Contact Section */}
+      <ContactSection />
+
+      <Footer />
     </main>
   );
 } 
