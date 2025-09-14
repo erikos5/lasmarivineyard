@@ -476,18 +476,29 @@ export default function ExperiencesPage() {
                     </div>
                   </div>
 
-                  <button
-                    onClick={() => {
-                      const contactElement = document.getElementById('contact');
-                      if (contactElement) {
-                        contactElement.scrollIntoView({ behavior: 'smooth' });
-                      }
+                  <div
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      console.log('Button clicked!'); // Debug log
+                      window.location.hash = 'contact';
                     }}
-                    className="bg-pink-400 hover:bg-pink-500 text-evergreen-800 font-inter font-semibold px-12 py-4 text-lg rounded-xl transition-colors duration-200 cursor-pointer border-none"
-                    style={{ pointerEvents: 'auto' }}
+                    onMouseDown={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                    }}
+                    className="bg-pink-400 hover:bg-pink-500 text-evergreen-800 font-inter font-semibold px-12 py-4 text-lg rounded-xl cursor-pointer select-none inline-block text-center"
+                    style={{ 
+                      pointerEvents: 'auto',
+                      userSelect: 'none',
+                      WebkitUserSelect: 'none',
+                      MozUserSelect: 'none',
+                      msUserSelect: 'none',
+                      touchAction: 'manipulation'
+                    }}
                   >
                     Reserve Your Spot
-                  </button>
+                  </div>
                   
                   <p className="text-cream-200 text-sm">
                     Contact us to check availability and make your reservation
