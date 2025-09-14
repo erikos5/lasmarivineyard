@@ -3,6 +3,7 @@ import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
 import LenisProvider from "@/components/LenisProvider";
 import ClientTransition from "@/components/ClientTransition";
+import FloatingBackToTop from "@/components/FloatingBackToTop";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -36,6 +37,7 @@ export default function RootLayout({
           <ClientTransition>
             {children}
           </ClientTransition>
+          <FloatingBackToTop />
         </LenisProvider>
       </body>
     </html>

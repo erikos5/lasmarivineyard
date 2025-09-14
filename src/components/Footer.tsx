@@ -25,9 +25,6 @@ const Footer = () => {
     }
   };
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
 
   return (
     <footer className="bg-evergreen-800 text-cream-50 py-20 relative overflow-hidden">
@@ -141,21 +138,6 @@ const Footer = () => {
             © {new Date().getFullYear()} Lasmari Vineyard. All rights reserved.
           </p>
           
-          <motion.button
-            onClick={scrollToTop}
-            className="flex items-center space-x-2 text-cream-200 hover:text-cream-50 transition-colors duration-300 font-inter text-sm group"
-            whileHover={{ y: -2 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            <span>Back to top</span>
-            <motion.span
-              className="text-xl"
-              animate={{ y: [0, -3, 0] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            >
-              🍇
-            </motion.span>
-          </motion.button>
         </motion.div>
       </div>
     </footer>
