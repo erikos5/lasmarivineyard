@@ -478,7 +478,7 @@ export default function ExperiencesPage() {
 
                   <a
                     href="#contact"
-                    className="inline-block bg-pink-400 hover:bg-pink-500 text-evergreen-800 font-inter font-semibold px-12 py-4 text-lg rounded-xl transition-colors duration-200 hover:scale-105 transform cursor-pointer"
+                    className="relative z-10 inline-block bg-pink-400 hover:bg-pink-500 text-evergreen-800 font-inter font-semibold px-12 py-4 text-lg rounded-xl transition-colors duration-200 cursor-pointer"
                   >
                     Reserve Your Spot
                   </a>
