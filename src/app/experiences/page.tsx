@@ -477,11 +477,17 @@ export default function ExperiencesPage() {
                   </div>
 
                   <motion.a
-                    href="mailto:info@lasmari.gr?subject=Experience%20Booking%20Inquiry"
+                    href="#contact"
                     className="inline-block bg-pink-400 hover:bg-pink-500 text-evergreen-800 font-inter font-semibold px-12 py-4 text-lg rounded-xl transition-all duration-300 transform-gpu will-change-transform"
                     whileHover={{ scale: 1.03 }}
                     whileTap={{ scale: 0.98 }}
                     transition={{ duration: 0.15 }}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      document.getElementById('contact')?.scrollIntoView({ 
+                        behavior: 'smooth' 
+                      });
+                    }}
                   >
                     Reserve Your Spot
                   </motion.a>
