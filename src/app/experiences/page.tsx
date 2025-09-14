@@ -476,29 +476,27 @@ export default function ExperiencesPage() {
                     </div>
                   </div>
 
-                  <div
-                    onClick={(e) => {
-                      e.preventDefault();
-                      e.stopPropagation();
-                      console.log('Button clicked!'); // Debug log
-                      window.location.hash = 'contact';
+                  <button
+                    onClick={() => {
+                      const contactElement = document.getElementById('contact');
+                      if (contactElement) {
+                        const lenis = (window as any).lenis;
+                        if (lenis && typeof lenis.scrollTo === 'function') {
+                          // Use Lenis smooth scroll if available
+                          lenis.scrollTo(contactElement, {
+                            duration: 1.5,
+                            easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
+                          });
+                        } else {
+                          // Fallback to native scroll
+                          contactElement.scrollIntoView({ behavior: 'smooth' });
+                        }
+                      }
                     }}
-                    onMouseDown={(e) => {
-                      e.preventDefault();
-                      e.stopPropagation();
-                    }}
-                    className="bg-pink-400 hover:bg-pink-500 text-evergreen-800 font-inter font-semibold px-12 py-4 text-lg rounded-xl cursor-pointer select-none inline-block text-center"
-                    style={{ 
-                      pointerEvents: 'auto',
-                      userSelect: 'none',
-                      WebkitUserSelect: 'none',
-                      MozUserSelect: 'none',
-                      msUserSelect: 'none',
-                      touchAction: 'manipulation'
-                    }}
+                    className="bg-pink-400 hover:bg-pink-500 text-evergreen-800 font-inter font-semibold px-12 py-4 text-lg rounded-xl transition-colors duration-200 cursor-pointer"
                   >
                     Reserve Your Spot
-                  </div>
+                  </button>
                   
                   <p className="text-cream-200 text-sm">
                     Contact us to check availability and make your reservation
