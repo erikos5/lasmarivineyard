@@ -23,7 +23,7 @@ const FloatingBackToTop = () => {
 
   const scrollToTop = () => {
     // Check if Lenis is available on window object
-    const lenis = (window as any).lenis;
+    const lenis = (window as unknown as { lenis?: { scrollTo: (target: number, options: { duration: number; easing: (t: number) => number }) => void } }).lenis;
     
     if (lenis && typeof lenis.scrollTo === 'function') {
       // Use Lenis smooth scroll if available

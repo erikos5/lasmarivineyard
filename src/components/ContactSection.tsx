@@ -70,14 +70,14 @@ const ContactSection = ({ className = '' }: ContactSectionProps) => {
           <div className="bg-cream-50/10 backdrop-blur-sm p-8 rounded-3xl border border-cream-50/20">
             <h3 className="font-playfair text-3xl text-cream-50 mb-8 text-center">Contact Us</h3>
             <p className="text-cream-200 text-center mb-8">
-              Send us your inquiry and we'll get back to you within 24 hours
+              Send us your inquiry and we&apos;ll get back to you within 24 hours
             </p>
             
             {/* Success Message */}
             {submitStatus === 'success' && (
               <div className="mb-8 p-6 bg-green-500/20 border border-green-400/30 rounded-xl">
                 <p className="text-green-300 text-center font-medium">
-                  ✅ Thank you! Your message has been sent successfully. We'll get back to you within 24 hours.
+                  ✅ Thank you! Your message has been sent successfully. We&apos;ll get back to you within 24 hours.
                 </p>
               </div>
             )}

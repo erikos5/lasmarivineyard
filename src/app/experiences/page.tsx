@@ -387,14 +387,14 @@ export default function ExperiencesPage() {
                   className="font-playfair text-5xl md:text-7xl lg:text-8xl font-bold text-evergreen-800 leading-tight"
                 />
                 <p className="text-xl lg:text-2xl text-evergreen-700 font-inter leading-relaxed font-light max-w-4xl mx-auto">
-                  Everything you need for an unforgettable journey through our family's winemaking heritage
+                  Everything you need for an unforgettable journey through our family&apos;s winemaking heritage
                 </p>
               </div>
               
               {/* Elegant inclusion features */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
                 {[
-                  { title: "Premium Tastings", desc: "Five carefully selected wines representing our estate's finest expressions" },
+                  { title: "Premium Tastings", desc: "Five carefully selected wines representing our estate&apos;s finest expressions" },
                   { title: "Authentic Bites", desc: "Traditional Corfiot appetizers and specialties prepared from family recipes" },
                   { title: "Historic Tours", desc: "Guided exploration of original cellars and traditional winemaking areas" },
                   { title: "Estate Walk", desc: "Peaceful stroll through our vineyards with terroir and farming explanations" },
@@ -480,7 +480,7 @@ export default function ExperiencesPage() {
                     onClick={() => {
                       const contactElement = document.getElementById('contact');
                       if (contactElement) {
-                        const lenis = (window as any).lenis;
+                        const lenis = (window as unknown as { lenis?: { scrollTo: (element: Element, options: { duration: number; easing: (t: number) => number }) => void } }).lenis;
                         if (lenis && typeof lenis.scrollTo === 'function') {
                           // Use Lenis smooth scroll if available
                           lenis.scrollTo(contactElement, {
