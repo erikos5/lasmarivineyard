@@ -218,7 +218,9 @@ const MosaicGallery = ({ sections, className = '' }: MosaicGalleryProps) => {
               return (
                 <motion.div
                   key={image.id}
-                  ref={(el) => (imageRefs.current[globalIndex] = el)}
+                  ref={(el) => {
+                    imageRefs.current[globalIndex] = el;
+                  }}
                   className={getGridClasses(image, imageIndex)}
                   whileHover={{ scale: 1.02, zIndex: 10 }}
                   transition={{ duration: 0.3 }}
