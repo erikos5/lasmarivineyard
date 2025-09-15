@@ -39,14 +39,6 @@ const SectionWrapper = ({
       opacity: 1,
       x: 0,
       y: 0,
-      transition: {
-        duration: 0.6,
-        delay,
-        ...(stagger && {
-          staggerChildren: 0.1,
-          delayChildren: delay + 0.2,
-        }),
-      },
     },
   };
 
@@ -69,6 +61,14 @@ const SectionWrapper = ({
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
       variants={variants}
+      transition={{
+        duration: 0.6,
+        delay,
+        ...(stagger && {
+          staggerChildren: 0.1,
+          delayChildren: delay + 0.2,
+        }),
+      }}
     >
       {stagger ? (
         <motion.div variants={itemVariants}>
