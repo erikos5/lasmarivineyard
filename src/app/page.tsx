@@ -12,6 +12,10 @@ import Footer from '@/components/Footer';
 import CinematicHero from '@/components/CinematicHero';
 import MagneticTitle from '@/components/MagneticTitle';
 import ContactSection from '@/components/ContactSection';
+import MobileHero from '@/components/MobileHero';
+import MobileTimeline from '@/components/MobileTimeline';
+import MobileLasmariExperience from '@/components/MobileLasmariExperience';
+import useIsMobile from '@/hooks/useIsMobile';
 
 // Timeline data for the story
 const timelineEvents = [
@@ -76,20 +80,63 @@ const welcomeScript = [
 
 export default function Home() {
   const router = useRouter();
+  const { isMobile, isLoaded } = useIsMobile(768);
+
+  // Show loading state until we know if it's mobile
+  if (!isLoaded) {
+    return (
+      <main className="min-h-screen bg-cream-50 flex items-center justify-center">
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-evergreen-600"></div>
+      </main>
+    );
+  }
 
   return (
     <main className="min-h-screen bg-cream-50 transition-fade">
         <Navbar />
         
-        {/* Cinematic Hero Section */}
-        <CinematicHero />
-        
-        {/* Immersive Introduction */}
-        <ScrollSection
-          id="introduction"
-          backgroundImage="/images/backgrounds/bg-wine-heritage-header.png"
-          overlayColor="rgba(46, 59, 41, 0.35)"
-          cinematicZoom={false}
+        {/* Conditional Rendering: Mobile vs Desktop */}
+        {isMobile ? (
+          <>
+            {/* Mobile Hero */}
+            <MobileHero />
+            
+            {/* Mobile Welcome Section */}
+            <ScrollSection
+              id="welcome"
+              backgroundImage="/images/backgrounds/bg-wine-heritage-header.png"
+              overlayColor="rgba(46, 59, 41, 0.35)"
+              cinematicZoom={false}
+            >
+              <div className="w-full h-full flex items-center justify-center py-16">
+                <div className="max-w-sm px-6 text-center">
+                  <InteractiveScript
+                    title="Welcome to Lasmari"
+                    description="Discover our heritage"
+                    segments={welcomeScript}
+                    className="bg-evergreen-800/60 backdrop-blur-sm border border-cream-50/20"
+                  />
+                </div>
+              </div>
+            </ScrollSection>
+
+            {/* Mobile Timeline */}
+            <MobileTimeline />
+
+            {/* Mobile Lasmari Experience */}
+            <MobileLasmariExperience />
+          </>
+        ) : (
+          <>
+            {/* Desktop Hero */}
+            <CinematicHero />
+            
+            {/* Desktop Welcome Section */}
+            <ScrollSection
+              id="introduction"
+              backgroundImage="/images/backgrounds/bg-wine-heritage-header.png"
+              overlayColor="rgba(46, 59, 41, 0.35)"
+              cinematicZoom={false}
           parallaxIntensity={0}
           className="min-h-screen w-full"
         >
@@ -195,9 +242,10 @@ export default function Home() {
             </div>
           </div>
         </ScrollSection>
+          </>
+        )}
 
-        {/* Gallery section removed from homepage. Access via Navbar → /gallery */}
-
+        {/* Shared sections for both mobile and desktop */}
         {/* Contact Section */}
         <ContactSection />
         
