@@ -129,7 +129,7 @@ const TimelineSection = ({ events, className = '' }: TimelineSectionProps) => {
               {event.quote && (
                 <blockquote className="border-l-4 border-pink-300 pl-6 py-4 bg-pink-50/50 rounded-r-lg mb-6">
                   <p className="text-evergreen-800 font-cormorant text-xl italic leading-relaxed">
-                    "{event.quote}"
+                    &quot;{event.quote}&quot;
                   </p>
                 </blockquote>
               )}

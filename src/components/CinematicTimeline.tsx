@@ -289,7 +289,7 @@ const CinematicTimeline = ({ events, className = '' }: CinematicTimelineProps) =
                         viewport={{ once: true }}
                       >
                         <p className="text-evergreen-800 font-cormorant text-2xl italic leading-relaxed">
-                          "{event.quote}"
+                          &quot;{event.quote}&quot;
                         </p>
                       </motion.blockquote>
                     )}

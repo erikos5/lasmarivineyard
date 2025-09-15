@@ -195,7 +195,7 @@ const Hero = () => {
               transition={{ duration: 1, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
             >
               <p className="text-lg sm:text-xl text-cream-100/90 font-inter leading-relaxed tracking-wide uppercase text-center mb-8">
-                Discover "Lasmari Wine", the Greek way of feeling<br />
+                Discover &quot;Lasmari Wine&quot;, the Greek way of feeling<br />
                 good by enjoying the beautiful things in life.<br />
                 Immerse yourself in the beauty of Corfu and<br />
                 unveil its world.
