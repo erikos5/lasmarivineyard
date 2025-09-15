@@ -12,9 +12,6 @@ import Footer from '@/components/Footer';
 import CinematicHero from '@/components/CinematicHero';
 import MagneticTitle from '@/components/MagneticTitle';
 import ContactSection from '@/components/ContactSection';
-import MobileHero from '@/components/MobileHero';
-import MobileTimeline from '@/components/MobileTimeline';
-import MobileLasmariExperience from '@/components/MobileLasmariExperience';
 import useIsMobile from '@/hooks/useIsMobile';
 
 // Timeline data for the story
@@ -98,33 +95,120 @@ export default function Home() {
         {/* Conditional Rendering: Mobile vs Desktop */}
         {isMobile ? (
           <>
-            {/* Mobile Hero */}
-            <MobileHero />
+            {/* Mobile Hero - Same as Desktop but Mobile Optimized */}
+            <CinematicHero />
             
-            {/* Mobile Welcome Section */}
+            {/* Mobile Welcome Section - Same content as Desktop */}
             <ScrollSection
-              id="welcome"
+              id="introduction"
               backgroundImage="/images/backgrounds/bg-wine-heritage-header.png"
               overlayColor="rgba(46, 59, 41, 0.35)"
               cinematicZoom={false}
+              parallaxIntensity={0}
+              className="min-h-screen w-full"
             >
-              <div className="w-full h-full flex items-center justify-center py-16">
-                <div className="max-w-sm px-6 text-center">
-                  <InteractiveScript
-                    title="Welcome to Lasmari"
-                    description="Discover our heritage"
-                    segments={welcomeScript}
-                    className="bg-evergreen-800/60 backdrop-blur-sm border border-cream-50/20"
-                  />
+              <div className="w-full h-full flex items-center justify-center">
+                <div className="max-w-sm px-4 w-full">
+                  {/* Mobile Split Layout: Stack vertically */}
+                  <div className="space-y-8 mb-16 pt-8">
+                    {/* Title - Mobile First */}
+                    <div className="text-center">
+                      <MagneticTitle 
+                        text="Authentic Corfiot Wine Heritage"
+                        className="font-playfair text-3xl font-bold text-cream-50 leading-tight"
+                      />
+                    </div>
+                    
+                    {/* Description - Below Title on Mobile */}
+                    <div className="text-center">
+                      <p className="text-base text-cream-100 font-inter leading-relaxed font-light">
+                        <span className="font-bold">Nestled</span> in the heart of Corfu&apos;s countryside, Lasmari Vineyard represents five generations of winemaking tradition. Our family estate sits on ancient stream beds that have created uniquely fertile soil, perfect for cultivating exceptional Mediterranean varietals. Every bottle tells the story of this remarkable terroir and our commitment to preserving authentic Corfiot winemaking heritage.
+                      </p>
+                    </div>
+                  </div>
+                  
+                  {/* Interactive Content - Same as Desktop */}
+                  <div className="text-center space-y-8">
+                    {/* Interactive Welcome Story */}
+                    <div>
+                      <InteractiveScript
+                        title="Welcome to Lasmari"
+                        description="Discover our story through the words of our family"
+                        segments={welcomeScript}
+                        className="w-full"
+                      />
+                    </div>
+                    
+                    {/* Vertical Timeline for Mobile */}
+                    <div className="flex flex-col items-center space-y-4">
+                      {["1892", "1930s", "1975", "Today"].map((year, index) => (
+                        <div key={year} className="flex items-center space-x-3">
+                          <div className="w-3 h-3 bg-cream-50 rounded-full animate-timeline-pulse" 
+                               style={{ animationDelay: `${index * 0.5}s` }} />
+                          <span className="text-cream-200 font-inter text-sm">{year}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </div>
             </ScrollSection>
 
-            {/* Mobile Timeline */}
-            <MobileTimeline />
+            {/* Mobile Timeline - Same content as Desktop CinematicTimeline */}
+            <CinematicTimeline events={timelineEvents} className="bg-gradient-to-b from-cream-50 to-evergreen-50" />
 
-            {/* Mobile Lasmari Experience */}
-            <MobileLasmariExperience />
+            {/* Mobile Lasmari Experience - Same content as Desktop */}
+            <ScrollSection
+              id="experience"
+              backgroundImage="/images/backgrounds/bg-experience.png"
+              overlayColor="rgba(46, 59, 41, 0.45)"
+              cinematicZoom={false}
+              parallaxIntensity={0}
+              className="min-h-screen flex items-center"
+            >
+              <div className="container mx-auto px-4">
+                <div className="max-w-sm mx-auto text-center space-y-8">
+                  <div className="space-y-6">
+                    <MagneticTitle 
+                      text="The Lasmari Experience"
+                      className="font-playfair text-3xl font-bold text-cream-50 leading-tight"
+                    />
+                    <div className="max-w-sm mx-auto">
+                      <p className="text-base text-cream-100 font-inter leading-relaxed font-light text-center">
+                        Experience the authentic traditions of our family vineyard - from working the soil with our hands to tasting the wine that carries the essence of our land and the wisdom of generations.
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="max-w-sm mx-auto">
+                    <div className="space-y-6">
+                      {[
+                        { title: "Work the Land", description: "Experience farming with your hands, as our family has done for generations" },
+                        { title: "Traditional Cooking", description: "Learn to make authentic pastitsada with our original family pan" },
+                        { title: "Taste Our Legacy", description: "Sample wines from the golden harvest years and taste the terroir" }
+                      ].map((item, index) => (
+                        <div 
+                          key={item.title} 
+                          className="bg-cream-50/10 backdrop-blur-sm rounded-2xl p-6 border border-cream-50/20 hover:bg-cream-50/20 hover:border-cream-50/40 transition-all duration-300 text-center w-full"
+                        >
+                          <h3 className="font-playfair text-xl font-bold text-cream-50 mb-3 text-center">{item.title}</h3>
+                          <p className="text-cream-200 font-inter text-sm leading-relaxed text-center">{item.description}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  
+                  <div className="text-center">
+                    <button 
+                      onClick={() => router.push('/experiences')}
+                      className="inline-block bg-pink-400 hover:bg-pink-500 text-evergreen-800 font-inter font-semibold px-8 py-4 text-base rounded-full transition-all duration-200 hover:scale-105 transform"
+                    >
+                      Discover All Experiences
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </ScrollSection>
           </>
         ) : (
           <>
