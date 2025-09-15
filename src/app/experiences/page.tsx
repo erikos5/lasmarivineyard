@@ -403,7 +403,7 @@ export default function ExperiencesPage() {
                     key={index}
                     className="group bg-evergreen-50/30 border border-evergreen-200/40 p-8 rounded-xl backdrop-blur-sm transform-gpu will-change-transform hover:bg-evergreen-50/50 transition-all duration-300"
                     whileHover={{ scale: 1.01, y: -1 }}
-                    transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                    transition={{ duration: 0.3 }}
                   >
                     <div className="flex items-start space-x-4">
                       <div className="flex-shrink-0 w-2 h-2 bg-gradient-to-br from-pink-400 to-pink-500 rounded-full mt-3 group-hover:scale-125 transition-transform duration-300"></div>
