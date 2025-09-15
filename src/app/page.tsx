@@ -34,7 +34,7 @@ const timelineEvents = [
     title: "The Perfect Vintage",
     description: "Certain years in winemaking become legendary when nature aligns perfectly. The 1963-1964 seasons brought ideal rainfall patterns, optimal soil conditions, and perfect timing for harvest. These factors combined to create what winemakers call a 'perfect vintage' - where every element from grape development to fermentation exceeded expectations, setting the standard for all future wines.",
     image: "/images/timeline/timeline-3-hero.png",
-    quote: &quot;After the rains came, we worked with our hands, and everything was perfect.&quot;
+    quote: "After the rains came, we worked with our hands, and everything was perfect."
   },
   {
     year: "Today",
