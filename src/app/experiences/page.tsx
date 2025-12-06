@@ -88,6 +88,11 @@ const itemVariants = {
 };
 
 export default function ExperiencesPage() {
+  // Scroll to top when page loads
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   // Performance optimization: preload critical images
   useEffect(() => {
     experienceSegments.forEach(segment => {

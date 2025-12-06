@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import Navbar from '@/components/Navbar';
@@ -78,6 +79,11 @@ const welcomeScript = [
 export default function Home() {
   const router = useRouter();
   const { isMobile, isLoaded } = useIsMobile(768);
+
+  // Scroll to top when page loads
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   // Show loading state until we know if it's mobile
   if (!isLoaded) {
