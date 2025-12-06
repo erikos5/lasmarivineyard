@@ -184,13 +184,16 @@ export default function ExperiencesPage() {
                 {experienceSegments[0].features.map((feature, index) => (
                   <motion.div
                     key={index}
-                    className="bg-cream-50/10 border border-cream-50/20 p-6 rounded-xl will-change-transform transform-gpu"
+                    className="group bg-cream-50/10 border border-cream-50/20 p-6 rounded-xl backdrop-blur-sm transform-gpu will-change-transform hover:bg-cream-50/20 transition-all duration-300"
                     variants={itemVariants}
-                    style={{ backdropFilter: 'blur(4px)' }}
+                    whileHover={{ scale: 1.02, y: -2 }}
                   >
-                    <p className="text-cream-200 font-inter text-center text-base">
-                      {feature}
-                    </p>
+                    <div className="flex items-start space-x-3">
+                      <div className="flex-shrink-0 w-2 h-2 bg-gradient-to-br from-pink-400 to-pink-500 rounded-full mt-2 group-hover:scale-125 transition-transform duration-300"></div>
+                      <p className="text-cream-200 font-inter text-base flex-1">
+                        {feature}
+                      </p>
+                    </div>
                   </motion.div>
                 ))}
               </motion.div>
@@ -241,13 +244,16 @@ export default function ExperiencesPage() {
                 {experienceSegments[1].features.map((feature, index) => (
                   <motion.div
                     key={index}
-                    className="bg-cream-50/10 border border-cream-50/20 p-6 rounded-xl will-change-transform transform-gpu"
+                    className="group bg-cream-50/10 border border-cream-50/20 p-6 rounded-xl backdrop-blur-sm transform-gpu will-change-transform hover:bg-cream-50/20 transition-all duration-300"
                     variants={itemVariants}
-                    style={{ backdropFilter: 'blur(4px)' }}
+                    whileHover={{ scale: 1.02, y: -2 }}
                   >
-                    <p className="text-cream-200 font-inter text-center text-base">
-                      {feature}
-                    </p>
+                    <div className="flex items-start space-x-3">
+                      <div className="flex-shrink-0 w-2 h-2 bg-gradient-to-br from-pink-400 to-pink-500 rounded-full mt-2 group-hover:scale-125 transition-transform duration-300"></div>
+                      <p className="text-cream-200 font-inter text-base flex-1">
+                        {feature}
+                      </p>
+                    </div>
                   </motion.div>
                 ))}
               </motion.div>
@@ -298,13 +304,16 @@ export default function ExperiencesPage() {
                 {experienceSegments[2].features.map((feature, index) => (
                   <motion.div
                     key={index}
-                    className="bg-cream-50/10 border border-cream-50/20 p-6 rounded-xl will-change-transform transform-gpu"
+                    className="group bg-cream-50/10 border border-cream-50/20 p-6 rounded-xl backdrop-blur-sm transform-gpu will-change-transform hover:bg-cream-50/20 transition-all duration-300"
                     variants={itemVariants}
-                    style={{ backdropFilter: 'blur(4px)' }}
+                    whileHover={{ scale: 1.02, y: -2 }}
                   >
-                    <p className="text-cream-200 font-inter text-center text-base">
-                      {feature}
-                    </p>
+                    <div className="flex items-start space-x-3">
+                      <div className="flex-shrink-0 w-2 h-2 bg-gradient-to-br from-pink-400 to-pink-500 rounded-full mt-2 group-hover:scale-125 transition-transform duration-300"></div>
+                      <p className="text-cream-200 font-inter text-base flex-1">
+                        {feature}
+                      </p>
+                    </div>
                   </motion.div>
                 ))}
               </motion.div>
@@ -355,13 +364,16 @@ export default function ExperiencesPage() {
                 {experienceSegments[3].features.map((feature, index) => (
                   <motion.div
                     key={index}
-                    className="bg-cream-50/10 border border-cream-50/20 p-6 rounded-xl will-change-transform transform-gpu"
+                    className="group bg-cream-50/10 border border-cream-50/20 p-6 rounded-xl backdrop-blur-sm transform-gpu will-change-transform hover:bg-cream-50/20 transition-all duration-300"
                     variants={itemVariants}
-                    style={{ backdropFilter: 'blur(4px)' }}
+                    whileHover={{ scale: 1.02, y: -2 }}
                   >
-                    <p className="text-cream-200 font-inter text-center text-base">
-                      {feature}
-                    </p>
+                    <div className="flex items-start space-x-3">
+                      <div className="flex-shrink-0 w-2 h-2 bg-gradient-to-br from-pink-400 to-pink-500 rounded-full mt-2 group-hover:scale-125 transition-transform duration-300"></div>
+                      <p className="text-cream-200 font-inter text-base flex-1">
+                        {feature}
+                      </p>
+                    </div>
                   </motion.div>
                 ))}
               </motion.div>
