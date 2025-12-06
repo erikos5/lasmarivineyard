@@ -164,7 +164,7 @@ export default function Home() {
               overlayColor="rgba(46, 59, 41, 0.45)"
               cinematicZoom={false}
               parallaxIntensity={0}
-              className="min-h-screen flex items-center"
+              className="min-h-screen flex items-center pt-20 md:pt-32"
             >
               <div className="container mx-auto px-4">
                 <div className="max-w-sm mx-auto text-center space-y-8">
@@ -281,7 +281,7 @@ export default function Home() {
           overlayColor="rgba(46, 59, 41, 0.45)"
           cinematicZoom={false}
           parallaxIntensity={0}
-          className="min-h-screen flex items-center"
+          className="min-h-screen flex items-center pt-20 md:pt-32"
         >
           <div className="container mx-auto px-6">
             <div className="max-w-7xl mx-auto text-center space-y-16">
