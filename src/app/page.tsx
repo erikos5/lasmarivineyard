@@ -200,7 +200,10 @@ export default function Home() {
                   
                   <div className="text-center">
                     <button 
-                      onClick={() => router.push('/experiences')}
+                      onClick={() => {
+                        window.scrollTo(0, 0);
+                        router.push('/experiences');
+                      }}
                       className="inline-block bg-pink-400 hover:bg-pink-500 text-evergreen-800 font-inter font-semibold px-8 py-4 text-base rounded-full transition-all duration-200 hover:scale-105 transform"
                     >
                       Discover All Experiences
@@ -317,7 +320,10 @@ export default function Home() {
               
               <div className="text-center">
                 <button 
-                  onClick={() => router.push('/experiences')}
+                  onClick={() => {
+                    window.scrollTo(0, 0);
+                    router.push('/experiences');
+                  }}
                   className="inline-block bg-pink-400 hover:bg-pink-500 text-evergreen-800 font-inter font-semibold px-12 py-5 text-lg rounded-full transition-all duration-200 hover:scale-105 transform"
                 >
                   Discover All Experiences
