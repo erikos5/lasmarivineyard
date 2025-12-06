@@ -66,12 +66,12 @@ const experienceSegments = [
 
 // Optimized animation variants
 const containerVariants = {
-  hidden: { opacity: 0 },
+  hidden: { opacity: 1 },
   visible: {
     opacity: 1,
     transition: {
       staggerChildren: 0.05,
-      delayChildren: 0.1
+      delayChildren: 0.2
     }
   }
 };
@@ -83,7 +83,10 @@ const itemVariants = {
   },
   visible: { 
     opacity: 1, 
-    y: 0
+    y: 0,
+    transition: {
+      duration: 0.4
+    }
   }
 };
 
