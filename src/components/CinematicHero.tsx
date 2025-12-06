@@ -139,7 +139,7 @@ const CinematicHero = () => {
               transition={{ duration: 1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
               className="inline-block"
             >
-              <span className="bg-pink-100/20 backdrop-blur-sm text-cream-50 px-6 py-3 rounded-full font-inter text-sm font-medium tracking-widest uppercase border border-cream-50/30">
+              <span className="bg-pink-100/20 backdrop-blur-sm text-cream-50 px-3 sm:px-6 py-2 sm:py-3 rounded-full font-inter text-[10px] sm:text-sm font-medium tracking-wide sm:tracking-widest uppercase border border-cream-50/30 whitespace-nowrap">
                 Est. 1892 • Five Generations • Corfu, Greece
               </span>
             </motion.div>
