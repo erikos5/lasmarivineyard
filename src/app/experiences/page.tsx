@@ -390,7 +390,7 @@ export default function ExperiencesPage() {
               </div>
               
               {/* Elegant inclusion features */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto pb-16">
                 {[
                   { title: "Premium Tastings", desc: "Five carefully selected wines representing our estate&apos;s finest expressions" },
                   { title: "Authentic Bites", desc: "Traditional Corfiot appetizers and specialties prepared from family recipes" },
