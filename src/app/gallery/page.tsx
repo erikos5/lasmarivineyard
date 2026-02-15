@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Eye } from 'lucide-react';
 import { useState } from 'react';
 import Navbar from '@/components/Navbar';
@@ -190,31 +190,34 @@ export default function GalleryPage() {
       </section>
 
       {/* Image Modal */}
-      {selectedImage && (
-        <motion.div
-          className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-8"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          onClick={() => setSelectedImage(null)}
-        >
-          <motion.img
-            src={selectedImage}
-            alt="Gallery image"
-            className="max-w-full max-h-full object-contain"
-            initial={{ scale: 0.8 }}
-            animate={{ scale: 1 }}
-            exit={{ scale: 0.8 }}
-            onClick={(e) => e.stopPropagation()}
-          />
-          <button
-            className="absolute top-8 right-8 text-cream-50 text-4xl hover:text-cream-200 transition-colors"
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div
+            className="fixed inset-0 z-[100] bg-black/90 flex items-center justify-center p-4 md:p-8"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             onClick={() => setSelectedImage(null)}
           >
-            ×
-          </button>
-        </motion.div>
-      )}
+            <motion.img
+              src={selectedImage}
+              alt="Gallery image"
+              className="max-w-full max-h-full object-contain rounded-lg"
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              onClick={(e) => e.stopPropagation()}
+            />
+            <button
+              className="absolute top-6 right-6 text-cream-50 text-4xl hover:text-cream-200 transition-colors z-[101]"
+              onClick={() => setSelectedImage(null)}
+            >
+              ×
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Contact Section */}
       <ContactSection />
