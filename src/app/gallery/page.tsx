@@ -159,34 +159,25 @@ export default function GalleryPage() {
       </section>
 
       {/* Image Modal */}
-      <AnimatePresence>
-        {selectedImage && (
-          <motion.div
-            className="fixed inset-0 z-[100] bg-black/90 flex items-center justify-center p-4 md:p-8"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+      {selectedImage && (
+        <div
+          className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4 md:p-8 cursor-pointer"
+          onClick={() => setSelectedImage(null)}
+        >
+          <img
+            src={selectedImage}
+            alt="Gallery image"
+            className="max-w-[90vw] max-h-[90vh] object-contain rounded-lg shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          />
+          <button
+            className="absolute top-6 right-6 text-white text-4xl font-light hover:text-cream-200 transition-colors z-[101] w-12 h-12 flex items-center justify-center"
             onClick={() => setSelectedImage(null)}
           >
-            <motion.img
-              src={selectedImage}
-              alt="Gallery image"
-              className="max-w-full max-h-full object-contain rounded-lg"
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.8, opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              onClick={(e) => e.stopPropagation()}
-            />
-            <button
-              className="absolute top-6 right-6 text-cream-50 text-4xl hover:text-cream-200 transition-colors z-[101]"
-              onClick={() => setSelectedImage(null)}
-            >
-              ×
-            </button>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            &times;
+          </button>
+        </div>
+      )}
 
       {/* Contact Section */}
       <ContactSection />
