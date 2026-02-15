@@ -8,100 +8,47 @@ import MagneticTitle from '@/components/MagneticTitle';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 
-const galleryCategories = [
-  {
-    title: "VINEYARD LANDSCAPES",
-    images: [
-      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1560958089-b8a1929cea89?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1463320898484-cdee8141c787?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1502741338009-cac2772e18bc?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1547595628-c61a29f496f0?auto=format&fit=crop&w=1200&q=80"
-    ]
-  },
-  {
-    title: "WINE MAKING",
-    images: [
-      "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1519864600265-abb23847ef2c?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1571613316887-6f8d5cbf7ef7?auto=format&fit=crop&w=1200&q=80"
-    ]
-  },
-  {
-    title: "TASTINGS & EVENTS",
-    images: [
-      "https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1558618047-b0c4c67935d5?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1582992979121-6ee4f1b5cc31?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1503457574462-bd27054394c1?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1520637836862-4d197d17c35a?auto=format&fit=crop&w=1200&q=80"
-    ]
-  },
-  {
-    title: "ESTATE & ARCHITECTURE",
-    images: [
-      "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1566737236500-c8ac43014a8e?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1517154421773-0529f29ea451?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1516906736301-b7595215dd17?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1600298881974-6be191ceeda1?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1533905785056-c34b3227497a?auto=format&fit=crop&w=1200&q=80"
-    ]
-  }
+// All authentic vineyard images
+const allImages = [
+  "/images/new/WhatsApp Image 2026-02-14 at 13.37.26 (1).jpeg",
+  "/images/new/WhatsApp Image 2026-02-14 at 13.37.26.jpeg",
+  "/images/new/WhatsApp Image 2026-02-14 at 13.37.27 (1).jpeg",
+  "/images/new/WhatsApp Image 2026-02-14 at 13.37.27 (2).jpeg",
+  "/images/new/WhatsApp Image 2026-02-14 at 13.37.27 (3).jpeg",
+  "/images/new/WhatsApp Image 2026-02-14 at 13.37.27 (4).jpeg",
+  "/images/new/WhatsApp Image 2026-02-14 at 13.37.27 (5).jpeg",
+  "/images/new/WhatsApp Image 2026-02-14 at 13.37.27.jpeg",
+  "/images/new/WhatsApp Image 2026-02-14 at 13.37.28 (1).jpeg",
+  "/images/new/WhatsApp Image 2026-02-14 at 13.37.28 (2).jpeg",
+  "/images/new/WhatsApp Image 2026-02-14 at 13.37.28 (3).jpeg",
+  "/images/new/WhatsApp Image 2026-02-14 at 13.37.28 (4).jpeg",
+  "/images/new/WhatsApp Image 2026-02-14 at 13.37.28 (5).jpeg",
+  "/images/new/WhatsApp Image 2026-02-14 at 13.37.28 (6).jpeg",
+  "/images/new/WhatsApp Image 2026-02-14 at 13.37.28 (7).jpeg",
+  "/images/new/WhatsApp Image 2026-02-14 at 13.37.28.jpeg",
+  "/images/new/WhatsApp Image 2026-02-14 at 13.37.29 (1).jpeg",
+  "/images/new/WhatsApp Image 2026-02-14 at 13.37.29 (2).jpeg",
+  "/images/new/WhatsApp Image 2026-02-14 at 13.37.29 (3).jpeg",
+  "/images/new/WhatsApp Image 2026-02-14 at 13.37.29 (4).jpeg",
+  "/images/new/WhatsApp Image 2026-02-14 at 13.37.29 (5).jpeg",
+  "/images/new/WhatsApp Image 2026-02-14 at 13.37.29 (6).jpeg",
+  "/images/new/WhatsApp Image 2026-02-14 at 13.37.29 (7).jpeg",
+  "/images/new/WhatsApp Image 2026-02-14 at 13.37.29.jpeg",
+  "/images/new/WhatsApp Image 2026-02-14 at 13.37.30 (1).jpeg",
+  "/images/new/WhatsApp Image 2026-02-14 at 13.37.30 (2).jpeg",
+  "/images/new/WhatsApp Image 2026-02-14 at 13.37.30 (3).jpeg",
+  "/images/new/WhatsApp Image 2026-02-14 at 13.37.30 (4).jpeg",
+  "/images/new/WhatsApp Image 2026-02-14 at 13.37.30 (5).jpeg",
+  "/images/new/WhatsApp Image 2026-02-14 at 13.37.30.jpeg",
+  "/images/new/WhatsApp Image 2026-02-14 at 13.37.31 (1).jpeg",
+  "/images/new/WhatsApp Image 2026-02-14 at 13.37.31.jpeg",
 ];
 
-// Gallery images - using only our local backgrounds and timeline images
-const baseImages = [
-  "/images/backgrounds/hero-authentic-corfiot-heritage.png",
-  "/images/backgrounds/bg-wine-heritage-header.png", 
-  "/images/backgrounds/bg-gallery-soft.png",
-  "/images/backgrounds/bg-experience.png",
-  "/images/timeline/timeline-1-hero.png",
-  "/images/timeline/timeline-2-hero.png",
-  "/images/timeline/timeline-3-hero.png",
-  "/images/timeline/timeline-4-hero.png"
-];
-
-// Create images with different aspect ratios for dynamic layout
-const collageImages = [
-  { src: baseImages[0], aspect: 'aspect-[3/4]' },
-  { src: baseImages[1], aspect: 'aspect-square' },
-  { src: baseImages[2], aspect: 'aspect-[4/3]' },
-  { src: baseImages[3], aspect: 'aspect-[2/3]' },
-  { src: baseImages[4], aspect: 'aspect-[3/2]' },
-  { src: baseImages[5], aspect: 'aspect-square' },
-  { src: baseImages[6], aspect: 'aspect-[5/4]' },
-  { src: baseImages[7], aspect: 'aspect-[3/4]' },
-  { src: baseImages[0], aspect: 'aspect-[4/5]' },
-  { src: baseImages[1], aspect: 'aspect-[3/2]' },
-  { src: baseImages[2], aspect: 'aspect-square' },
-  { src: baseImages[3], aspect: 'aspect-[4/3]' },
-  { src: baseImages[4], aspect: 'aspect-[2/3]' },
-  { src: baseImages[5], aspect: 'aspect-[5/4]' },
-  { src: baseImages[6], aspect: 'aspect-[3/4]' },
-  { src: baseImages[7], aspect: 'aspect-[4/3]' },
-  { src: baseImages[0], aspect: 'aspect-square' },
-  { src: baseImages[1], aspect: 'aspect-[3/4]' },
-  { src: baseImages[2], aspect: 'aspect-[2/3]' },
-  { src: baseImages[3], aspect: 'aspect-[3/2]' },
-  { src: baseImages[4], aspect: 'aspect-[4/5]' },
-  { src: baseImages[5], aspect: 'aspect-[4/3]' },
-  { src: baseImages[6], aspect: 'aspect-square' },
-  { src: baseImages[7], aspect: 'aspect-[5/4]' },
-  { src: baseImages[0], aspect: 'aspect-[3/2]' },
-  { src: baseImages[1], aspect: 'aspect-[4/3]' },
-  { src: baseImages[2], aspect: 'aspect-[3/4]' },
-  { src: baseImages[3], aspect: 'aspect-square' },
-  { src: baseImages[4], aspect: 'aspect-[4/5]' },
-  { src: baseImages[5], aspect: 'aspect-[2/3]' },
-  { src: baseImages[6], aspect: 'aspect-[3/2]' },
-  { src: baseImages[7], aspect: 'aspect-[5/4]' }
-];
+// Create images with varied aspect ratios for masonry layout
+const collageImages = allImages.map((src, index) => {
+  const aspects = ['aspect-[3/4]', 'aspect-square', 'aspect-[4/3]', 'aspect-[2/3]', 'aspect-[3/2]', 'aspect-[5/4]', 'aspect-[4/5]'];
+  return { src, aspect: aspects[index % aspects.length] };
+});
 
 export default function GalleryPage() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -186,7 +133,7 @@ export default function GalleryPage() {
       </section>
 
       {/* Statistics */}
-      <section className="py-32 bg-olive-900">
+      <section className="py-32 bg-evergreen-800">
         <div className="container-max section-padding">
           <motion.div
             className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center"
