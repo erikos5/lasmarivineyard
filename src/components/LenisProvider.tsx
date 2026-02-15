@@ -14,7 +14,7 @@ if (typeof window !== 'undefined') {
 const LoadingAnimation = () => {
   return (
     <motion.div
-      className="fixed inset-0 z-50 bg-gradient-to-br from-olive-900 via-olive-800 to-olive-900 flex items-center justify-center"
+      className="fixed inset-0 z-50 bg-gradient-to-br from-evergreen-900 via-evergreen-800 to-evergreen-900 flex items-center justify-center"
       initial={{ opacity: 1 }}
       exit={{ 
         opacity: 0,
@@ -62,45 +62,45 @@ const LoadingAnimation = () => {
             >
               {/* Row 1 */}
               <motion.div 
-                className="w-3 h-3 bg-burgundy-600 rounded-full col-start-2"
+                className="w-3 h-3 bg-pink-400 rounded-full col-start-2"
                 animate={{ scale: [1, 1.1, 1] }}
                 transition={{ duration: 1.5, repeat: Infinity, delay: 0 }}
               />
               {/* Row 2 */}
               <motion.div 
-                className="w-3 h-3 bg-burgundy-600 rounded-full"
+                className="w-3 h-3 bg-pink-400 rounded-full"
                 animate={{ scale: [1, 1.1, 1] }}
                 transition={{ duration: 1.5, repeat: Infinity, delay: 0.1 }}
               />
               <motion.div 
-                className="w-3 h-3 bg-burgundy-600 rounded-full"
+                className="w-3 h-3 bg-pink-400 rounded-full"
                 animate={{ scale: [1, 1.1, 1] }}
                 transition={{ duration: 1.5, repeat: Infinity, delay: 0.2 }}
               />
               <motion.div 
-                className="w-3 h-3 bg-burgundy-600 rounded-full"
+                className="w-3 h-3 bg-pink-400 rounded-full"
                 animate={{ scale: [1, 1.1, 1] }}
                 transition={{ duration: 1.5, repeat: Infinity, delay: 0.3 }}
               />
               {/* Row 3 */}
               <motion.div 
-                className="w-3 h-3 bg-burgundy-700 rounded-full"
+                className="w-3 h-3 bg-pink-500 rounded-full"
                 animate={{ scale: [1, 1.1, 1] }}
                 transition={{ duration: 1.5, repeat: Infinity, delay: 0.4 }}
               />
               <motion.div 
-                className="w-3 h-3 bg-burgundy-700 rounded-full"
+                className="w-3 h-3 bg-pink-500 rounded-full"
                 animate={{ scale: [1, 1.1, 1] }}
                 transition={{ duration: 1.5, repeat: Infinity, delay: 0.5 }}
               />
               <motion.div 
-                className="w-3 h-3 bg-burgundy-700 rounded-full"
+                className="w-3 h-3 bg-pink-500 rounded-full"
                 animate={{ scale: [1, 1.1, 1] }}
                 transition={{ duration: 1.5, repeat: Infinity, delay: 0.6 }}
               />
               {/* Row 4 */}
               <motion.div 
-                className="w-3 h-3 bg-burgundy-700 rounded-full col-start-2"
+                className="w-3 h-3 bg-pink-500 rounded-full col-start-2"
                 animate={{ scale: [1, 1.1, 1] }}
                 transition={{ duration: 1.5, repeat: Infinity, delay: 0.7 }}
               />
@@ -108,7 +108,7 @@ const LoadingAnimation = () => {
             
             {/* Vine Leaf */}
             <motion.div
-              className="absolute -top-2 -right-1 w-4 h-3 bg-olive-600 rounded-full transform rotate-45"
+              className="absolute -top-2 -right-1 w-4 h-3 bg-evergreen-500 rounded-full transform rotate-45"
               initial={{ rotate: 45, scale: 0 }}
               animate={{ 
                 rotate: [45, 50, 45],
@@ -195,7 +195,7 @@ const LoadingAnimation = () => {
           }}
         >
           <motion.div
-            className="h-full bg-gradient-to-r from-cream-50 to-burgundy-300 rounded-full"
+            className="h-full bg-gradient-to-r from-cream-50 to-pink-400 rounded-full"
             initial={{ width: "0%" }}
             animate={{ 
               width: "100%",
@@ -281,7 +281,7 @@ export default function LenisProvider({ children }: { children: React.ReactNode 
         {isLoading && (
           <motion.div
             key="loading"
-            className="fixed inset-0 z-50 bg-gradient-to-br from-olive-900 via-olive-800 to-olive-900 flex items-center justify-center"
+            className="fixed inset-0 z-50 bg-gradient-to-br from-evergreen-900 via-evergreen-800 to-evergreen-900 flex items-center justify-center"
             initial={{ opacity: 1 }}
             exit={{ 
               opacity: 0,
@@ -348,45 +348,45 @@ export default function LenisProvider({ children }: { children: React.ReactNode 
                   >
                     {/* Row 1 */}
                     <motion.div 
-                      className="w-3 h-3 bg-burgundy-600 rounded-full col-start-2"
+                      className="w-3 h-3 bg-pink-400 rounded-full col-start-2"
                       animate={{ scale: [1, 1.1, 1] }}
                       transition={{ duration: 1.5, repeat: Infinity, delay: 0 }}
                     />
                     {/* Row 2 */}
                     <motion.div 
-                      className="w-3 h-3 bg-burgundy-600 rounded-full"
+                      className="w-3 h-3 bg-pink-400 rounded-full"
                       animate={{ scale: [1, 1.1, 1] }}
                       transition={{ duration: 1.5, repeat: Infinity, delay: 0.1 }}
                     />
                     <motion.div 
-                      className="w-3 h-3 bg-burgundy-600 rounded-full"
+                      className="w-3 h-3 bg-pink-400 rounded-full"
                       animate={{ scale: [1, 1.1, 1] }}
                       transition={{ duration: 1.5, repeat: Infinity, delay: 0.2 }}
                     />
                     <motion.div 
-                      className="w-3 h-3 bg-burgundy-600 rounded-full"
+                      className="w-3 h-3 bg-pink-400 rounded-full"
                       animate={{ scale: [1, 1.1, 1] }}
                       transition={{ duration: 1.5, repeat: Infinity, delay: 0.3 }}
                     />
                     {/* Row 3 */}
                     <motion.div 
-                      className="w-3 h-3 bg-burgundy-700 rounded-full"
+                      className="w-3 h-3 bg-pink-500 rounded-full"
                       animate={{ scale: [1, 1.1, 1] }}
                       transition={{ duration: 1.5, repeat: Infinity, delay: 0.4 }}
                     />
                     <motion.div 
-                      className="w-3 h-3 bg-burgundy-700 rounded-full"
+                      className="w-3 h-3 bg-pink-500 rounded-full"
                       animate={{ scale: [1, 1.1, 1] }}
                       transition={{ duration: 1.5, repeat: Infinity, delay: 0.5 }}
                     />
                     <motion.div 
-                      className="w-3 h-3 bg-burgundy-700 rounded-full"
+                      className="w-3 h-3 bg-pink-500 rounded-full"
                       animate={{ scale: [1, 1.1, 1] }}
                       transition={{ duration: 1.5, repeat: Infinity, delay: 0.6 }}
                     />
                     {/* Row 4 */}
                     <motion.div 
-                      className="w-3 h-3 bg-burgundy-700 rounded-full col-start-2"
+                      className="w-3 h-3 bg-pink-500 rounded-full col-start-2"
                       animate={{ scale: [1, 1.1, 1] }}
                       transition={{ duration: 1.5, repeat: Infinity, delay: 0.7 }}
                     />
@@ -394,7 +394,7 @@ export default function LenisProvider({ children }: { children: React.ReactNode 
                   
                   {/* Vine Leaf */}
                   <motion.div
-                    className="absolute -top-2 -right-1 w-4 h-3 bg-olive-600 rounded-full transform rotate-45"
+                    className="absolute -top-2 -right-1 w-4 h-3 bg-evergreen-500 rounded-full transform rotate-45"
                     initial={{ rotate: 45, scale: 0 }}
                     animate={{ 
                       rotate: [45, 50, 45],
@@ -481,7 +481,7 @@ export default function LenisProvider({ children }: { children: React.ReactNode 
                 }}
               >
                 <motion.div
-                  className="h-full bg-gradient-to-r from-cream-50 to-burgundy-300 rounded-full"
+                  className="h-full bg-gradient-to-r from-cream-50 to-pink-400 rounded-full"
                   initial={{ width: "0%" }}
                   animate={{ 
                     width: "100%",

@@ -9,40 +9,9 @@ import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 
 // All authentic vineyard images
-const allImages = [
-  "/images/new/WhatsApp Image 2026-02-14 at 13.37.26 (1).jpeg",
-  "/images/new/WhatsApp Image 2026-02-14 at 13.37.26.jpeg",
-  "/images/new/WhatsApp Image 2026-02-14 at 13.37.27 (1).jpeg",
-  "/images/new/WhatsApp Image 2026-02-14 at 13.37.27 (2).jpeg",
-  "/images/new/WhatsApp Image 2026-02-14 at 13.37.27 (3).jpeg",
-  "/images/new/WhatsApp Image 2026-02-14 at 13.37.27 (4).jpeg",
-  "/images/new/WhatsApp Image 2026-02-14 at 13.37.27 (5).jpeg",
-  "/images/new/WhatsApp Image 2026-02-14 at 13.37.27.jpeg",
-  "/images/new/WhatsApp Image 2026-02-14 at 13.37.28 (1).jpeg",
-  "/images/new/WhatsApp Image 2026-02-14 at 13.37.28 (2).jpeg",
-  "/images/new/WhatsApp Image 2026-02-14 at 13.37.28 (3).jpeg",
-  "/images/new/WhatsApp Image 2026-02-14 at 13.37.28 (4).jpeg",
-  "/images/new/WhatsApp Image 2026-02-14 at 13.37.28 (5).jpeg",
-  "/images/new/WhatsApp Image 2026-02-14 at 13.37.28 (6).jpeg",
-  "/images/new/WhatsApp Image 2026-02-14 at 13.37.28 (7).jpeg",
-  "/images/new/WhatsApp Image 2026-02-14 at 13.37.28.jpeg",
-  "/images/new/WhatsApp Image 2026-02-14 at 13.37.29 (1).jpeg",
-  "/images/new/WhatsApp Image 2026-02-14 at 13.37.29 (2).jpeg",
-  "/images/new/WhatsApp Image 2026-02-14 at 13.37.29 (3).jpeg",
-  "/images/new/WhatsApp Image 2026-02-14 at 13.37.29 (4).jpeg",
-  "/images/new/WhatsApp Image 2026-02-14 at 13.37.29 (5).jpeg",
-  "/images/new/WhatsApp Image 2026-02-14 at 13.37.29 (6).jpeg",
-  "/images/new/WhatsApp Image 2026-02-14 at 13.37.29 (7).jpeg",
-  "/images/new/WhatsApp Image 2026-02-14 at 13.37.29.jpeg",
-  "/images/new/WhatsApp Image 2026-02-14 at 13.37.30 (1).jpeg",
-  "/images/new/WhatsApp Image 2026-02-14 at 13.37.30 (2).jpeg",
-  "/images/new/WhatsApp Image 2026-02-14 at 13.37.30 (3).jpeg",
-  "/images/new/WhatsApp Image 2026-02-14 at 13.37.30 (4).jpeg",
-  "/images/new/WhatsApp Image 2026-02-14 at 13.37.30 (5).jpeg",
-  "/images/new/WhatsApp Image 2026-02-14 at 13.37.30.jpeg",
-  "/images/new/WhatsApp Image 2026-02-14 at 13.37.31 (1).jpeg",
-  "/images/new/WhatsApp Image 2026-02-14 at 13.37.31.jpeg",
-];
+const allImages = Array.from({ length: 32 }, (_, i) => 
+  `/images/new/vineyard-${String(i + 1).padStart(2, '0')}.jpeg`
+);
 
 // Create images with varied aspect ratios for masonry layout
 const collageImages = allImages.map((src, index) => {
