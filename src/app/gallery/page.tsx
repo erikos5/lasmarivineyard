@@ -70,9 +70,10 @@ export default function GalleryPage() {
             {collageImages.map((imageObj, index) => (
               <motion.div
                 key={index}
-                className={`mb-4 break-inside-avoid relative rounded-lg overflow-hidden shadow-[0_8px_24px_-8px_rgba(0,0,0,0.3)] ${imageObj.aspect}`}
+                className={`mb-4 break-inside-avoid relative group rounded-lg overflow-hidden shadow-[0_8px_24px_-8px_rgba(0,0,0,0.3)] ${imageObj.aspect}`}
                 initial={{ opacity: 1 }}
                 animate={{ opacity: 1 }}
+                whileHover={{ scale: 1.02 }}
               >
                 <img
                   src={imageObj.src}
@@ -84,6 +85,7 @@ export default function GalleryPage() {
                     target.style.display = 'none';
                   }}
                 />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </motion.div>
             ))}
           </motion.div>
