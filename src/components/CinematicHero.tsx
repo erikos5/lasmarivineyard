@@ -116,7 +116,7 @@ const CinematicHero = () => {
         <div
           className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: 'url("/images/backgrounds/hero-authentic-corfiot-heritage.png")',
+            backgroundImage: 'url("/images/hero/hero-vineyard-panoramic.jpeg")',
           }}
         />
         {/* Cinematic overlay with gradient */}

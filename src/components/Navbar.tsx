@@ -25,8 +25,8 @@ const Navbar = () => {
     scrollY,
     [0, 100],
     [
-      isGalleryPage ? 'rgba(46, 59, 41, 0)' : 'rgba(46, 59, 41, 0)', 
-      isGalleryPage ? 'rgba(46, 59, 41, 0)' : 'rgba(46, 59, 41, 0.95)'
+      isGalleryPage ? 'rgba(72, 36, 32, 0)' : 'rgba(72, 36, 32, 0)', 
+      isGalleryPage ? 'rgba(72, 36, 32, 0)' : 'rgba(72, 36, 32, 0.95)'
     ]
   );
 
@@ -37,8 +37,8 @@ const Navbar = () => {
     scrollY,
     [0, 100],
     [
-      isGalleryPage ? 'rgba(111, 124, 92, 1)' : 'rgba(249, 247, 244, 1)', 
-      isGalleryPage ? 'rgba(111, 124, 92, 0.9)' : 'rgba(249, 247, 244, 0.9)'
+      isGalleryPage ? 'rgba(110, 90, 70, 1)' : 'rgba(250, 247, 242, 1)', 
+      isGalleryPage ? 'rgba(110, 90, 70, 0.9)' : 'rgba(250, 247, 242, 0.9)'
     ]
   );
 
@@ -93,14 +93,11 @@ const Navbar = () => {
               }
             }}
           >
-            <motion.h1
-              style={{ color: textColor }}
-              className="font-playfair text-2xl font-bold"
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.2 }}
-            >
-              Lasmari
-            </motion.h1>
+            <img 
+              src="/images/logo/logo-transparent.jpeg" 
+              alt="Lasmari Vineyard" 
+              className="h-10 md:h-12 w-auto"
+            />
           </motion.div>
 
           {/* Desktop Navigation */}

@@ -60,8 +60,8 @@ const ContactSection = ({ className = '' }: ContactSectionProps) => {
   return (
     <ScrollSection
       id="contact"
-      backgroundImage="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=2000&q=80"
-      overlayColor="rgba(46, 59, 41, 0.8)"
+      backgroundImage="/images/experiences/estate-building.jpeg"
+      overlayColor="rgba(72, 36, 32, 0.8)"
       className={`min-h-screen w-full ${className}`}
       parallaxIntensity={0}
     >

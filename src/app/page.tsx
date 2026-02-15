@@ -21,28 +21,28 @@ const timelineEvents = [
     year: "Early Years",
     title: "Where Streams Once Flowed",
     description: "The terroir of Lasmari was shaped by ancient waterways that carved fertile valleys through Corfu's landscape. This unique geological formation created the perfect drainage and mineral composition that gives our wines their distinctive character. The location between Perivolaki Loutses and Ano Perivolaki benefits from both elevation and natural water sources.",
-    image: "/images/timeline/timeline-1-hero.png",
+    image: "/images/timeline/1/stone-steps-tree.jpeg",
     quote: "Here was a stream - this entire area used to be a stream in time."
   },
   {
     year: "Traditional Times",
     title: "Living Off the Land", 
     description: "Traditional Corfiot farming involved a holistic approach to agriculture. Families would live seasonally on their estates, maintaining livestock alongside vineyards. This integrated farming method enriched the soil naturally and created a sustainable ecosystem where every element supported the others, from sheep fertilizing the land to olive groves providing windbreaks for delicate vines.",
-    image: "/images/timeline/timeline-2-hero.png",
+    image: "/images/timeline/2/cellar-door.jpeg",
     quote: "With this pan we made the traditional pastitsada of old times."
   },
   {
     year: "1963-1964",
     title: "The Perfect Vintage",
     description: "Certain years in winemaking become legendary when nature aligns perfectly. The 1963-1964 seasons brought ideal rainfall patterns, optimal soil conditions, and perfect timing for harvest. These factors combined to create what winemakers call a 'perfect vintage' - where every element from grape development to fermentation exceeded expectations, setting the standard for all future wines.",
-    image: "/images/timeline/timeline-3-hero.png",
+    image: "/images/timeline/3/vines-hillside.jpeg",
     quote: "After the rains came, we worked with our hands, and everything was perfect."
   },
   {
     year: "Today",
     title: "Modern Heritage Winemaking",
     description: "Contemporary winemaking at Lasmari combines time-honored techniques with modern understanding of viticulture. We maintain traditional hand-harvesting methods while applying scientific knowledge of fermentation, aging, and terroir expression. This approach preserves the authentic character of Corfiot wines while ensuring consistent quality and sustainable practices for future generations.",
-    image: "/images/timeline/timeline-4-hero.png",
+    image: "/images/timeline/4/aerial-dining-tree.jpeg",
     quote: "We are not just making wine; we are preserving a living heritage for future generations."
   }
 ];
@@ -107,8 +107,8 @@ export default function Home() {
             {/* Mobile Welcome Section - Same content as Desktop */}
             <ScrollSection
               id="introduction"
-              backgroundImage="/images/backgrounds/bg-wine-heritage-header.png"
-              overlayColor="rgba(46, 59, 41, 0.35)"
+              backgroundImage="/images/welcome/dining-golden-hour.jpeg"
+              overlayColor="rgba(72, 36, 32, 0.45)"
               cinematicZoom={false}
               parallaxIntensity={0}
               className="min-h-screen w-full"
@@ -166,8 +166,8 @@ export default function Home() {
             {/* Mobile Lasmari Experience - Same content as Desktop */}
             <ScrollSection
               id="experience"
-              backgroundImage="/images/backgrounds/bg-experience.png"
-              overlayColor="rgba(46, 59, 41, 0.45)"
+              backgroundImage="/images/experience/dining-overhead.jpeg"
+              overlayColor="rgba(72, 36, 32, 0.55)"
               cinematicZoom={false}
               parallaxIntensity={0}
               className="min-h-screen flex items-center pt-20 md:pt-32"
@@ -227,8 +227,8 @@ export default function Home() {
             {/* Desktop Welcome Section */}
             <ScrollSection
               id="introduction"
-              backgroundImage="/images/backgrounds/bg-wine-heritage-header.png"
-              overlayColor="rgba(46, 59, 41, 0.35)"
+              backgroundImage="/images/welcome/dining-golden-hour.jpeg"
+              overlayColor="rgba(72, 36, 32, 0.45)"
               cinematicZoom={false}
           parallaxIntensity={0}
           className="min-h-screen w-full"
@@ -286,8 +286,8 @@ export default function Home() {
         {/* The Lasmari Experience */}
         <ScrollSection
           id="experience"
-          backgroundImage="/images/backgrounds/bg-experience.png"
-          overlayColor="rgba(46, 59, 41, 0.45)"
+          backgroundImage="/images/experience/dining-overhead.jpeg"
+          overlayColor="rgba(72, 36, 32, 0.55)"
           cinematicZoom={false}
           parallaxIntensity={0}
           className="min-h-screen flex items-center pt-20 md:pt-32"

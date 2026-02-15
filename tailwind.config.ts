@@ -16,42 +16,44 @@ const config: Config = {
         'manrope': ['Manrope', 'sans-serif'],
       },
       colors: {
-        // New Cinematic Color Palette
+        // Warm Burgundy-Wine palette (from logo dark end)
         evergreen: {
-          50: '#f0f4f1',
-          100: '#dce7de',
-          200: '#b8d0bd',
-          300: '#8fb197',
-          400: '#689371',
-          500: '#4d7455',
-          600: '#3d5c43',
-          700: '#334a37',
-          800: '#2e3b29', // Primary Dark Evergreen
-          900: '#252f22',
+          50: '#faf5f0',
+          100: '#f0e4db',
+          200: '#dfc4b3',
+          300: '#c9a08a',
+          400: '#b07a62',
+          500: '#935a42',
+          600: '#784436',
+          700: '#5c332a',
+          800: '#482420', // Primary Dark Wine
+          900: '#381a16',
         },
+        // Warm Ivory/Cream (matches logo text)
         cream: {
-          50: '#f9f7f4', // Primary Creamy White
-          100: '#f3f0ec',
-          200: '#e8e3db',
-          300: '#d9d1c4',
-          400: '#c8baa8',
-          500: '#b6a18a',
-          600: '#a08970',
-          700: '#87725c',
-          800: '#6f5e4e',
-          900: '#5c4e41',
+          50: '#faf7f2', // Primary Creamy White
+          100: '#f5efe6',
+          200: '#ebe0d3',
+          300: '#ddd0be',
+          400: '#ccbba4',
+          500: '#b8a288',
+          600: '#a08a6e',
+          700: '#876f56',
+          800: '#6e5a46',
+          900: '#5a4938',
         },
+        // Golden-Copper accent (from logo warm end)
         pink: {
-          50: '#f6e8e8', // Primary Soft Pink Tint
-          100: '#f0d4d4',
-          200: '#e5b3b3',
-          300: '#d98c8c',
-          400: '#cc6565',
-          500: '#bf4242',
-          600: '#a53535',
-          700: '#8a2c2c',
-          800: '#702424',
-          900: '#591e1e',
+          50: '#faf0e0',
+          100: '#f2dfc0',
+          200: '#e6c898',
+          300: '#d6ac6c',
+          400: '#c49444', // Primary Golden Accent
+          500: '#a67c36',
+          600: '#88642c',
+          700: '#6a4e22',
+          800: '#503c1a',
+          900: '#3a2c14',
         },
         // Legacy colors for compatibility
         olive: {
@@ -123,9 +125,9 @@ const config: Config = {
         },
       },
       backgroundImage: {
-        'cinematic-gradient': 'linear-gradient(135deg, rgba(46, 59, 41, 0.9) 0%, rgba(46, 59, 41, 0.6) 50%, rgba(46, 59, 41, 0.8) 100%)',
-        'story-gradient': 'linear-gradient(180deg, transparent 0%, rgba(46, 59, 41, 0.7) 70%, rgba(46, 59, 41, 0.9) 100%)',
-        'timeline-gradient': 'linear-gradient(90deg, rgba(249, 247, 244, 0) 0%, rgba(249, 247, 244, 0.8) 50%, rgba(249, 247, 244, 0) 100%)',
+        'cinematic-gradient': 'linear-gradient(135deg, rgba(72, 36, 32, 0.9) 0%, rgba(72, 36, 32, 0.6) 50%, rgba(72, 36, 32, 0.8) 100%)',
+        'story-gradient': 'linear-gradient(180deg, transparent 0%, rgba(72, 36, 32, 0.7) 70%, rgba(72, 36, 32, 0.9) 100%)',
+        'timeline-gradient': 'linear-gradient(90deg, rgba(250, 247, 242, 0) 0%, rgba(250, 247, 242, 0.8) 50%, rgba(250, 247, 242, 0) 100%)',
       },
       backdropBlur: {
         'xs': '2px',

@@ -21,7 +21,7 @@ const experienceSegments = [
       "Historical artifacts and tools",
       "Stories of five generations"
     ],
-    image: "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=1200&q=80"
+    image: "/images/experiences/old-iron-door.jpeg"
   },
   {
     title: "Wine Tasting & Terroir Experience",
@@ -34,7 +34,7 @@ const experienceSegments = [
       "Vintage comparison experience",
       "Personal tasting notes guidance"
     ],
-    image: "https://images.unsplash.com/photo-1519864600265-abb23847ef2c?auto=format&fit=crop&w=1200&q=80"
+    image: "/images/experiences/dining-table-close.jpeg"
   },
   {
     title: "Authentic Corfiot Culinary Journey",
@@ -47,7 +47,7 @@ const experienceSegments = [
       "Local ingredient stories",
       "Seasonal delicacies"
     ],
-    image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1200&q=80"
+    image: "/images/experiences/dining-wide-hills.jpeg"
   },
   {
     title: "Estate Grounds & Heritage Tour",
@@ -60,7 +60,7 @@ const experienceSegments = [
       "Photo opportunities", 
       "Seasonal highlights"
     ],
-    image: "https://images.unsplash.com/photo-1502741338009-cac2772e18bc?auto=format&fit=crop&w=1200&q=80"
+    image: "/images/experiences/tree-basket-vineyard.jpeg"
   }
 ];
 
@@ -111,8 +111,8 @@ export default function ExperiencesPage() {
         {/* Cinematic Hero Section */}
         <ScrollSection
           id="hero"
-          backgroundImage="https://images.unsplash.com/photo-1547595628-c61a29f496f0?auto=format&fit=crop&w=2000&q=80"
-          overlayColor="rgba(46, 59, 41, 0.7)"
+          backgroundImage="/images/experiences/stone-stairs-journey.jpeg"
+          overlayColor="rgba(72, 36, 32, 0.7)"
           className="min-h-screen w-full"
           parallaxIntensity={0}
         >
@@ -153,7 +153,7 @@ export default function ExperiencesPage() {
         <ScrollSection
           id="segment-1"
           backgroundImage={experienceSegments[0].image}
-          overlayColor="rgba(46, 59, 41, 0.8)"
+          overlayColor="rgba(72, 36, 32, 0.8)"
           className="min-h-screen w-full flex items-center justify-center"
           parallaxIntensity={0}
         >
@@ -212,7 +212,7 @@ export default function ExperiencesPage() {
         <ScrollSection
           id="segment-2"
           backgroundImage={experienceSegments[1].image}
-          overlayColor="rgba(46, 59, 41, 0.8)"
+          overlayColor="rgba(72, 36, 32, 0.8)"
           className="min-h-screen w-full flex items-center justify-center"
           parallaxIntensity={0}
         >
@@ -271,7 +271,7 @@ export default function ExperiencesPage() {
         <ScrollSection
           id="segment-3"
           backgroundImage={experienceSegments[2].image}
-          overlayColor="rgba(46, 59, 41, 0.8)"
+          overlayColor="rgba(72, 36, 32, 0.8)"
           className="min-h-screen w-full flex items-center justify-center"
           parallaxIntensity={0}
         >
@@ -330,7 +330,7 @@ export default function ExperiencesPage() {
         <ScrollSection
           id="segment-4"
           backgroundImage={experienceSegments[3].image}
-          overlayColor="rgba(46, 59, 41, 0.8)"
+          overlayColor="rgba(72, 36, 32, 0.8)"
           className="min-h-screen w-full flex items-center justify-center"
           parallaxIntensity={0}
         >
@@ -388,8 +388,8 @@ export default function ExperiencesPage() {
         {/* What's Included */}
         <ScrollSection
           id="included"
-          backgroundImage="https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=2000&q=80"
-          overlayColor="rgba(46, 59, 41, 0.8)"
+          backgroundImage="/images/experiences/estate-stone-wall.jpeg"
+          overlayColor="rgba(72, 36, 32, 0.8)"
           className="min-h-screen w-full"
           parallaxIntensity={0}
         >
@@ -442,8 +442,8 @@ export default function ExperiencesPage() {
         {/* Booking Section */}
         <ScrollSection
           id="booking"
-          backgroundImage="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=2000&q=80"
-          overlayColor="rgba(46, 59, 41, 0.8)"
+          backgroundImage="/images/experiences/dining-circle-above.jpeg"
+          overlayColor="rgba(72, 36, 32, 0.8)"
           className="min-h-screen w-full"
           parallaxIntensity={0}
         >

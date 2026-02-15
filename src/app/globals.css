@@ -110,20 +110,20 @@ main {
   /* Custom scrollbar styles */
   ::-webkit-scrollbar {
     width: 10px;
-    background: #fdf5e6;
+    background: #faf7f2;
   }
 
   ::-webkit-scrollbar-track {
-    background: #fdf5e6;
+    background: #faf7f2;
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #6f7c5c;
+    background: #935a42;
     border-radius: 5px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #5a634a;
+    background: #784436;
   }
 }
 

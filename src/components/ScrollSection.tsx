@@ -24,7 +24,7 @@ const ScrollSection = ({
   parallaxIntensity = 0.5,
   pinned = false,
   backgroundImage,
-  overlayColor = 'rgba(46, 59, 41, 0.4)',
+  overlayColor = 'rgba(72, 36, 32, 0.4)',
   cinematicZoom = false,
   storyReveal = false,
 }: ScrollSectionProps) => {
