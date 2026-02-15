@@ -1,8 +1,6 @@
 'use client';
 
-import { motion, AnimatePresence } from 'framer-motion';
-import { Eye } from 'lucide-react';
-import { useState } from 'react';
+import { motion } from 'framer-motion';
 import Navbar from '@/components/Navbar';
 import MagneticTitle from '@/components/MagneticTitle';
 import ContactSection from '@/components/ContactSection';
@@ -20,8 +18,6 @@ const collageImages = allImages.map((src, index) => {
 });
 
 export default function GalleryPage() {
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
-
   return (
     <main className="min-h-screen bg-cream-50 transition-fade">
       {/* Use main Navbar for consistency and performance */}
@@ -74,11 +70,9 @@ export default function GalleryPage() {
             {collageImages.map((imageObj, index) => (
               <motion.div
                 key={index}
-                className={`mb-4 break-inside-avoid relative group cursor-pointer rounded-lg overflow-hidden shadow-[0_8px_24px_-8px_rgba(0,0,0,0.3)] ${imageObj.aspect}`}
+                className={`mb-4 break-inside-avoid relative rounded-lg overflow-hidden shadow-[0_8px_24px_-8px_rgba(0,0,0,0.3)] ${imageObj.aspect}`}
                 initial={{ opacity: 1 }}
                 animate={{ opacity: 1 }}
-                onClick={() => setSelectedImage(imageObj.src)}
-                whileHover={{ scale: 1.02 }}
               >
                 <img
                   src={imageObj.src}
@@ -90,11 +84,6 @@ export default function GalleryPage() {
                     target.style.display = 'none';
                   }}
                 />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="pointer-events-none absolute bottom-3 left-3 flex items-center gap-2 text-cream-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <Eye className="w-4 h-4" />
-                  <span className="text-xs font-inter tracking-wide">View</span>
-                </div>
               </motion.div>
             ))}
           </motion.div>
@@ -157,27 +146,6 @@ export default function GalleryPage() {
           </motion.div>
         </div>
       </section>
-
-      {/* Image Modal */}
-      {selectedImage && (
-        <div
-          className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4 md:p-8 cursor-pointer"
-          onClick={() => setSelectedImage(null)}
-        >
-          <img
-            src={selectedImage}
-            alt="Gallery image"
-            className="max-w-[90vw] max-h-[90vh] object-contain rounded-lg shadow-2xl"
-            onClick={(e) => e.stopPropagation()}
-          />
-          <button
-            className="absolute top-6 right-6 text-white text-4xl font-light hover:text-cream-200 transition-colors z-[101] w-12 h-12 flex items-center justify-center"
-            onClick={() => setSelectedImage(null)}
-          >
-            &times;
-          </button>
-        </div>
-      )}
 
       {/* Contact Section */}
       <ContactSection />
