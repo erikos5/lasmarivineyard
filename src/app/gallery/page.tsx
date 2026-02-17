@@ -19,14 +19,14 @@ const collageImages = allImages.map((src, index) => {
 
 export default function GalleryPage() {
   return (
-    <main className="min-h-screen bg-evergreen-800 transition-fade">
+    <main className="min-h-screen bg-gradient-to-b from-evergreen-900 via-evergreen-800 to-evergreen-700 transition-fade">
       {/* Use main Navbar for consistency and performance */}
       <div className="relative z-50">
         <Navbar />
       </div>
 
       {/* Enhanced Gallery Header */}
-      <div className="pt-32 pb-20 text-center relative z-10 bg-gradient-to-b from-evergreen-800 via-evergreen-800 to-transparent">
+      <div className="pt-32 pb-20 text-center relative z-10 bg-gradient-to-b from-evergreen-900 via-evergreen-800 to-evergreen-800/80">
         <div className="max-w-4xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -59,7 +59,7 @@ export default function GalleryPage() {
       </div>
 
       {/* Full-screen Gallery Masonry */}
-      <section className="bg-evergreen-800">
+      <section className="bg-gradient-to-b from-evergreen-800 via-evergreen-800 to-evergreen-700">
         <div className="px-2">
           <motion.div
             initial={{ opacity: 0 }}
@@ -93,7 +93,7 @@ export default function GalleryPage() {
       </section>
 
       {/* Statistics */}
-      <section className="py-32 bg-evergreen-800">
+      <section className="py-32 bg-gradient-to-b from-evergreen-700 via-evergreen-800 to-evergreen-900">
         <div className="container-max section-padding">
           <motion.div
             className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center"
