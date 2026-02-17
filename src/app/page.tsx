@@ -43,6 +43,7 @@ const timelineEvents = [
     title: "Modern Heritage Winemaking",
     description: "Contemporary winemaking at Lasmari combines time-honored techniques with modern understanding of viticulture. We maintain traditional hand-harvesting methods while applying scientific knowledge of fermentation, aging, and terroir expression. This approach preserves the authentic character of Corfiot wines while ensuring consistent quality and sustainable practices for future generations.",
     image: "/images/timeline/4/aerial-dining-tree.jpeg",
+    imagePosition: "object-bottom",
     quote: "We are not just making wine; we are preserving a living heritage for future generations."
   }
 ];

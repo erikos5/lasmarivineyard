@@ -10,6 +10,7 @@ interface TimelineEvent {
   description: string;
   quote?: string;
   image: string;
+  imagePosition?: string;
 }
 
 interface CinematicTimelineProps {
@@ -255,7 +256,7 @@ const CinematicTimeline = ({ events, className = '' }: CinematicTimelineProps) =
                         <img
                           src={event.image}
                           alt={`${event.title} - ${event.year}`}
-                          className="w-full h-60 md:h-80 object-cover"
+                          className={`w-full h-60 md:h-80 object-cover ${event.imagePosition || ''}`}
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-evergreen-800/60 via-transparent to-transparent" />
                         

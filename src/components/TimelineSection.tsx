@@ -11,6 +11,7 @@ interface TimelineEvent {
   title: string;
   description: string;
   image: string;
+  imagePosition?: string;
   audioId?: string;
   quote?: string;
   isActive?: boolean;
@@ -110,7 +111,7 @@ const TimelineSection = ({ events, className = '' }: TimelineSectionProps) => {
                 <img
                   src={event.image}
                   alt={`${event.title} - ${event.year}`}
-                  className="w-full h-64 object-cover"
+                  className={`w-full h-64 object-cover ${event.imagePosition || ''}`}
                 />
                 <div className="absolute inset-0 bg-cinematic-gradient opacity-20" />
               </div>
