@@ -19,14 +19,14 @@ const collageImages = allImages.map((src, index) => {
 
 export default function GalleryPage() {
   return (
-    <main className="min-h-screen bg-cream-50 transition-fade">
+    <main className="min-h-screen bg-evergreen-800 transition-fade">
       {/* Use main Navbar for consistency and performance */}
       <div className="relative z-50">
         <Navbar />
       </div>
 
       {/* Enhanced Gallery Header */}
-      <div className="pt-32 pb-20 text-center relative z-10 bg-gradient-to-b from-cream-50 via-cream-50 to-transparent">
+      <div className="pt-32 pb-20 text-center relative z-10 bg-gradient-to-b from-evergreen-800 via-evergreen-800 to-transparent">
         <div className="max-w-4xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -36,13 +36,13 @@ export default function GalleryPage() {
           >
             <MagneticTitle 
               text="Gallery"
-              className="text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] font-playfair font-bold text-evergreen-800 leading-none"
+              className="text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] font-playfair font-bold text-white leading-none"
             />
             <motion.p 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-lg md:text-xl text-evergreen-700 font-inter font-light max-w-2xl mx-auto leading-relaxed"
+              className="text-lg md:text-xl text-cream-100 font-inter font-light max-w-2xl mx-auto leading-relaxed"
             >
               A visual journey through our vineyard heritage, from ancient terroir to modern winemaking excellence
             </motion.p>
@@ -52,14 +52,14 @@ export default function GalleryPage() {
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
               transition={{ duration: 1, delay: 0.6 }}
-              className="w-24 h-0.5 bg-gradient-to-r from-transparent via-evergreen-600 to-transparent mx-auto"
+              className="w-24 h-0.5 bg-gradient-to-r from-transparent via-cream-300 to-transparent mx-auto"
             />
           </motion.div>
         </div>
       </div>
 
       {/* Full-screen Gallery Masonry */}
-      <section className="bg-cream-50">
+      <section className="bg-evergreen-800">
         <div className="px-2">
           <motion.div
             initial={{ opacity: 0 }}

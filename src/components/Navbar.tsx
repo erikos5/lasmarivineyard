@@ -32,13 +32,13 @@ const Navbar = () => {
 
   const logoScale = useTransform(scrollY, [0, 100], [1, 0.9]);
   
-  // Text color transitions - olive green on gallery page
+  // Text color transitions - white on gallery page (dark theme), cream on others
   const textColor = useTransform(
     scrollY,
     [0, 100],
     [
-      isGalleryPage ? 'rgba(110, 90, 70, 1)' : 'rgba(250, 247, 242, 1)', 
-      isGalleryPage ? 'rgba(110, 90, 70, 0.9)' : 'rgba(250, 247, 242, 0.9)'
+      isGalleryPage ? 'rgba(250, 247, 242, 1)' : 'rgba(250, 247, 242, 1)', 
+      isGalleryPage ? 'rgba(250, 247, 242, 0.9)' : 'rgba(250, 247, 242, 0.9)'
     ]
   );
 
