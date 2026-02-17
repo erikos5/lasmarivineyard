@@ -6,9 +6,15 @@ import MagneticTitle from '@/components/MagneticTitle';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 
-// All authentic vineyard images
+// Available vineyard images (some were removed)
+const availableImages = [
+  '01', '02', '03', '04', '07', '08', '09', '11', '16', '18', '19', '20',
+  '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33',
+];
+
+// Use all images, cycling through to fill the masonry layout
 const allImages = Array.from({ length: 32 }, (_, i) => 
-  `/images/new/vineyard-${String(i + 1).padStart(2, '0')}.jpeg`
+  `/images/new/vineyard-${availableImages[i % availableImages.length]}.jpeg`
 );
 
 // Create images with varied aspect ratios for masonry layout
@@ -26,7 +32,7 @@ export default function GalleryPage() {
       </div>
 
       {/* Enhanced Gallery Header */}
-      <div className="pt-32 pb-20 text-center relative z-10 bg-gradient-to-b from-evergreen-900 via-evergreen-800 to-evergreen-800/80">
+      <div className="pt-32 pb-20 text-center relative z-10 bg-gradient-to-b from-evergreen-900 via-evergreen-800 to-evergreen-800">
         <div className="max-w-4xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
