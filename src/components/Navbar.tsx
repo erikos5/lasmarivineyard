@@ -96,7 +96,7 @@ const Navbar = () => {
             <img 
               src="/images/logo/logo-transparent.png" 
               alt="Lasmari Vineyard" 
-              className="h-10 md:h-12 w-auto"
+              className="h-20 md:h-28 w-auto"
             />
           </motion.div>
 
