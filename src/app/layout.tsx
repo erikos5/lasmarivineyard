@@ -4,6 +4,7 @@ import "./globals.css";
 import LenisProvider from "@/components/LenisProvider";
 import ClientTransition from "@/components/ClientTransition";
 import FloatingBackToTop from "@/components/FloatingBackToTop";
+import FloatingBookNow from "@/components/FloatingBookNow";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -361,6 +362,7 @@ export default function RootLayout({
           <ClientTransition>
             {children}
           </ClientTransition>
+          <FloatingBookNow />
           <FloatingBackToTop />
         </LenisProvider>
       </body>

@@ -103,30 +103,51 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item, index) => (
-              <motion.button
-                key={item.name}
-                onClick={() => handleNavigation(item)}
-                style={{ color: textColor }}
-                className={`relative font-inter font-medium ${
-                  isActivePage(item.href) ? 'opacity-100' : 'opacity-80 hover:opacity-100'
-                }`}
-                whileHover={{ y: -2 }}
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1, duration: 0.3 }}
-              >
-                {item.name}
-                <motion.div
-                  className={`absolute bottom-0 left-0 h-0.5 ${
-                    isActivePage(item.href) ? 'bg-pink-400' : 'bg-current'
+            {navItems.map((item, index) => {
+              const isBookNow = item.href === '/book';
+
+              if (isBookNow) {
+                return (
+                  <motion.button
+                    key={item.name}
+                    onClick={() => handleNavigation(item)}
+                    className="font-inter font-semibold text-evergreen-900 bg-pink-400 hover:bg-pink-500 px-5 py-2 rounded-full transition-colors duration-200"
+                    whileHover={{ scale: 1.05, y: -1 }}
+                    whileTap={{ scale: 0.95 }}
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1, duration: 0.3 }}
+                  >
+                    {item.name}
+                  </motion.button>
+                );
+              }
+
+              return (
+                <motion.button
+                  key={item.name}
+                  onClick={() => handleNavigation(item)}
+                  style={{ color: textColor }}
+                  className={`relative font-inter font-medium ${
+                    isActivePage(item.href) ? 'opacity-100' : 'opacity-80 hover:opacity-100'
                   }`}
-                  initial={{ width: isActivePage(item.href) ? '100%' : 0 }}
-                  whileHover={{ width: '100%' }}
-                  transition={{ duration: 0.3, ease: 'easeOut' }}
-                />
-              </motion.button>
-            ))}
+                  whileHover={{ y: -2 }}
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1, duration: 0.3 }}
+                >
+                  {item.name}
+                  <motion.div
+                    className={`absolute bottom-0 left-0 h-0.5 ${
+                      isActivePage(item.href) ? 'bg-pink-400' : 'bg-current'
+                    }`}
+                    initial={{ width: isActivePage(item.href) ? '100%' : 0 }}
+                    whileHover={{ width: '100%' }}
+                    transition={{ duration: 0.3, ease: 'easeOut' }}
+                  />
+                </motion.button>
+              );
+            })}
           </div>
 
           {/* Mobile Menu Button */}
@@ -151,25 +172,33 @@ const Navbar = () => {
           className="md:hidden overflow-hidden"
         >
           <div className="py-4 space-y-4">
-            {navItems.map((item, index) => (
-              <motion.button
-                key={item.name}
-                onClick={() => handleNavigation(item)}
-                style={{ color: textColor }}
-                className={`block w-full text-left font-inter font-medium ${
-                  isActivePage(item.href) ? 'opacity-100' : 'opacity-80'
-                }`}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ 
-                  opacity: isMobileMenuOpen ? 1 : 0, 
-                  x: isMobileMenuOpen ? 0 : -20 
-                }}
-                transition={{ delay: index * 0.1, duration: 0.3 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                {item.name}
-              </motion.button>
-            ))}
+            {navItems.map((item, index) => {
+              const isBookNow = item.href === '/book';
+
+              return (
+                <motion.button
+                  key={item.name}
+                  onClick={() => handleNavigation(item)}
+                  style={isBookNow ? undefined : { color: textColor }}
+                  className={
+                    isBookNow
+                      ? 'block w-full text-left font-inter font-bold text-evergreen-900 bg-pink-400 px-5 py-3 rounded-full'
+                      : `block w-full text-left font-inter font-medium ${
+                          isActivePage(item.href) ? 'opacity-100' : 'opacity-80'
+                        }`
+                  }
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{
+                    opacity: isMobileMenuOpen ? 1 : 0,
+                    x: isMobileMenuOpen ? 0 : -20,
+                  }}
+                  transition={{ delay: index * 0.1, duration: 0.3 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  {item.name}
+                </motion.button>
+              );
+            })}
           </div>
         </motion.div>
       </div>
