@@ -122,7 +122,7 @@ export default function RootLayout({
               "url": "https://lasmari.wine",
               "logo": {
                 "@type": "ImageObject",
-                "url": "https://lasmari.wine/images/logo/logo-transparent.png",
+                "url": "https://lasmari.wine/images/logo/logo-transparent.jpeg",
                 "width": 512,
                 "height": 512
               },

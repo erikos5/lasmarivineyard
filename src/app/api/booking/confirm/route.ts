@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { stripe } from '@/lib/stripe';
 import { getBookingByStripeSession, updateBooking } from '@/lib/store';
+import { sendBookingConfirmationEmails } from '@/lib/booking-emails';
 
 export async function POST(request: NextRequest) {
   try {
@@ -27,6 +28,15 @@ export async function POST(request: NextRequest) {
         status: 'confirmed',
         stripePaymentIntentId: (session.payment_intent as string) || '',
       });
+
+      if (updated) {
+        try {
+          await sendBookingConfirmationEmails(updated);
+        } catch (emailErr) {
+          console.error('Failed to send confirmation emails:', emailErr);
+        }
+      }
+
       return NextResponse.json({ booking: updated });
     }
 

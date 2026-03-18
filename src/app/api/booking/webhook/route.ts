@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { stripe } from '@/lib/stripe';
 import { getBookingByStripeSession, updateBooking } from '@/lib/store';
+import { sendBookingConfirmationEmails } from '@/lib/booking-emails';
 import Stripe from 'stripe';
 
 export async function POST(request: NextRequest) {
@@ -33,10 +34,18 @@ export async function POST(request: NextRequest) {
       const booking = await getBookingByStripeSession(session.id);
 
       if (booking) {
-        await updateBooking(booking.id, {
+        const updated = await updateBooking(booking.id, {
           status: 'confirmed',
           stripePaymentIntentId: (session.payment_intent as string) || '',
         });
+
+        if (updated) {
+          try {
+            await sendBookingConfirmationEmails(updated);
+          } catch (emailErr) {
+            console.error('Failed to send confirmation emails:', emailErr);
+          }
+        }
       }
       break;
     }

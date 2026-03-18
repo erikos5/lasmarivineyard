@@ -13,6 +13,9 @@ const navItems = [
   { name: 'Visit', href: '#contact', isPage: false },
 ];
 
+// Pages with light backgrounds where navbar needs dark text + solid bg
+const LIGHT_BG_PAGES = ['/book', '/admin'];
+
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -20,27 +23,23 @@ const Navbar = () => {
   const pathname = usePathname();
   const { scrollY } = useScroll();
 
-  // Dynamic navbar background - cinematic style with gallery page transparency
   const isGalleryPage = pathname === '/gallery';
+  const isLightPage = LIGHT_BG_PAGES.some((p) => pathname.startsWith(p));
+
   const navBackground = useTransform(
     scrollY,
     [0, 100],
-    [
-      isGalleryPage ? 'rgba(72, 36, 32, 0)' : 'rgba(72, 36, 32, 0)', 
-      isGalleryPage ? 'rgba(72, 36, 32, 0)' : 'rgba(72, 36, 32, 0.95)'
-    ]
+    isLightPage
+      ? ['rgba(72, 36, 32, 0.95)', 'rgba(72, 36, 32, 0.95)']
+      : ['rgba(72, 36, 32, 0)', isGalleryPage ? 'rgba(72, 36, 32, 0)' : 'rgba(72, 36, 32, 0.95)']
   );
 
   const logoScale = useTransform(scrollY, [0, 100], [1, 0.9]);
-  
-  // Text color transitions - white on gallery page (dark theme), cream on others
+
   const textColor = useTransform(
     scrollY,
     [0, 100],
-    [
-      isGalleryPage ? 'rgba(250, 247, 242, 1)' : 'rgba(250, 247, 242, 1)', 
-      isGalleryPage ? 'rgba(250, 247, 242, 0.9)' : 'rgba(250, 247, 242, 0.9)'
-    ]
+    ['rgba(250, 247, 242, 1)', 'rgba(250, 247, 242, 0.9)']
   );
 
   useEffect(() => {
@@ -75,7 +74,7 @@ const Navbar = () => {
     <motion.nav
       style={{ backgroundColor: navBackground }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-400 ease-out ${
-        isScrolled ? 'backdrop-blur-subtle shadow-lg' : ''
+        isScrolled || isLightPage ? 'backdrop-blur-subtle shadow-lg' : ''
       }`}
     >
       <div className="container-max section-padding">
@@ -95,7 +94,7 @@ const Navbar = () => {
             }}
           >
             <img 
-              src="/images/logo/logo-transparent.png" 
+              src="/images/logo/logo-transparent.jpeg" 
               alt="Lasmari Vineyard" 
               className="h-12 md:h-14 w-auto"
             />
