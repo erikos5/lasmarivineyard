@@ -561,6 +561,7 @@ export default function BookPage() {
             onClick={() => {
               setCurrentStep(Math.max(0, currentStep - 1));
               setError('');
+              window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
             className={`px-6 py-3 rounded-xl font-inter font-medium transition-all ${
               currentStep === 0
@@ -575,7 +576,7 @@ export default function BookPage() {
 
           {currentStep < 3 && (
             <button
-              onClick={() => canProceed() && setCurrentStep(currentStep + 1)}
+              onClick={() => { if (canProceed()) { setCurrentStep(currentStep + 1); window.scrollTo({ top: 0, behavior: 'smooth' }); } }}
               disabled={!canProceed()}
               className="px-8 py-3 rounded-xl font-inter font-semibold bg-evergreen-800 text-cream-50 hover:bg-evergreen-700 transition-all disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-2"
             >
