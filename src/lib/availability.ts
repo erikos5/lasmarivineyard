@@ -45,8 +45,13 @@ export function getAvailableSlots(
     return [];
   }
 
-  // Check if date is blocked
-  const isDateBlocked = settings.blockedDates.some(bd => bd.date === date);
+  // Check if date is blocked (single date or within a range)
+  const isDateBlocked = settings.blockedDates.some(bd => {
+    if (bd.endDate) {
+      return date >= bd.date && date <= bd.endDate;
+    }
+    return bd.date === date;
+  });
   if (isDateBlocked) {
     return [];
   }

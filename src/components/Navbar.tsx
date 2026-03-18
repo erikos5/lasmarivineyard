@@ -10,7 +10,6 @@ const navItems = [
   { name: 'Experiences', href: '/experiences', isPage: true },
   { name: 'Gallery', href: '/gallery', isPage: true },
   { name: 'Book Now', href: '/book', isPage: true },
-  { name: 'Visit', href: '#contact', isPage: false },
 ];
 
 // Pages with light backgrounds where navbar needs dark text + solid bg
@@ -78,30 +77,28 @@ const Navbar = () => {
       }`}
     >
       <div className="container-max section-padding">
-        <div className="flex items-center justify-between py-4 transform translate-x-4 md:translate-x-8 lg:translate-x-12">
+        <div className="flex items-center justify-between py-4 transform translate-x-4 lg:translate-x-12">
           {/* Logo */}
           <motion.div
             style={{ scale: logoScale }}
             className="flex items-center cursor-pointer"
             onClick={() => {
               if (pathname === '/') {
-                // If on homepage, scroll to top
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               } else {
-                // If on other pages, navigate to homepage
                 router.push('/');
               }
             }}
           >
-            <img 
-              src="/images/logo/logo-transparent.jpeg" 
-              alt="Lasmari Vineyard" 
-              className="h-12 md:h-14 w-auto"
+            <img
+              src="/images/logo/logo-transparent.png"
+              alt="Lasmari Vineyard"
+              className="h-16 lg:h-20 w-auto"
             />
           </motion.div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-8">
             {navItems.map((item, index) => {
               const isBookNow = item.href === '/book';
 
@@ -152,7 +149,7 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <motion.button
             style={{ color: textColor }}
-            className="md:hidden"
+            className="lg:hidden"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             whileTap={{ scale: 0.95 }}
           >
@@ -168,9 +165,9 @@ const Navbar = () => {
             opacity: isMobileMenuOpen ? 1 : 0,
           }}
           transition={{ duration: 0.3, ease: 'easeOut' }}
-          className="md:hidden overflow-hidden"
+          className="lg:hidden overflow-hidden"
         >
-          <div className="py-4 space-y-4">
+          <div className="py-4 px-2 space-y-1 bg-evergreen-900/95 backdrop-blur-md rounded-xl mb-3">
             {navItems.map((item, index) => {
               const isBookNow = item.href === '/book';
 
@@ -178,11 +175,10 @@ const Navbar = () => {
                 <motion.button
                   key={item.name}
                   onClick={() => handleNavigation(item)}
-                  style={isBookNow ? undefined : { color: textColor }}
                   className={
                     isBookNow
-                      ? 'block w-full text-left font-inter font-bold text-evergreen-900 bg-pink-400 px-5 py-3 rounded-full'
-                      : `block w-full text-left font-inter font-medium ${
+                      ? 'inline-flex font-inter font-bold text-evergreen-900 bg-pink-400 hover:bg-pink-500 px-5 py-2 rounded-full text-sm transition-colors'
+                      : `block w-full text-left font-inter font-medium text-cream-50 px-3 py-2 rounded-lg hover:bg-white/10 transition-colors ${
                           isActivePage(item.href) ? 'opacity-100' : 'opacity-80'
                         }`
                   }

@@ -125,7 +125,7 @@ const CinematicHero = () => {
 
       {/* Main Content */}
       <div ref={contentRef} className="relative z-10 h-full flex items-center justify-center">
-        <div className="container mx-auto px-6 text-center">
+        <div className="container mx-auto px-6 text-center pt-16 lg:pt-36">
           <motion.div
             initial={{ opacity: 0, y: 80 }}
             animate={{ opacity: 1, y: 0 }}

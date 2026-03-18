@@ -230,13 +230,13 @@ export default function LenisProvider({ children }: { children: React.ReactNode 
 
     // Initialize Lenis with slower, more luxurious settings
     const lenis = new Lenis({
-      duration: 2.5, // Increased from 1.2 to 2.5 for slower scrolling
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Keep the smooth easing
+      duration: 1.8,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: 'vertical',
       gestureOrientation: 'vertical',
       smoothWheel: true,
-      wheelMultiplier: 0.6, // Reduced from 1 to 0.6 for slower wheel scrolling
-      touchMultiplier: 1.5, // Reduced from 2 to 1.5 for slower touch scrolling
+      wheelMultiplier: 0.85,
+      touchMultiplier: 1.8,
       infinite: false,
     });
 

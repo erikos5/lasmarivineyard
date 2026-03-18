@@ -34,6 +34,7 @@ interface DaySchedule {
 
 interface BlockedDate {
   date: string;
+  endDate?: string;
   reason: string;
 }
 
@@ -189,11 +190,31 @@ export default function AdminDashboard() {
     ));
   };
 
+  const addExperience = () => {
+    const id = `exp-${Date.now()}-${Math.random().toString(36).substring(2, 7)}`;
+    setExperiences([...experiences, {
+      id,
+      name: 'New Experience',
+      description: '',
+      duration: 60,
+      price: 2500,
+      maxGuests: 10,
+      minGuests: 1,
+      image: '/images/experiences/dining-table-close.jpeg',
+      features: [],
+      active: false,
+    }]);
+  };
+
+  const deleteExperience = (index: number) => {
+    setExperiences(experiences.filter((_, i) => i !== index));
+  };
+
   const addBlockedDate = () => {
     if (!settings) return;
     setSettings({
       ...settings,
-      blockedDates: [...settings.blockedDates, { date: '', reason: '' }],
+      blockedDates: [...settings.blockedDates, { date: '', endDate: '', reason: '' }],
     });
   };
 
@@ -452,13 +473,21 @@ export default function AdminDashboard() {
             <div>
               <div className="flex items-center justify-between mb-6">
                 <h2 className="font-playfair text-2xl font-bold text-evergreen-800">Experiences</h2>
-                <button
-                  onClick={saveExperiences}
-                  disabled={saving}
-                  className="flex items-center gap-2 px-4 py-2 bg-evergreen-800 text-cream-50 rounded-xl font-inter text-sm font-semibold hover:bg-evergreen-700 transition-colors disabled:opacity-50"
-                >
-                  <Save size={16} /> {saving ? 'Saving...' : 'Save Changes'}
-                </button>
+                <div className="flex items-center gap-3">
+                  <button
+                    onClick={addExperience}
+                    className="flex items-center gap-2 px-4 py-2 bg-cream-100 text-evergreen-800 rounded-xl font-inter text-sm font-semibold hover:bg-cream-200 transition-colors"
+                  >
+                    <Plus size={16} /> Add Experience
+                  </button>
+                  <button
+                    onClick={saveExperiences}
+                    disabled={saving}
+                    className="flex items-center gap-2 px-4 py-2 bg-evergreen-800 text-cream-50 rounded-xl font-inter text-sm font-semibold hover:bg-evergreen-700 transition-colors disabled:opacity-50"
+                  >
+                    <Save size={16} /> {saving ? 'Saving...' : 'Save Changes'}
+                  </button>
+                </div>
               </div>
 
               <div className="space-y-6">
@@ -477,6 +506,12 @@ export default function AdminDashboard() {
                           {exp.active ? 'Active' : 'Hidden'}
                         </button>
                       </div>
+                      <button
+                        onClick={() => deleteExperience(index)}
+                        className="flex items-center gap-1 px-2 py-1 text-red-400 hover:text-red-600 hover:bg-red-50 rounded-lg text-xs font-inter transition-colors"
+                      >
+                        <Trash2 size={14} /> Delete
+                      </button>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -704,19 +739,29 @@ export default function AdminDashboard() {
                 ) : (
                   <div className="space-y-2">
                     {settings.blockedDates.map((bd, index) => (
-                      <div key={index} className="flex items-center gap-3">
-                        <input
-                          type="date"
-                          value={bd.date}
-                          onChange={(e) => updateBlockedDate(index, 'date', e.target.value)}
-                          className="px-3 py-2 border border-cream-200 rounded-lg text-sm font-inter outline-none focus:ring-1 focus:ring-pink-400"
-                        />
+                      <div key={index} className="flex flex-wrap items-center gap-3">
+                        <div className="flex items-center gap-2">
+                          <input
+                            type="date"
+                            value={bd.date}
+                            onChange={(e) => updateBlockedDate(index, 'date', e.target.value)}
+                            className="px-3 py-2 border border-cream-200 rounded-lg text-sm font-inter outline-none focus:ring-1 focus:ring-pink-400"
+                          />
+                          <span className="text-cream-400 text-sm font-inter">to</span>
+                          <input
+                            type="date"
+                            value={bd.endDate || ''}
+                            min={bd.date || undefined}
+                            onChange={(e) => updateBlockedDate(index, 'endDate', e.target.value)}
+                            className="px-3 py-2 border border-cream-200 rounded-lg text-sm font-inter outline-none focus:ring-1 focus:ring-pink-400"
+                          />
+                        </div>
                         <input
                           type="text"
                           value={bd.reason}
                           onChange={(e) => updateBlockedDate(index, 'reason', e.target.value)}
                           placeholder="Reason (e.g., Holiday)"
-                          className="flex-1 px-3 py-2 border border-cream-200 rounded-lg text-sm font-inter outline-none focus:ring-1 focus:ring-pink-400"
+                          className="flex-1 min-w-32 px-3 py-2 border border-cream-200 rounded-lg text-sm font-inter outline-none focus:ring-1 focus:ring-pink-400"
                         />
                         <button
                           onClick={() => removeBlockedDate(index)}

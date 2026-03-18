@@ -23,7 +23,8 @@ export interface DaySchedule {
 }
 
 export interface BlockedDate {
-  readonly date: string; // "YYYY-MM-DD"
+  readonly date: string; // "YYYY-MM-DD" (start date, or single date if no endDate)
+  readonly endDate?: string; // "YYYY-MM-DD" (optional, for date ranges)
   readonly reason: string;
 }
 
