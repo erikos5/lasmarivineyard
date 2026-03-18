@@ -9,6 +9,7 @@ const navItems = [
   { name: 'Home', href: '/', isPage: true },
   { name: 'Experiences', href: '/experiences', isPage: true },
   { name: 'Gallery', href: '/gallery', isPage: true },
+  { name: 'Book Now', href: '/book', isPage: true },
   { name: 'Visit', href: '#contact', isPage: false },
 ];
 

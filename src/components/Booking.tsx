@@ -97,27 +97,18 @@ const Booking = () => {
               </motion.p>
             </div>
 
-            {/* Coming Soon Badge */}
-            <motion.div
-              className="inline-flex items-center space-x-3 bg-burgundy-700 px-6 py-3 rounded-full"
+            {/* Book Online Badge */}
+            <motion.a
+              href="/book"
+              className="inline-flex items-center space-x-3 bg-pink-400 hover:bg-pink-500 px-6 py-3 rounded-full transition-colors duration-200"
               variants={itemVariants}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              <motion.div
-                className="w-3 h-3 bg-burgundy-300 rounded-full"
-                animate={{
-                  scale: [1, 1.2, 1],
-                  opacity: [1, 0.7, 1],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              />
-              <span className="text-cream-50 font-inter font-medium">
-                Online Booking Coming Soon
+              <span className="text-evergreen-800 font-inter font-semibold">
+                Book & Pay Online
               </span>
-            </motion.div>
+            </motion.a>
 
             {/* Contact Info */}
             <motion.div

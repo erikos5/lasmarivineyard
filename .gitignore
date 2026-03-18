@@ -79,3 +79,6 @@ jspm_packages/
 # Sanity
 .sanity/
 
+# Local data (dev only, production uses Supabase)
+data/
+
