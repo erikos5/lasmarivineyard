@@ -54,7 +54,6 @@ export async function POST(request: NextRequest) {
             product_data: {
               name: experience.name,
               description: `${date} at ${timeSlot} - ${guests} guest${guests > 1 ? 's' : ''}`,
-              images: [`${process.env.NEXT_PUBLIC_BASE_URL || 'https://lasmari.wine'}${experience.image}`],
             },
             unit_amount: experience.price,
           },
@@ -99,7 +98,8 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({ sessionId: session.id, url: session.url });
   } catch (error) {
-    console.error('Error creating booking:', error);
-    return NextResponse.json({ error: 'Failed to create booking' }, { status: 500 });
+    const message = error instanceof Error ? error.message : String(error);
+    console.error('Error creating booking:', message, error);
+    return NextResponse.json({ error: `Failed to create booking: ${message}` }, { status: 500 });
   }
 }
